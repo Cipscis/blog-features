@@ -1,0 +1,548 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
+html, body {
+  padding: 0;
+  margin: 0; }
+
+* {
+  box-sizing: border-box; }
+
+ul, ol {
+  margin: 0; }
+
+img {
+  display: block;
+  max-width: 100%; }
+
+form {
+  margin: 0; }
+
+p:last-child {
+  margin-bottom: 0; }
+
+html {
+  font-family: "Roboto Slab", "Times New Roman", Times, serif;
+  line-height: 1.5;
+  font-size: 18px;
+  color: #333; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto", Arial, sans-serif; }
+
+p,
+.p {
+  display: block;
+  margin: 18px 0; }
+  p:first-child,
+  .p:first-child {
+    margin-top: 0; }
+  p:last-child,
+  .p:last-child {
+    margin-bottom: 0; }
+
+.content a,
+.a {
+  cursor: pointer;
+  color: #333;
+  text-decoration: none;
+  background: linear-gradient(to top, #aad5ff 0%, #aad5ff 5px, transparent 5.1px, transparent 100%); }
+  .content a:hover, .content a:focus,
+  .a:hover,
+  .a:focus {
+    outline: none;
+    background: linear-gradient(to top, #77bbff 0%, #77bbff 5px, transparent 5.1px, transparent 100%); }
+
+.content blockquote,
+.blockquote {
+  display: block;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 0 30px; }
+  .content blockquote:before,
+  .blockquote:before {
+    content: "“";
+    font-size: 60px;
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    left: 0; }
+  .content blockquote cite:before,
+  .blockquote cite:before {
+    content: "― "; }
+
+.content ul, .content ol {
+  padding-left: 20px; }
+  .content ul > li, .content ol > li {
+    margin: 9px 0; }
+
+.content hr {
+  margin: 36px 0;
+  border: none;
+  border-bottom: 1px solid #ccc; }
+
+.content h4 {
+  margin-bottom: 0; }
+  .content h4 + p,
+  .content h4 + .p {
+    margin-top: 0; }
+
+.content table {
+  width: 100%;
+  border-collapse: collapse; }
+  .content table > tr:nth-child(2n-1),
+  .content table tbody > tr:nth-child(2n-1) {
+    background: #ddd; }
+  .content table td, .content table th {
+    padding: 10px;
+    border: 1px solid #666;
+    text-align: left; }
+
+@media print {
+  .content a,
+  .a {
+    background: none;
+    border-bottom: 5px solid #aad5ff; }
+  a[href^="http"]:after,
+  a[href^="mailto"]:after,
+  a[href^="tel"]:after {
+    content: " [" attr(href) "]";
+    overflow-wrap: break-word; } }
+
+body {
+  padding: 60px 0 160px; }
+
+.layout {
+  margin: 0 auto;
+  padding: 0 10px;
+  max-width: 800px; }
+  @media (min-width: 425px) {
+    .layout {
+      padding: 0 20px; } }
+
+.layout--wide {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1400px; }
+
+.tooltip:focus {
+  outline: none; }
+
+.tooltip__trigger {
+  position: relative;
+  cursor: pointer;
+  background-color: #aaffd5; }
+  .tooltip__trigger:hover,
+  .tooltip:focus .tooltip__trigger,
+  .tooltip:focus-within .tooltip__trigger {
+    background-color: #77ffbb; }
+    .tooltip__trigger:hover:before,
+    .tooltip:focus .tooltip__trigger:before,
+    .tooltip:focus-within .tooltip__trigger:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -18px;
+      bottom: -18px; }
+
+.tooltip__body {
+  position: absolute;
+  z-index: 1;
+  padding: 10px;
+  margin: 10px 0;
+  background: #fff;
+  border: 1px solid #666;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  display: none; }
+  .tooltip__body:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -18px;
+    right: -18px;
+    top: -18px;
+    bottom: -18px; }
+  @media (max-width: 767px) {
+    .tooltip__body {
+      left: 10px;
+      right: 10px;
+      margin-top: 30px; } }
+  @media (min-width: 768px) {
+    .tooltip__body {
+      width: 400px;
+      transform: translate(10px, -20px); } }
+  .tooltip:focus .tooltip__body,
+  .tooltip:focus-within .tooltip__body,
+  .tooltip:hover .tooltip__body, .tooltip__body:hover {
+    display: inline-block; }
+
+@media print {
+  .tooltip__body {
+    position: static;
+    display: block !important;
+    width: auto;
+    margin-top: 25px; }
+    .tooltip__body:before, .tooltip__body:after {
+      display: none; } }
+
+.expander__trigger {
+  cursor: pointer; }
+  .expander__trigger:before {
+    content: "-";
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    margin-right: 10px;
+    border-radius: 50%; }
+  .expander[aria-expanded="false"] .expander__trigger:before {
+    content: "+"; }
+  .expander__trigger:focus {
+    outline: none; }
+    .expander__trigger:focus:before {
+      background: #ddffee; }
+
+.expander__body {
+  display: block;
+  padding-bottom: 50px; }
+  .expander[aria-expanded="false"] .expander__body {
+    display: none; }
+
+@media print {
+  .expander__trigger:before {
+    display: none; }
+  .expander__body {
+    display: block !important; } }
+
+.article-meta {
+  color: #666;
+  font-size: 0.75em; }
+  .article-meta:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.article-meta__author {
+  float: left; }
+
+.article-meta__date {
+  float: right; }
+
+.counter {
+  padding-left: 30px;
+  counter-reset: counter-items; }
+  .counter .counter__item:before {
+    counter-increment: counter-items;
+    content: counter(counter-items);
+    color: #999;
+    position: absolute;
+    transform: translateX(-100%);
+    margin-left: -10px; }
+  .counter .counter__increment {
+    counter-increment: counter-items; }
+
+.chart {
+  position: relative;
+  width: 100%;
+  margin: 40px 0; }
+
+.chart__title {
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 20px; }
+
+.chart__area {
+  position: relative;
+  width: 100%;
+  padding-top: calc(56.25% - 40px); }
+  @media (min-width: 768px) {
+    .chart__area {
+      padding-top: 50%; } }
+
+.chart__axis--v {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 30px;
+  top: 16px;
+  width: 50px;
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .chart__axis--v:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -1px;
+    border-right: 1px solid #ccc; }
+  .chart__axis--v .chart__axis-item {
+    position: absolute;
+    text-align: right;
+    width: 100%;
+    display: flex;
+    align-items: center; }
+  .chart__axis--v .chart__axis-label {
+    display: block;
+    width: 100%;
+    padding: 0 10px 0 0;
+    font-size: 16px;
+    line-height: 16px;
+    transform: translateY(50%); }
+
+.chart__axis--h {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: absolute;
+  z-index: 2;
+  left: 50px;
+  bottom: 0;
+  right: 0;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .chart__axis--h:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -1px;
+    border-top: 1px solid #ccc; }
+  .chart__axis--h .chart__axis-item {
+    position: absolute;
+    text-align: center; }
+  .chart__axis--h .chart__axis-label {
+    display: block;
+    position: absolute;
+    transform: translateX(-50%);
+    padding: 10px 0 0;
+    font-size: 10px;
+    line-height: 1; }
+    @media (min-width: 425px) {
+      .chart__axis--h .chart__axis-label {
+        font-size: 2.35vw; } }
+    @media (min-width: 768px) {
+      .chart__axis--h .chart__axis-label {
+        font-size: 16px; } }
+
+.chart__gridlines--h,
+.chart__gridlines--v {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  left: 50px;
+  bottom: 30px;
+  top: 16px;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.chart__gridlines--h {
+  flex-direction: column-reverse; }
+  .chart__gridlines--h .chart__gridlines-item {
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    border-top: 1px solid #ddd; }
+
+.chart__gridlines--v .chart__gridlines-item {
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  border-right: 1px solid #ddd; }
+
+.chart__legend {
+  z-index: 4;
+  top: 64px;
+  right: 0;
+  margin: 0; }
+  .chart__legend:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.chart__legend--left {
+  right: auto;
+  left: 60px; }
+
+.chart__legend-name {
+  float: left;
+  line-height: 1;
+  width: calc(100% - 16px);
+  padding-left: 8px;
+  margin-bottom: 8px; }
+
+.chart__legend-indicator {
+  clear: left;
+  float: left;
+  margin: 0;
+  background: #999;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px; }
+
+.chart__bars--v,
+.chart__bars--h {
+  display: flex;
+  justify-content: space-bweten;
+  position: absolute;
+  z-index: 3;
+  left: 51px;
+  right: 0;
+  bottom: 31px;
+  top: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .chart__bars--v .chart__bar,
+  .chart__bars--h .chart__bar {
+    position: relative;
+    flex: 1 1 0%;
+    height: 100%;
+    display: flex; }
+  .chart__bars--v .chart__bar-area,
+  .chart__bars--h .chart__bar-area {
+    position: relative;
+    background: #999;
+    cursor: pointer; }
+    .chart__bars--v .chart__bar-area:hover, .chart__bars--v .chart__bar-area:focus,
+    .show-tooltips .chart__bars--v .chart__bar-area,
+    .chart__bars--h .chart__bar-area:hover,
+    .chart__bars--h .chart__bar-area:focus,
+    .show-tooltips
+    .chart__bars--h .chart__bar-area {
+      outline: none; }
+      .chart__bars--v .chart__bar-area:hover .chart__bar-tooltip, .chart__bars--v .chart__bar-area:focus .chart__bar-tooltip,
+      .show-tooltips .chart__bars--v .chart__bar-area .chart__bar-tooltip,
+      .chart__bars--h .chart__bar-area:hover .chart__bar-tooltip,
+      .chart__bars--h .chart__bar-area:focus .chart__bar-tooltip,
+      .show-tooltips
+      .chart__bars--h .chart__bar-area .chart__bar-tooltip {
+        display: block; }
+    .show-tooltips .chart__bars--v .chart__bar-area, .show-tooltips
+    .chart__bars--h .chart__bar-area {
+      cursor: default;
+      cursor: unset; }
+    .chart__bars--v .chart__bar-area.is-selected:after,
+    .chart__bars--h .chart__bar-area.is-selected:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.2); }
+  .chart__bars--v .chart__bar-tooltip,
+  .chart__bars--h .chart__bar-tooltip {
+    display: none;
+    position: absolute;
+    padding: 5px;
+    background: #000;
+    color: #fff; }
+
+.chart__bars--v .chart__bar {
+  align-items: flex-end; }
+
+.chart__bars--v .chart__bar-area {
+  width: 80%;
+  margin: 0 auto;
+  transition: height 0.5s; }
+
+.chart__bars--v .chart__bar-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(100%);
+  padding-top: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 10px; }
+  @media (min-width: 425px) {
+    .chart__bars--v .chart__bar-label {
+      font-size: 2.35vw; } }
+  @media (min-width: 768px) {
+    .chart__bars--v .chart__bar-label {
+      font-size: 16px; } }
+
+.chart__bars--v .chart__bar-tooltip {
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%); }
+
+.chart__bars--h {
+  flex-direction: column; }
+  .chart__bars--h .chart__bar {
+    width: 100%;
+    align-items: center; }
+  .chart__bars--h .chart__bar-area {
+    height: 80%;
+    transition: width 0.5s; }
+  .chart__bars--h .chart__bar-label {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    max-width: 50px;
+    transform: translateY(-50%);
+    padding-right: 10px; }
+  .chart__bars--h .chart__bar-tooltip {
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%) translateX(100%); }
+
+.chart__points {
+  position: absolute;
+  z-index: 3;
+  left: 51px;
+  right: 0;
+  bottom: 31px;
+  top: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.chart__point {
+  display: block;
+  position: absolute;
+  transform: translateX(-50%) translateY(50%);
+  transition: all 0.5s;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid #999; }
+
+.chart__lines-wrapper {
+  position: absolute;
+  z-index: 3;
+  left: 51px;
+  right: 0;
+  bottom: 31px;
+  top: 16px; }
+
+.chart__lines {
+  position: relative;
+  height: 100%;
+  width: 100%; }
+
+.chart__line {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke: #999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%; }
