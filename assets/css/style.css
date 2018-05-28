@@ -228,7 +228,8 @@ body {
   float: left; }
 
 .article-meta__date {
-  float: right; }
+  float: right;
+  clear: right; }
 
 .counter {
   padding-left: 30px;
