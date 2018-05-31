@@ -102,7 +102,7 @@
 
 		<div class="chart">
 			<span class="chart__title">Police Pursuits</span>
-			<dl class="chart__legend ">
+			<dl class="chart__legend">
 				<dd class="chart__legend-indicator" style="background-color: #66c;"></dd>
 				<dt class="chart__legend-name">Pursuits per month</dt>
 			</dl>
@@ -174,9 +174,335 @@
 				<div class="chart__lines-wrapper">
 					<svg class="chart__lines" viewBox="0 0 100 100" preserveAspectRatio="none">
 						<g transform="translate(0, 100) scale(1, -1)">
-							<polyline class="chart__line" points="0,45.25 0.9345794392523364,39.25 1.8691588785046729,50.24999999999999 2.803738317757009,48.5 3.7383177570093458,55.25 4.672897196261682,50.74999999999999 5.607476635514018,47.5 6.542056074766355,53 7.4766355140186915,53.75 8.411214953271028,47 9.345794392523365,46 10.280373831775702,50.24999999999999 11.214953271028037,51.5 12.149532710280374,38.25 13.08411214953271,43.5 14.018691588785046,44.75 14.953271028037383,44 15.88785046728972,42.5 16.822429906542055,47 17.757009345794394,40.5 18.69158878504673,49.25 19.626168224299064,55.25 20.560747663551403,45.5 21.49532710280374,46.75 22.429906542056074,40 23.364485981308412,39.25 24.299065420560748,47.25 25.233644859813083,48.75 26.16822429906542,54 27.102803738317757,45.5 28.037383177570092,49 28.97196261682243,58.5 29.906542056074766,49.5 30.8411214953271,50 31.77570093457944,47 32.71028037383178,53.25 33.64485981308411,52.25 34.57943925233645,50.74999999999999 35.51401869158879,51 36.44859813084112,52.25 37.38317757009346,47.5 38.3177570093458,40 39.25233644859813,40.25 40.18691588785047,43 41.12149532710281,42.25 42.05607476635514,51 42.99065420560748,48.5 43.925233644859816,58.75 44.85981308411215,44.75 45.794392523364486,45.75 46.728971962616825,55.50000000000001 47.66355140186916,40.25 48.598130841121495,44.25 49.532710280373834,43 50.467289719626166,45.5 51.401869158878505,56.00000000000001 52.33644859813084,50.24999999999999 53.271028037383175,54.25 54.205607476635514,51.24999999999999 55.14018691588785,46.25 56.074766355140184,46 57.00934579439252,36.25 57.94392523364486,54.75 58.87850467289719,49 59.81308411214953,51.74999999999999 60.74766355140187,49.75 61.6822429906542,50.5 62.61682242990654,49.25 63.55140186915888,47.25 64.48598130841121,59.75 65.42056074766356,50.24999999999999 66.35514018691589,53.5 67.28971962616822,64.25 68.22429906542057,52.25 69.1588785046729,63 70.09345794392523,64.25 71.02803738317758,63.5 71.96261682242991,65.25 72.89719626168224,64.5 73.83177570093459,64.25 74.76635514018692,62.25000000000001 75.70093457943925,64.25 76.6355140186916,58.25 77.57009345794393,63.24999999999999 78.50467289719626,66.75 79.4392523364486,58.75 80.37383177570094,70.5 81.30841121495327,62 82.24299065420561,64.25 83.17757009345794,66 84.11214953271028,66.5 85.04672897196262,74.75 85.98130841121495,68.25 86.91588785046729,73.75 87.85046728971963,79 88.78504672897196,80.25 89.7196261682243,80.25 90.65420560747664,63.24999999999999 91.58878504672897,75.5 92.5233644859813,89.25 93.45794392523365,81.5 94.39252336448598,75 95.32710280373831,78 96.26168224299066,82.5 97.19626168224299,82.25 98.13084112149532,77.75 99.06542056074767,77.25 100,86.75 " style="stroke: #66c;"></polyline>
+							<polyline class="chart__line" points="0,45.25 0.9345794392523364,39.25 1.8691588785046729,50.24999999999999 2.803738317757009,48.5 3.7383177570093458,55.25 4.672897196261682,50.74999999999999 5.607476635514018,47.5 6.542056074766355,53 7.4766355140186915,53.75 8.411214953271028,47 9.345794392523365,46 10.280373831775702,50.24999999999999 11.214953271028037,51.5 12.149532710280374,38.25 13.08411214953271,43.5 14.018691588785046,44.75 14.953271028037383,44 15.88785046728972,42.5 16.822429906542055,47 17.757009345794394,40.5 18.69158878504673,49.25 19.626168224299064,55.25 20.560747663551403,45.5 21.49532710280374,46.75 22.429906542056074,40 23.364485981308412,39.25 24.299065420560748,47.25 25.233644859813083,48.75 26.16822429906542,54 27.102803738317757,45.5 28.037383177570092,49 28.97196261682243,58.5 29.906542056074766,49.5 30.8411214953271,50 31.77570093457944,47 32.71028037383178,53.25 33.64485981308411,52.25 34.57943925233645,50.74999999999999 35.51401869158879,51 36.44859813084112,52.25 37.38317757009346,47.5 38.3177570093458,40 39.25233644859813,40.25 40.18691588785047,43 41.12149532710281,42.25 42.05607476635514,51 42.99065420560748,48.5 43.925233644859816,58.75 44.85981308411215,44.75 45.794392523364486,45.75 46.728971962616825,55.50000000000001 47.66355140186916,40.25 48.598130841121495,44.25 49.532710280373834,43 50.467289719626166,45.5 51.401869158878505,56.00000000000001 52.33644859813084,50.24999999999999 53.271028037383175,54.25 54.205607476635514,51.24999999999999 55.14018691588785,46.25 56.074766355140184,46 57.00934579439252,36.25 57.94392523364486,54.75 58.87850467289719,49 59.81308411214953,51.74999999999999 60.74766355140187,49.75 61.6822429906542,50.5 62.61682242990654,49.25 63.55140186915888,47.25 64.48598130841121,59.75 65.42056074766356,50.24999999999999 66.35514018691589,53.5 67.28971962616822,64.25 68.22429906542057,52.25 69.1588785046729,63 70.09345794392523,64.25 71.02803738317758,63.5 71.96261682242991,65.25 72.89719626168224,64.5 73.83177570093459,64.25 74.76635514018692,62.25000000000001 75.70093457943925,64.25 76.6355140186916,58.25 77.57009345794393,63.24999999999999 78.50467289719626,66.75 79.4392523364486,58.75 80.37383177570094,70.5 81.30841121495327,62 82.24299065420561,64.25 83.17757009345794,66 84.11214953271028,66.5 85.04672897196262,74.75 85.98130841121495,68.25 86.91588785046729,73.75 87.85046728971963,79 88.78504672897196,80.25 89.7196261682243,80.25 90.65420560747664,63.24999999999999 91.58878504672897,75.5 92.5233644859813,89.25 93.45794392523365,81.5 94.39252336448598,75 95.32710280373831,78 96.26168224299066,82.5 97.19626168224299,82.25 98.13084112149532,77.75 99.06542056074767,77.25 100,86.75" style="stroke: #66c;"></polyline>
 						</g>
 					</svg>
+					<ul class="chart__point-tooltips">
+						<li class="chart__point-tooltip" style="left: 0%; bottom: 45.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">181</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 0.9345794392523364%; bottom: 39.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">157</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 1.8691588785046729%; bottom: 50.24999999999999%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">201</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 2.803738317757009%; bottom: 48.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">194</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 3.7383177570093458%; bottom: 55.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">221</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 4.672897196261682%; bottom: 50.74999999999999%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">203</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 5.607476635514018%; bottom: 47.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">190</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 6.542056074766355%; bottom: 53%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">212</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 7.4766355140186915%; bottom: 53.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">215</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 8.411214953271028%; bottom: 47%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">188</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 9.345794392523365%; bottom: 46%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">184</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 10.280373831775702%; bottom: 50.24999999999999%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">201</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 11.214953271028037%; bottom: 51.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">206</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 12.149532710280374%; bottom: 38.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">153</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 13.08411214953271%; bottom: 43.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">174</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 14.018691588785046%; bottom: 44.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">179</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 14.953271028037383%; bottom: 44%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">176</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 15.88785046728972%; bottom: 42.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">170</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 16.822429906542055%; bottom: 47%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">188</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 17.757009345794394%; bottom: 40.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">162</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 18.69158878504673%; bottom: 49.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">197</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 19.626168224299064%; bottom: 55.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">221</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 20.560747663551403%; bottom: 45.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">182</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 21.49532710280374%; bottom: 46.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">187</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 22.429906542056074%; bottom: 40%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">160</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 23.364485981308412%; bottom: 39.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">157</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 24.299065420560748%; bottom: 47.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">189</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 25.233644859813083%; bottom: 48.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">195</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 26.16822429906542%; bottom: 54%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">216</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 27.102803738317757%; bottom: 45.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">182</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 28.037383177570092%; bottom: 49%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">196</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 28.97196261682243%; bottom: 58.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">234</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 29.906542056074766%; bottom: 49.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">198</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 30.8411214953271%; bottom: 50%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">200</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 31.77570093457944%; bottom: 47%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">188</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 32.71028037383178%; bottom: 53.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">213</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 33.64485981308411%; bottom: 52.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">209</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 34.57943925233645%; bottom: 50.74999999999999%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">203</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 35.51401869158879%; bottom: 51%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">204</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 36.44859813084112%; bottom: 52.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">209</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 37.38317757009346%; bottom: 47.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">190</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 38.3177570093458%; bottom: 40%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">160</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 39.25233644859813%; bottom: 40.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">161</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 40.18691588785047%; bottom: 43%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">172</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 41.12149532710281%; bottom: 42.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">169</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 42.05607476635514%; bottom: 51%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">204</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 42.99065420560748%; bottom: 48.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">194</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 43.925233644859816%; bottom: 58.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">235</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 44.85981308411215%; bottom: 44.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">179</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 45.794392523364486%; bottom: 45.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">183</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 46.728971962616825%; bottom: 55.50000000000001%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">222</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 47.66355140186916%; bottom: 40.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">161</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 48.598130841121495%; bottom: 44.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">177</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 49.532710280373834%; bottom: 43%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">172</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 50.467289719626166%; bottom: 45.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">182</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 51.401869158878505%; bottom: 56.00000000000001%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">224</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 52.33644859813084%; bottom: 50.24999999999999%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">201</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 53.271028037383175%; bottom: 54.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">217</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 54.205607476635514%; bottom: 51.24999999999999%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">205</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 55.14018691588785%; bottom: 46.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">185</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 56.074766355140184%; bottom: 46%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">184</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 57.00934579439252%; bottom: 36.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">145</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 57.94392523364486%; bottom: 54.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">219</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 58.87850467289719%; bottom: 49%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">196</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 59.81308411214953%; bottom: 51.74999999999999%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">207</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 60.74766355140187%; bottom: 49.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">199</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 61.6822429906542%; bottom: 50.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">202</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 62.61682242990654%; bottom: 49.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">197</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 63.55140186915888%; bottom: 47.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">189</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 64.48598130841121%; bottom: 59.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">239</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 65.42056074766356%; bottom: 50.24999999999999%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">201</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 66.35514018691589%; bottom: 53.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">214</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 67.28971962616822%; bottom: 64.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">257</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 68.22429906542057%; bottom: 52.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">209</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 69.1588785046729%; bottom: 63%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">252</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 70.09345794392523%; bottom: 64.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">257</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 71.02803738317758%; bottom: 63.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">254</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 71.96261682242991%; bottom: 65.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">261</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 72.89719626168224%; bottom: 64.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">258</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 73.83177570093459%; bottom: 64.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">257</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 74.76635514018692%; bottom: 62.25000000000001%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">249</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 75.70093457943925%; bottom: 64.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">257</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 76.6355140186916%; bottom: 58.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">233</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 77.57009345794393%; bottom: 63.24999999999999%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">253</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 78.50467289719626%; bottom: 66.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">267</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 79.4392523364486%; bottom: 58.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">235</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 80.37383177570094%; bottom: 70.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">282</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 81.30841121495327%; bottom: 62%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">248</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 82.24299065420561%; bottom: 64.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">257</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 83.17757009345794%; bottom: 66%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">264</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 84.11214953271028%; bottom: 66.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">266</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 85.04672897196262%; bottom: 74.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">299</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 85.98130841121495%; bottom: 68.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">273</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 86.91588785046729%; bottom: 73.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">295</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 87.85046728971963%; bottom: 79%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">316</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 88.78504672897196%; bottom: 80.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">321</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 89.7196261682243%; bottom: 80.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">321</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 90.65420560747664%; bottom: 63.24999999999999%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">253</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 91.58878504672897%; bottom: 75.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">302</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 92.5233644859813%; bottom: 89.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">357</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 93.45794392523365%; bottom: 81.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">326</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 94.39252336448598%; bottom: 75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">300</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 95.32710280373831%; bottom: 78%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">312</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 96.26168224299066%; bottom: 82.5%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">330</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 97.19626168224299%; bottom: 82.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">329</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 98.13084112149532%; bottom: 77.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">311</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 99.06542056074767%; bottom: 77.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">309</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 100%; bottom: 86.75%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">347</span>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -193,7 +519,7 @@
 
 		<div class="chart">
 			<span class="chart__title">Abandoned Police Pursuits</span>
-			<dl class="chart__legend ">
+			<dl class="chart__legend">
 				<dd class="chart__legend-indicator" style="background-color: #66c;"></dd>
 				<dt class="chart__legend-name">Abandoned pursuits</dt>
 			</dl>
@@ -224,25 +550,25 @@
 				</ul>
 				<ul class="chart__axis--h">
 					<li class="chart__axis-item" style="left: 0%;">
-						<span class="chart__axis-label">Jan-12</span>
+						<span class="chart__axis-label">Jan‑12</span>
 					</li>
 					<li class="chart__axis-item" style="left: 16.216216216216218%;">
-						<span class="chart__axis-label">Jan-13</span>
+						<span class="chart__axis-label">Jan‑13</span>
 					</li>
 					<li class="chart__axis-item" style="left: 32.432432432432435%;">
-						<span class="chart__axis-label">Jan-14</span>
+						<span class="chart__axis-label">Jan‑14</span>
 					</li>
 					<li class="chart__axis-item" style="left: 48.64864864864865%;">
-						<span class="chart__axis-label">Jan-15</span>
+						<span class="chart__axis-label">Jan‑15</span>
 					</li>
 					<li class="chart__axis-item" style="left: 64.86486486486487%;">
-						<span class="chart__axis-label">Jan-16</span>
+						<span class="chart__axis-label">Jan‑16</span>
 					</li>
 					<li class="chart__axis-item" style="left: 81.08108108108108%;">
-						<span class="chart__axis-label">Jan-17</span>
+						<span class="chart__axis-label">Jan‑17</span>
 					</li>
 					<li class="chart__axis-item" style="left: 97.2972972972973%;">
-						<span class="chart__axis-label">Jan-18</span>
+						<span class="chart__axis-label">Jan‑18</span>
 					</li>
 				</ul>
 				<ul class="chart__gridlines--v">
@@ -257,16 +583,243 @@
 				<div class="chart__lines-wrapper">
 					<svg class="chart__lines" viewBox="0 0 100 100" preserveAspectRatio="none">
 						<g transform="translate(0, 100) scale(1, -1)">
-							<polyline class="chart__line" points="0,46.411483253588514 1.3513513513513513,44.33497536945813 2.7027027027027026,55.392156862745104 4.054054054054054,50.23923444976076 5.405405405405405,48.94736842105264 6.756756756756757,46.25 8.108108108108109,40.37267080745342 9.45945945945946,48.837209302325576 10.81081081081081,45.562130177514796 12.162162162162161,50.98039215686274 13.513513513513514,48.96907216494845 14.864864864864865,50.638297872340424 16.216216216216218,46.36871508379888 17.56756756756757,53.00546448087432 18.91891891891892,52.702702702702695 20.27027027027027,51.5527950310559 21.62162162162162,51.9774011299435 22.972972972972972,51.162790697674424 24.324324324324323,54.94505494505495 25.675675675675677,53.125 27.027027027027028,51.243781094527364 28.37837837837838,52.995391705069125 29.72972972972973,55.60975609756098 31.08108108108108,61.62162162162163 32.432432432432435,54.891304347826086 33.78378378378378,58.620689655172406 35.13513513513514,52.96803652968036 36.486486486486484,59.693877551020414 37.83783783783784,57.48792270531401 39.189189189189186,50.753768844221106 40.54054054054054,56.930693069306926 41.891891891891895,51.26903553299492 43.24324324324324,56.08465608465608 44.5945945945946,56.903765690376574 45.945945945945944,49.25373134328358 47.2972972972973,55.140186915887845 48.648648648648646,51.36186770428015 50,54.066985645933016 51.351351351351354,57.14285714285714 52.7027027027027,57.19844357976653 54.054054054054056,51.96850393700787 55.4054054054054,54.406130268199234 56.75675675675676,55.81395348837209 58.108108108108105,51.75097276264592 59.45945945945946,47.791164658634536 60.810810810810814,53.30739299610895 62.16216216216216,49.35622317596567 63.513513513513516,47.82608695652174 64.86486486486487,55.59701492537313 66.21621621621621,56.17021276595745 67.56756756756756,56.02836879432624 68.91891891891892,57.66129032258065 70.27027027027027,53.30739299610895 71.62162162162163,59.84848484848485 72.97297297297297,58.27067669172933 74.32432432432432,53.17725752508361 75.67567567567568,45.78754578754579 77.02702702702703,57.28813559322033 78.37837837837837,51.58227848101266 79.72972972972973,52.64797507788161 81.08108108108108,56.074766355140184 82.43243243243244,56.916996047430835 83.78378378378379,55.960264900662246 85.13513513513513,54.621848739495796 86.48648648648648,54.601226993865026 87.83783783783784,59.66666666666667 89.1891891891892,51.60256410256411 90.54054054054055,55.15151515151515 91.89189189189189,54.1033434650456 93.24324324324324,54.019292604501615 94.5945945945946,56.310679611650485 95.94594594594595,56.936416184971094 97.29729729729729,61.980830670926515 98.64864864864865,61.53846153846154 100,62.22222222222222 " style="stroke: #66c;"></polyline>
+							<polyline class="chart__line" points="0,46.411483253588514 1.3513513513513513,44.33497536945813 2.7027027027027026,55.392156862745104 4.054054054054054,50.23923444976076 5.405405405405405,48.94736842105264 6.756756756756757,46.25 8.108108108108109,40.37267080745342 9.45945945945946,48.837209302325576 10.81081081081081,45.562130177514796 12.162162162162161,50.98039215686274 13.513513513513514,48.96907216494845 14.864864864864865,50.638297872340424 16.216216216216218,46.36871508379888 17.56756756756757,53.00546448087432 18.91891891891892,52.702702702702695 20.27027027027027,51.5527950310559 21.62162162162162,51.9774011299435 22.972972972972972,51.162790697674424 24.324324324324323,54.94505494505495 25.675675675675677,53.125 27.027027027027028,51.243781094527364 28.37837837837838,52.995391705069125 29.72972972972973,55.60975609756098 31.08108108108108,61.62162162162163 32.432432432432435,54.891304347826086 33.78378378378378,58.620689655172406 35.13513513513514,52.96803652968036 36.486486486486484,59.693877551020414 37.83783783783784,57.48792270531401 39.189189189189186,50.753768844221106 40.54054054054054,56.930693069306926 41.891891891891895,51.26903553299492 43.24324324324324,56.08465608465608 44.5945945945946,56.903765690376574 45.945945945945944,49.25373134328358 47.2972972972973,55.140186915887845 48.648648648648646,51.36186770428015 50,54.066985645933016 51.351351351351354,57.14285714285714 52.7027027027027,57.19844357976653 54.054054054054056,51.96850393700787 55.4054054054054,54.406130268199234 56.75675675675676,55.81395348837209 58.108108108108105,51.75097276264592 59.45945945945946,47.791164658634536 60.810810810810814,53.30739299610895 62.16216216216216,49.35622317596567 63.513513513513516,47.82608695652174 64.86486486486487,55.59701492537313 66.21621621621621,56.17021276595745 67.56756756756756,56.02836879432624 68.91891891891892,57.66129032258065 70.27027027027027,53.30739299610895 71.62162162162163,59.84848484848485 72.97297297297297,58.27067669172933 74.32432432432432,53.17725752508361 75.67567567567568,45.78754578754579 77.02702702702703,57.28813559322033 78.37837837837837,51.58227848101266 79.72972972972973,52.64797507788161 81.08108108108108,56.074766355140184 82.43243243243244,56.916996047430835 83.78378378378379,55.960264900662246 85.13513513513513,54.621848739495796 86.48648648648648,54.601226993865026 87.83783783783784,59.66666666666667 89.1891891891892,51.60256410256411 90.54054054054055,55.15151515151515 91.89189189189189,54.1033434650456 93.24324324324324,54.019292604501615 94.5945945945946,56.310679611650485 95.94594594594595,56.936416184971094 97.29729729729729,61.980830670926515 98.64864864864865,61.53846153846154 100,62.22222222222222" style="stroke: #66c;"></polyline>
 						</g>
 					</svg>
+					<ul class="chart__point-tooltips">
+						<li class="chart__point-tooltip" style="left: 0%; bottom: 46.411483253588514%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">46%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 1.3513513513513513%; bottom: 44.33497536945813%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">44%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 2.7027027027027026%; bottom: 55.392156862745104%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">55%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 4.054054054054054%; bottom: 50.23923444976076%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">50%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 5.405405405405405%; bottom: 48.94736842105264%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">49%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 6.756756756756757%; bottom: 46.25%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">46%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 8.108108108108109%; bottom: 40.37267080745342%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">40%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 9.45945945945946%; bottom: 48.837209302325576%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">49%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 10.81081081081081%; bottom: 45.562130177514796%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">46%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 12.162162162162161%; bottom: 50.98039215686274%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">51%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 13.513513513513514%; bottom: 48.96907216494845%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">49%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 14.864864864864865%; bottom: 50.638297872340424%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">51%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 16.216216216216218%; bottom: 46.36871508379888%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">46%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 17.56756756756757%; bottom: 53.00546448087432%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">53%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 18.91891891891892%; bottom: 52.702702702702695%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">53%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 20.27027027027027%; bottom: 51.5527950310559%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">52%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 21.62162162162162%; bottom: 51.9774011299435%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">52%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 22.972972972972972%; bottom: 51.162790697674424%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">51%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 24.324324324324323%; bottom: 54.94505494505495%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">55%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 25.675675675675677%; bottom: 53.125%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">53%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 27.027027027027028%; bottom: 51.243781094527364%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">51%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 28.37837837837838%; bottom: 52.995391705069125%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">53%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 29.72972972972973%; bottom: 55.60975609756098%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">56%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 31.08108108108108%; bottom: 61.62162162162163%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">62%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 32.432432432432435%; bottom: 54.891304347826086%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">55%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 33.78378378378378%; bottom: 58.620689655172406%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">59%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 35.13513513513514%; bottom: 52.96803652968036%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">53%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 36.486486486486484%; bottom: 59.693877551020414%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">60%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 37.83783783783784%; bottom: 57.48792270531401%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">57%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 39.189189189189186%; bottom: 50.753768844221106%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">51%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 40.54054054054054%; bottom: 56.930693069306926%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">57%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 41.891891891891895%; bottom: 51.26903553299492%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">51%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 43.24324324324324%; bottom: 56.08465608465608%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">56%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 44.5945945945946%; bottom: 56.903765690376574%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">57%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 45.945945945945944%; bottom: 49.25373134328358%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">49%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 47.2972972972973%; bottom: 55.140186915887845%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">55%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 48.648648648648646%; bottom: 51.36186770428015%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">51%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 50%; bottom: 54.066985645933016%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">54%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 51.351351351351354%; bottom: 57.14285714285714%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">57%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 52.7027027027027%; bottom: 57.19844357976653%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">57%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 54.054054054054056%; bottom: 51.96850393700787%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">52%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 55.4054054054054%; bottom: 54.406130268199234%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">54%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 56.75675675675676%; bottom: 55.81395348837209%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">56%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 58.108108108108105%; bottom: 51.75097276264592%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">52%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 59.45945945945946%; bottom: 47.791164658634536%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">48%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 60.810810810810814%; bottom: 53.30739299610895%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">53%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 62.16216216216216%; bottom: 49.35622317596567%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">49%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 63.513513513513516%; bottom: 47.82608695652174%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">48%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 64.86486486486487%; bottom: 55.59701492537313%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">56%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 66.21621621621621%; bottom: 56.17021276595745%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">56%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 67.56756756756756%; bottom: 56.02836879432624%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">56%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 68.91891891891892%; bottom: 57.66129032258065%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">58%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 70.27027027027027%; bottom: 53.30739299610895%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">53%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 71.62162162162163%; bottom: 59.84848484848485%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">60%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 72.97297297297297%; bottom: 58.27067669172933%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">58%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 74.32432432432432%; bottom: 53.17725752508361%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">53%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 75.67567567567568%; bottom: 45.78754578754579%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">46%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 77.02702702702703%; bottom: 57.28813559322033%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">57%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 78.37837837837837%; bottom: 51.58227848101266%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">52%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 79.72972972972973%; bottom: 52.64797507788161%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">53%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 81.08108108108108%; bottom: 56.074766355140184%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">56%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 82.43243243243244%; bottom: 56.916996047430835%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">57%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 83.78378378378379%; bottom: 55.960264900662246%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">56%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 85.13513513513513%; bottom: 54.621848739495796%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">55%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 86.48648648648648%; bottom: 54.601226993865026%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">55%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 87.83783783783784%; bottom: 59.66666666666667%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">60%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 89.1891891891892%; bottom: 51.60256410256411%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">52%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 90.54054054054055%; bottom: 55.15151515151515%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">55%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 91.89189189189189%; bottom: 54.1033434650456%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">54%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 93.24324324324324%; bottom: 54.019292604501615%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">54%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 94.5945945945946%; bottom: 56.310679611650485%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">56%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 95.94594594594595%; bottom: 56.936416184971094%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">57%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 97.29729729729729%; bottom: 61.980830670926515%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">62%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 98.64864864864865%; bottom: 61.53846153846154%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">62%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 100%; bottom: 62.22222222222222%; background-color: #66c;" tabindex="-1">
+							<span class="chart__point-tooltip-body">62%</span>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 
 		<div class="chart">
 			<span class="chart__title">Injury Rate in Police Pursuits</span>
-			<dl class="chart__legend ">
+			<dl class="chart__legend">
 				<dd class="chart__legend-indicator" style="background-color: #933;"></dd>
 				<dt class="chart__legend-name">Injury rate</dt>
 			</dl>
@@ -354,9 +907,86 @@
 				<div class="chart__lines-wrapper">
 					<svg class="chart__lines" viewBox="0 0 100 100" preserveAspectRatio="none">
 						<g transform="translate(0, 100) scale(1, -1)">
-							<polyline class="chart__line" points="0,30.84415584415584 4.166666666666667,46.51162790697674 8.333333333333334,47.80876494023904 12.5,36.334913112164294 16.666666666666668,61.643835616438345 20.833333333333332,66.66666666666666 25,36.24382207578253 29.166666666666668,54.3657331136738 33.333333333333336,49.27007299270073 37.5,64.78405315614617 41.666666666666664,56.12244897959183 45.833333333333336,45.87155963302752 50,44.56824512534819 54.166666666666664,50.518134715025894 58.333333333333336,32.72251308900523 62.5,72.67833109017496 66.66666666666667,40.76433121019108 70.83333333333333,48.11443433029909 75,39.37947494033413 79.16666666666667,81.5450643776824 83.33333333333333,49.086757990867575 87.5,25.4323499491353 91.66666666666667,50.46343975283213 95.83333333333333,42.44306418219461 100,23.307436182019973 " style="stroke: #933;"></polyline>
+							<polyline class="chart__line" points="0,30.84415584415584 4.166666666666667,46.51162790697674 8.333333333333334,47.80876494023904 12.5,36.334913112164294 16.666666666666668,61.643835616438345 20.833333333333332,66.66666666666666 25,36.24382207578253 29.166666666666668,54.3657331136738 33.333333333333336,49.27007299270073 37.5,64.78405315614617 41.666666666666664,56.12244897959183 45.833333333333336,45.87155963302752 50,44.56824512534819 54.166666666666664,50.518134715025894 58.333333333333336,32.72251308900523 62.5,72.67833109017496 66.66666666666667,40.76433121019108 70.83333333333333,48.11443433029909 75,39.37947494033413 79.16666666666667,81.5450643776824 83.33333333333333,49.086757990867575 87.5,25.4323499491353 91.66666666666667,50.46343975283213 95.83333333333333,42.44306418219461 100,23.307436182019973" style="stroke: #933;"></polyline>
 						</g>
 					</svg>
+					<ul class="chart__point-tooltips">
+						<li class="chart__point-tooltip" style="left: 0%; bottom: 30.84415584415584%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">3%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 4.166666666666667%; bottom: 46.51162790697674%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">5%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 8.333333333333334%; bottom: 47.80876494023904%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">5%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 12.5%; bottom: 36.334913112164294%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">4%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 16.666666666666668%; bottom: 61.643835616438345%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">6%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 20.833333333333332%; bottom: 66.66666666666666%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">7%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 25%; bottom: 36.24382207578253%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">4%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 29.166666666666668%; bottom: 54.3657331136738%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">5%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 33.333333333333336%; bottom: 49.27007299270073%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">5%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 37.5%; bottom: 64.78405315614617%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">6%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 41.666666666666664%; bottom: 56.12244897959183%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">6%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 45.833333333333336%; bottom: 45.87155963302752%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">5%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 50%; bottom: 44.56824512534819%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">4%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 54.166666666666664%; bottom: 50.518134715025894%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">5%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 58.333333333333336%; bottom: 32.72251308900523%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">3%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 62.5%; bottom: 72.67833109017496%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">7%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 66.66666666666667%; bottom: 40.76433121019108%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">4%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 70.83333333333333%; bottom: 48.11443433029909%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">5%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 75%; bottom: 39.37947494033413%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">4%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 79.16666666666667%; bottom: 81.5450643776824%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">8%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 83.33333333333333%; bottom: 49.086757990867575%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">5%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 87.5%; bottom: 25.4323499491353%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">3%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 91.66666666666667%; bottom: 50.46343975283213%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">5%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 95.83333333333333%; bottom: 42.44306418219461%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">4%</span>
+						</li>
+						<li class="chart__point-tooltip" style="left: 100%; bottom: 23.307436182019973%; background-color: #933;" tabindex="-1">
+							<span class="chart__point-tooltip-body">2%</span>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -375,7 +1005,7 @@
 
 		<div class="chart">
 			<span class="chart__title">Deaths in Police Pursuits</span>
-			<dl class="chart__legend ">
+			<dl class="chart__legend">
 				<dd class="chart__legend-indicator" style="background-color: #933;"></dd>
 				<dt class="chart__legend-name">Deaths</dt>
 			</dl>
