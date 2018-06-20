@@ -462,13 +462,16 @@ body {
   margin: 0 auto;
   transition: height 0.5s; }
 
+.chart__bars--v.chart__bars--histogram .chart__bar-area {
+  width: 100%; }
+
 .chart__bars--v .chart__bar-label {
   position: absolute;
   bottom: 0;
-  left: 0;
-  transform: translateY(100%);
+  left: 50%;
+  transform: translateY(100%) translateX(-50%);
   padding-top: 10px;
-  width: 100%;
+  min-width: 100%;
   text-align: center;
   font-size: 10px; }
   @media (min-width: 425px) {
@@ -491,6 +494,8 @@ body {
   .chart__bars--h .chart__bar-area {
     height: 80%;
     transition: width 0.5s; }
+  .chart__bars--h.chart__bars--histogram .chart__bar-area {
+    height: 100%; }
   .chart__bars--h .chart__bar-label {
     position: absolute;
     top: 50%;
