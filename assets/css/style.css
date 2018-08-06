@@ -246,6 +246,7 @@ body {
 
 .chart {
   position: relative;
+  z-index: 1;
   width: 100%;
   margin: 40px 0; }
 
