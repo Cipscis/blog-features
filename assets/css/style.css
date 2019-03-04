@@ -146,11 +146,18 @@ body {
   cursor: pointer;
   background-color: #aaffd5; }
   .tooltip__trigger:hover,
-  .tooltip:focus .tooltip__trigger,
+  .tooltip:focus .tooltip__trigger {
+    background-color: #77ffbb; }
   .tooltip:focus-within .tooltip__trigger {
     background-color: #77ffbb; }
     .tooltip__trigger:hover:before,
-    .tooltip:focus .tooltip__trigger:before,
+    .tooltip:focus .tooltip__trigger:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -18px;
+      bottom: -18px; }
     .tooltip:focus-within .tooltip__trigger:before {
       content: "";
       position: absolute;
@@ -187,8 +194,9 @@ body {
       width: 400px;
       transform: translate(10px, -20px); } }
   .tooltip:focus .tooltip__body,
-  .tooltip:focus-within .tooltip__body,
   .tooltip:hover .tooltip__body, .tooltip__body:hover {
+    display: inline-block; }
+  .tooltip:focus-within .tooltip__body {
     display: inline-block; }
 
 @media print {
