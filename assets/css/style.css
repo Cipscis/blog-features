@@ -145,30 +145,32 @@ body {
   position: relative;
   cursor: pointer;
   background-color: #aaffd5; }
-  .tooltip__trigger:hover,
-  .tooltip:focus .tooltip__trigger {
-    background-color: #77ffbb; }
-  .tooltip:focus-within .tooltip__trigger {
-    background-color: #77ffbb; }
-    .tooltip__trigger:hover:before,
-    .tooltip:focus .tooltip__trigger:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: -18px;
-      bottom: -18px; }
-    .tooltip:focus-within .tooltip__trigger:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: -18px;
-      bottom: -18px; }
+
+.tooltip__trigger:hover,
+.tooltip:focus .tooltip__trigger {
+  background-color: #77ffbb; }
+  .tooltip__trigger:hover:before,
+  .tooltip:focus .tooltip__trigger:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -18px;
+    bottom: -18px; }
+
+.tooltip:focus-within .tooltip__trigger {
+  background-color: #77ffbb; }
+  .tooltip:focus-within .tooltip__trigger:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -18px;
+    bottom: -18px; }
 
 .tooltip__body {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   padding: 10px;
   margin: 10px 0;
   background: #fff;
@@ -193,11 +195,14 @@ body {
     .tooltip__body {
       width: 400px;
       transform: translate(10px, -20px); } }
-  .tooltip:focus .tooltip__body,
-  .tooltip:hover .tooltip__body, .tooltip__body:hover {
-    display: inline-block; }
-  .tooltip:focus-within .tooltip__body {
-    display: inline-block; }
+
+.tooltip__body:hover,
+.tooltip:focus .tooltip__body,
+.tooltip:hover .tooltip__body {
+  display: inline-block; }
+
+.tooltip:focus-within .tooltip__body {
+  display: inline-block; }
 
 @media print {
   .tooltip__body {
@@ -268,7 +273,8 @@ body {
   position: relative;
   z-index: 1;
   width: 100%;
-  margin: 20px 0; }
+  margin: 20px 0;
+  page-break-inside: avoid; }
   @media (min-width: 768px) {
     .chart {
       margin: 40px 0; } }
