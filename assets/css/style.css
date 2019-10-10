@@ -170,7 +170,7 @@ body {
 
 .tooltip__body {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   padding: 10px;
   margin: 10px 0;
   background: #fff;
@@ -203,6 +203,15 @@ body {
 
 .tooltip:focus-within .tooltip__body {
   display: inline-block; }
+
+.tooltip.tooltip--hidden .tooltip__body {
+  display: none; }
+
+.tooltip--block .tooltip__body {
+  transform: none;
+  left: 20px;
+  width: calc(100% - 40px);
+  margin-top: 44px; }
 
 @media print {
   .tooltip__body {

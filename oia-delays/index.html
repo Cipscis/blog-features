@@ -2,6 +2,8 @@
 <head>
 	<title>Official information kept secret too long</title>
 
+	<script src="/assets/scripts/app/main.js" type="module"></script>
+
 	<link rel="stylesheet" href="/assets/css/style.css" />
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -46,9 +48,9 @@
 
 				<p>
 					The OIA sets a time limit of
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-time-limit-trigger" aria-describedby="tooltip-time-limit-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-time-limit-trigger" aria-describedby="tooltip-time-limit-body">
 						<span class="tooltip__trigger" id="tooltip-time-limit-trigger">20 working days to complete</span>
-						<span class="tooltip__body" id="tooltip-time-limit-body">
+						<span class="tooltip__body js-tooltip__body" id="tooltip-time-limit-body">
 							<span class="p">Agencies can extend this, but they have to tell the requester how much longer they need and give a reason why the extension is necessary.</span>
 							<span class="p">Technically the time limit is for sending a notice of the agency's decision about whether or not to release the requested information, rather than applying to the release of the information itself.</span>
 							<span class="p"><a href="http://www.legislation.govt.nz/act/public/1982/0156/latest/whole.html#DLM65654" target="_blank">Section 28(5) of the OIA</a> essentially requires that, when a decision is made to grant a request, the information must be released without "undue delay". However, in the vast majority of cases, information will be released at the same time as a requester is told the agency has decided to grant their request.</span>
@@ -107,9 +109,9 @@
 
 				<p>
 					The SSC told me they
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-ssc-criteria-trigger" aria-describedby="tooltip-ssc-criteria-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-ssc-criteria-trigger" aria-describedby="tooltip-ssc-criteria-body">
 						<span class="tooltip__trigger" id="tooltip-ssc-criteria-trigger">dealt with</span>
-						<span class="tooltip__body" id="tooltip-ssc-criteria-body">
+						<span class="tooltip__body js-tooltip__body" id="tooltip-ssc-criteria-body">
 							<span class="p">The criteria used for my requests weren't identical to those used in the statistics published by the SSC, so the numbers won't always line up perfectly. For example, the <a href="http://www.ssc.govt.nz/sites/all/files/oia-statistics-tables-2016-17-v3.xlsx" target="_blank">2016/17 OIA statistics</a> published for the SSC show they completed 97 requests in that timeframe, all of which were completed on time.</span>
 						</span>
 					</span>
@@ -1159,9 +1161,9 @@
 
 				<p>
 					Of those requests that were late, they weren't clustered soon after the due date as you might expect. Rather they were spread out over the next few months. Of the overdue requests, the
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-mpi-median-trigger" aria-describedby="tooltip-mpi-median-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-mpi-median-trigger" aria-describedby="tooltip-mpi-median-body">
 						<span class="tooltip__trigger" id="tooltip-mpi-median-trigger">median</span>
-						<span class="tooltip__body" id="tooltip-mpi-median-body">
+						<span class="tooltip__body js-tooltip__body" id="tooltip-mpi-median-body">
 							<span class="p">Only one request was 17 working days overdue. The remaining late requests were equally split between over and under 17 working days overdue.</span>
 						</span>
 					</span>
@@ -1461,9 +1463,9 @@
 				<p>
 					Those requests extended by a multiple of 5 working days did tend to be answered
 
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-mpi-weeks-earlier-trigger" aria-describedby="tooltip-mpi-weeks-earlier-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-mpi-weeks-earlier-trigger" aria-describedby="tooltip-mpi-weeks-earlier-body">
 						<span class="tooltip__trigger" id="tooltip-mpi-weeks-earlier-trigger">a little less late</span>
-						<span class="tooltip__body" id="tooltip-mpi-weeks-earlier-body">
+						<span class="tooltip__body js-tooltip__body" id="tooltip-mpi-weeks-earlier-body">
 							<span class="p">On average, requests extended by a multiple of five working days were 2.1 working days overdue, whereas other extended requests were 6.4 working days overdue on average.</span>
 
 							<span class="p">There were some outliers though, requests that were months overdue which can skew the average. By far the most common outcome for each group of extended requests was for the response to be sent on the day it was due.</span>
@@ -1487,9 +1489,9 @@
 
 				<p>
 					The Ministry of Justice handled
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-justice-inclusion-criteria-trigger" aria-describedby="tooltip-justice-inclusion-criteria-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-justice-inclusion-criteria-trigger" aria-describedby="tooltip-justice-inclusion-criteria-body">
 						<span class="tooltip__trigger" id="tooltip-justice-inclusion-criteria-trigger">446 OIA requests</span>
-						<span class="tooltip__body" id="tooltip-justice-inclusion-criteria-body">
+						<span class="tooltip__body js-tooltip__body" id="tooltip-justice-inclusion-criteria-body">
 							<span class="p">The numbers reported by the SSC &mdash; 436 requests completed with 85% being on time &mdash; are slightly different due to different interpretations of the criteria for which requests to include.</span>
 						</span>
 					</span>
@@ -1788,9 +1790,9 @@
 
 				<p>
 					However, it seems the Ministry of Justice also avoided sending notifications of an extension after a request's due date. They didn't include the date on which extension notices were sent in the data they released, but
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-justice-overdue-unextended-trigger" aria-describedby="tooltip-justice-overdue-unextended-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-justice-overdue-unextended-trigger" aria-describedby="tooltip-justice-overdue-unextended-body">
 						<span class="tooltip__trigger" id="tooltip-justice-overdue-unextended-trigger">many of their overdue requests</span>
-						<span class="tooltip__body" id="tooltip-justice-overdue-unextended-body">
+						<span class="tooltip__body js-tooltip__body" id="tooltip-justice-overdue-unextended-body">
 							<span class="p">The Ministry of Justice extended 44 OIA requests within this period, whereas 36 unextended requests were at least two working days late.</span>
 						</span>
 					</span>
@@ -3615,9 +3617,9 @@
 			<div class="content">
 				<p>
 					In July 2016, Mark Honeychurch from the
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-acc-sbh-trigger" aria-describedby="tooltip-acc-sbh-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-acc-sbh-trigger" aria-describedby="tooltip-acc-sbh-body">
 						<span class="tooltip__trigger" id="tooltip-acc-sbh-trigger">Society for Science Based Healthcare</span>
-						<span class="tooltip__body" id="tooltip-acc-sbh-body">
+						<span class="tooltip__body js-tooltip__body" id="tooltip-acc-sbh-body">
 							<span class="p">I am the chair of the Society for Science Based Healthcare, and have made various OIA requests regarding issues such as <a href="https://honestuniverse.com/2016/05/04/26m-for-acupuncture/" target="_blank">ACC's funding of acupuncture</a>, though I wasn't directly involved in these particular discussions with ACC.</span>
 						</span>
 					</span>
@@ -3939,9 +3941,9 @@
 			<div class="content">
 				<p>
 					Very few requests &mdash; only 28 &mdash; were overdue. However, some of those requests appear to have been <em>very</em> overdue. The worst offender in that regard is a request that was received in October 2016, and extended by 33 working days in November that same year so that
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-summer-break-trigger" aria-describedby="tooltip-summer-break-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-summer-break-trigger" aria-describedby="tooltip-summer-break-body">
 						<span class="tooltip__trigger" id="tooltip-summer-break-trigger">its new due date</span>
-						<span class="tooltip__body" id="tooltip-summer-break-body">
+						<span class="tooltip__body js-tooltip__body" id="tooltip-summer-break-body">
 							<span class="p">The Official Information Act effectively takes a break over summer, as dates from the 25th of December to the 15th of January aren't considered to be "working days". This means requests received near the end of the year typically take longer to be completed.</span>
 						</span>
 					</span>
@@ -4837,9 +4839,9 @@
 
 				<p>
 					Even looking only at those
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-msd-criteria-trigger" aria-describedby="tooltip-msd-criteria-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-msd-criteria-trigger" aria-describedby="tooltip-msd-criteria-body">
 						<span class="tooltip__trigger" id="tooltip-msd-criteria-trigger">requests completed in Q3-4 2017</span>,
-						<span class="tooltip__body" id="tooltip-msd-criteria-body">
+						<span class="tooltip__body js-tooltip__body" id="tooltip-msd-criteria-body">
 							<span class="p">The criteria MSD used for choosing which requests to include in the data they sent me differed slightly from what they used when calculating the statistics to report to the SSC. Some of the requests in the data they sent to me weren't in the Q3-4 2017 stats reported by the SSC, and some requests included in those stats weren't included in the data released to me.</span>
 						</span>
 					</span>
@@ -6981,9 +6983,9 @@
 			<div class="content">
 				<p>
 					Of course, this could just mean that they're very good at responding to OIA requests quickly. The strange thing, though, is that the distribution for their
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-corrections-non-oia-trigger" aria-describedby="tooltip-corrections-non-oia-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-corrections-non-oia-trigger" aria-describedby="tooltip-corrections-non-oia-body">
 							<span class="tooltip__trigger" id="tooltip-corrections-non-oia-trigger">non-OIA correspondence</span>
-							<span class="tooltip__body" id="tooltip-corrections-non-oia-body">
+							<span class="tooltip__body js-tooltip__body" id="tooltip-corrections-non-oia-body">
 								<span class="p">I obtained this by calculating the difference between the initial data released and the OIA-specific data released later.</span>
 
 								<span class="p">These data sets don't line up perfectly, as the OIA data shows many more responses with 20 days remaining than in the data that supposedly included both OIA and general correspondence. In the graph below, that is shown as 0 instead of the actual value calculated, which was -186.</span>
@@ -7860,9 +7862,9 @@
 					<p>&hellip;</p>
 
 					<p>As we will be publishing these reports on our website, your request is declined under section 18(e)
-						<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-18e-sic-trigger" aria-describedby="tooltip-18e-sic-body">
+						<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-18e-sic-trigger" aria-describedby="tooltip-18e-sic-body">
 							<span class="tooltip__trigger" id="tooltip-18e-sic-trigger">[sic]</span>
-							<span class="tooltip__body" id="tooltip-18e-sic-body">
+							<span class="tooltip__body js-tooltip__body" id="tooltip-18e-sic-body">
 								<span class="p"><a href="http://www.legislation.govt.nz/act/public/1982/0156/latest/whole.html#DLM65600" target="_blank">Section 18(e) of the OIA</a> allows requests to be refused if the requested information does not exist. The section Corrections meant to invoke was <a href="http://www.legislation.govt.nz/act/public/1982/0156/latest/whole.html#DLM65600" target="_blank">18(d)</a>.</span>
 							</span>
 						</span>
@@ -7900,16 +7902,16 @@
 
 				<p>
 					New Zealand Police also processes far more OIA requests than any other agency. The SSC's statistics for Q3-4 2017 show that Police completed 5,650 requests in that time, 7% of which were completed late. In terms of the number of requests handled, there's a big gap before
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-police-next-agency-trigger" aria-describedby="tooltip-police-next-agency-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-police-next-agency-trigger" aria-describedby="tooltip-police-next-agency-body">
 						<span class="tooltip__trigger" id="tooltip-police-next-agency-trigger">the next agency</span>,
-						<span class="tooltip__body" id="tooltip-police-next-agency-body">
+						<span class="tooltip__body js-tooltip__body" id="tooltip-police-next-agency-body">
 							<span class="p">The Earthquake Commission processed 2,980 requests in the same period, just over half the number processed by Police.</span>
 						</span>
 					</span>
 					and only
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-police-next-agency-trigger" aria-describedby="tooltip-police-next-agency-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-police-next-agency-trigger" aria-describedby="tooltip-police-next-agency-body">
 						<span class="tooltip__trigger" id="tooltip-police-next-agency-trigger">four agencies</span>
-						<span class="tooltip__body" id="tooltip-police-next-agency-body">
+						<span class="tooltip__body js-tooltip__body" id="tooltip-police-next-agency-body">
 							<span class="p">As well as Police and the Earthquake Commission, the Department of Corrections processed 1,906 requests in this period and Fire and Emergency New Zealand processed 1,071. The next agency is the Ministry of Business, Innovation, and Employment at 810 requests.</span>
 						</span>
 					</span>
@@ -7940,9 +7942,9 @@
 
 				<p>
 					Police seem far more likely than other agencies to demand evidence that a first-time requester is
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-oia-eligibiliy-trigger" aria-describedby="tooltip-oia-eligibiliy-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-oia-eligibiliy-trigger" aria-describedby="tooltip-oia-eligibiliy-body">
 						<span class="tooltip__trigger" id="tooltip-oia-eligibiliy-trigger">eligible</span>
-						<span class="tooltip__body" id="tooltip-oia-eligibiliy-body">
+						<span class="tooltip__body js-tooltip__body" id="tooltip-oia-eligibiliy-body">
 							<span class="p"><a href="http://www.legislation.govt.nz/act/public/1982/0156/latest/whole.html#DLM65382" target="_blank">Section 12(1) of the OIA</a> states that anyone who is in New Zealand, or is a citizen or permanent resident of New Zealand, is eligible to make a request under the OIA. Certain body corporates are also eligible, but requests made publicly on FYI tend to be from individuals.</span>
 						</span>
 					</span>
@@ -8003,9 +8005,9 @@
 
 				<p>
 					It took <a href="https://fyi.org.nz/request/6084-specific-research-used-to-estimate-potential-social-harm-of-cannabis/" target="_blank">a follow-up request</a>, and 13 more working days, for NZ Police to
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-police-research-link-trigger" aria-describedby="tooltip-police-research-link-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-police-research-link-trigger" aria-describedby="tooltip-police-research-link-body">
 						<span class="tooltip__trigger" id="tooltip-police-research-link-trigger">provide a picture of the URL</span>
-						<span class="tooltip__body" id="tooltip-police-research-link-body">
+						<span class="tooltip__body js-tooltip__body" id="tooltip-police-research-link-body">
 							<span class="p">Due to the practice of printing, signing, then scanning responses before sending them, Police didn't actually send a link. Rather, they sent an image-based PDF file containing a picture of the URL. Because it was just a picture, I couldn't click on the URL, though as I don't rely on a screen reader I could still type it out by hand.</span>
 
 							<span class="p">The use of inaccessible formats for responses to OIA requests is a significant problem, which I have <a href="https://honestuniverse.com/2017/11/17/oia-accessibility/" target="_blank">written about previously</a>.</span>
@@ -8039,9 +8041,9 @@
 
 				<p>
 					Like Police, it sounds as though the system NZTA has in place for recording information on how they handle OIA requests has very restricted reporting capabilities. Whether it involved manually checking OIA requests or extracting information from a database, seven agencies who
-					<span class="tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-nzta-more-requests-trigger" aria-describedby="tooltip-nzta-more-requests-body">
+					<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-nzta-more-requests-trigger" aria-describedby="tooltip-nzta-more-requests-body">
 						<span class="tooltip__trigger" id="tooltip-nzta-more-requests-trigger">handled more OIA requests</span>
-						<span class="tooltip__body" id="tooltip-nzta-more-requests-body">
+						<span class="tooltip__body js-tooltip__body" id="tooltip-nzta-more-requests-body">
 							<span class="p">The agency with the next highest number of requests was MPI, with 328. Corrections had 1,906 requests, more than six times the number NZTA completed, and was able to provide me with data on each of them.</span>
 						</span>
 					</span>
