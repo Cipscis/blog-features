@@ -3,7 +3,7 @@ const activate = (function () {
 
 	const module = {
 		activate: function (el, fn) {
-			if (!el) {
+			if (!el || el.length === 0) {
 				// el is falsey, so do nothing
 				return;
 			}
