@@ -45,6 +45,21 @@
 				</div>
 			</div>
 
+			<section id="correction">
+				<div class="content">
+					<p>
+						<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-time-limit-trigger" aria-describedby="tooltip-time-limit-body">
+							<span class="tooltip__trigger" id="tooltip-time-limit-trigger">Correction 2020-06-02</span>
+							<span class="tooltip__body js-tooltip__body" id="tooltip-time-limit-body">
+								<span class="p">When creating the <a href="codebook">codebook</a> for this article almost two years after it was published, I had to re-write the code to generate all of the graphs because I no longer had the original code. In this process, I found that I had made mistakes when looking at how many requests were extended by the Ministry of Social Development. These mistakes extended to showing MSD to have had more overdue requests than they actually had, because I had not correctly recognised that some requests had been extended.</span>
+
+								<span class="p">When re-creating the graphs, there were also some small differences due to different choices being made when cleaning the data. For all details of the changes made when this article was corrected, please see <a href="https://github.com/Cipscis/blog-features/commits/master/oia-delays/index.html" target="_blank">the log of changes made to this page</a> on GitHub.</span>
+							</span>
+						</span>
+					</p>
+				</div>
+			</section>
+
 			<section id="introduction">
 				<div class="content">
 					<p>For the past few years, I have been keeping track of how long it takes for government agencies to respond to <a href="https://oia.nz" target="_blank">Official Information Act requests</a>.</p>
@@ -3526,14 +3541,7 @@
 					<p>Though the SSC's stats report that MPI completed 87% of requests in this period within the legislated timeframe, that number obscures the fact that fewer than half of their responses were sent before the due date.</p>
 
 					<p>
-						Of those requests that were late, they weren't clustered soon after the due date as you might expect. Rather they were spread out over the next few months. Of the overdue requests, the
-						<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-mpi-median-trigger" aria-describedby="tooltip-mpi-median-body">
-							<span class="tooltip__trigger" id="tooltip-mpi-median-trigger">median</span>
-							<span class="tooltip__body js-tooltip__body" id="tooltip-mpi-median-body">
-								<span class="p">Only one request was 17 working days overdue. The remaining late requests were equally split between over and under 17 working days overdue.</span>
-							</span>
-						</span>
-						number of working days late they were was 17 &mdash; over three weeks.
+						Of those requests that were late, they weren't clustered soon after the due date as you might expect. Rather they were spread out over the next few months. Of the overdue requests, the median number of working days late they were was 15.5 &mdash; over three weeks.
 					</p>
 
 					<p>MPI didn't tell me how many days were remaining when they sent notices of extension, so I can't tell if these were also left until the last minute. I can, however, look at the durations of these extensions:</p>
@@ -4337,7 +4345,7 @@
 								<span class="p">The numbers reported by the SSC &mdash; 436 requests completed with 85% being on time &mdash; are slightly different due to different interpretations of the criteria for which requests to include.</span>
 							</span>
 						</span>
-						within Q3-4 2017, and 87% of them were answered within the legislated timeframe.
+						within Q3-4 2017, and 88% of them were answered within the legislated timeframe.
 					</p>
 
 					<p>Of those 87%, about a third of them were only completed either on the due date or the day before it:</p>
@@ -10502,7 +10510,7 @@
 				<div class="content">
 					<p>Out of over 400 OIA requests, only seven were completed outside the legislated timeframe. Unfortunately, some of those seven were significantly outside the legislated timeframe. The worst of these requests was over six weeks overdue, and ACC did not record sending a notice of extension to the requester to let them know it would be late and how much more time was necessary.</p>
 
-					<p>ACC extended about one fifth of requests within this period. Looking at the pattern of extension lengths, there are clear spikes at 10 and 15 working days. Combined, these account for about a third of all extensions within this period:</p>
+					<p>ACC extended about 11% of requests within this period. Looking at the pattern of extension lengths, there are clear spikes at 10 and 15 working days. Combined, these account for about half of all extensions within this period:</p>
 				</div>
 
 				<div class="chart chart--has-x-label chart--has-y-label">
@@ -11094,7 +11102,7 @@
 				</div>
 
 				<div class="content">
-					<p>ACC was far more likely to complete extended requests on their due date (36%) than unextended requests (22%). This could reflect well-estimated extensions, like in the case of the SSC, but given the spikes at extensions of two and three weeks long it seems more likely to me that ACC has similar issues to MFAT in this regard. If the duration of each extension better reflected the actual amount of work remaining, it's quite possible that would have led to responses being sent earlier.</p>
+					<p>ACC was far more likely to complete extended requests on their due date (53%) than unextended requests (25%). This could reflect well-estimated extensions, like in the case of the SSC, but given the spikes at extensions of two and three weeks long it seems more likely to me that ACC has similar issues to MFAT in this regard. If the duration of each extension better reflected the actual amount of work remaining, it's quite possible that would have led to responses being sent earlier.</p>
 
 					<p>Like the Ministry of Justice, ACC never sent a notice of extension after any request's original due date had passed. Though to be fair only three unextended requests passed their due date without being extended:</p>
 				</div>
@@ -11469,7 +11477,7 @@
 
 					<p>In their response to me, over 100 requests didn't have a completion date recorded, due to being either transferred (24 requests) or withdrawn (79 requests). There were also a dozen or so rows where there had clearly been errors in data entry (e.g. requests that were reported as being extended before they had been received, or after they had been completed). These requests, which I've had to exclude from my analysis due to the missing information, made up 14% of the data reported by MBIE.</p>
 
-					<p>Of the remaining 697 requests, most of them were completed no earlier than the day before the due date. The spike on the due date itself represents over a third of all MBIE's responses.</p>
+					<p>Of the remaining 710 requests, most of them were completed no earlier than the day before the due date. The spike on the due date itself represents over a third of all MBIE's responses.</p>
 				</div>
 
 				<div class="chart chart--has-x-label chart--has-y-label">
@@ -13416,7 +13424,7 @@
 				</div>
 
 				<div class="content">
-					<p>As seen with many other agencies, there are large spikes at extensions of a whole number of weeks. Extensions of 20 and 10 working days were by far the most common, comprising 41% of all extensions. Requests extended by these durations were about as likely as other extended requests to receive a response on the due date (49%).</p>
+					<p>As seen with many other agencies, there are large spikes at extensions of a whole number of weeks. Extensions of 20 and 10 working days were by far the most common, comprising 42% of all extensions. Requests extended by these durations were less likely than other extended requests to receive a response on the due date (40% vs 60%).</p>
 
 					<p>As with the Ministry of Foreign Affairs and Trade, it seems likely that MBIE's practices of often extending OIA requests by a whole number of weeks is delaying their responses more than necessary.</p>
 
@@ -15381,22 +15389,7 @@
 				<div class="content">
 					<p>There are 11 more overdue requests that don't fit on the graph, the worst of which was 99 working days overdue. That request, which wasn't extended, was due for a response in early November 2017 but didn't receive a response until over five months later on the 20th of April 2018.</p>
 
-					<p>
-						Even looking only at those
-						<span class="tooltip js-tooltip" tabindex="0" role="dialog" aria-labelledby="tooltip-msd-criteria-trigger" aria-describedby="tooltip-msd-criteria-body">
-							<span class="tooltip__trigger" id="tooltip-msd-criteria-trigger">requests completed in Q3-4 2017</span>,
-							<span class="tooltip__body js-tooltip__body" id="tooltip-msd-criteria-body">
-								<span class="p">The criteria MSD used for choosing which requests to include in the data they sent me differed slightly from what they used when calculating the statistics to report to the SSC. Some of the requests in the data they sent to me weren't in the Q3-4 2017 stats reported by the SSC, and some requests included in those stats weren't included in the data released to me.</span>
-							</span>
-						</span>
-						there are 50 overdue requests in this data. However, MSD reported to the SSC that only 24 of the OIA requests completed within this period were not completed within the legislated timeframe. And remember, the number of requests they reported on to the SSC were roughly three times as many requests as they released to me.
-					</p>
-
-					<p>I don't know what went wrong, but if the data MSD has released to me is all correct then it appears they have been reporting incorrect OIA compliance statistics to the SSC.</p>
-
-					<p>Also, despite the figure of 97% of requests completed within the legislated timeframe reported to the SSC, MSD responded to fewer than half of their OIA requests before the due date.</p>
-
-					<p>MSD also extended very few requests. Of over 200 detailed in the information they've released, only seven were extended. It's worth noting that even for the many requests that didn't receive a response until well after the due date, MSD doesn't appear to have given the requester an indication of how much more time they would take to complete the request.</p>
+					<p>Also, despite the figure of 97% of requests completed within the legislated timeframe reported to the SSC, MSD responded to only 56% of their OIA requests before the due date.</p>
 
 					<p>In those cases where MSD sent a decision before they released the requested information, they set themselves an internal due date for when they aimed to send the information. There is no due date requirement in the legislation for this, but they did include their internal due dates in the information they released.</p>
 
@@ -16594,7 +16587,7 @@
 
 					<p>When I asked on Twitter about bad OIA experiences people have had with agencies, <a href="https://twitter.com/Mich_Cooke/status/963578107171975173" target="_blank">a producer for RNZ told me</a> she didn't think she'd received a single OIA from MSD within 20 days for the past couple of years.</p>
 
-					<p>Looking at how long it took for MSD to fully complete OIA requests (i.e. if they decide to grant a request, the time it took for them to release the information), it turns out MSD were just as likely to release information within 20 working days as they were to take longer. This is despite the fact that they only extended 3% of OIA requests they received past the original limit of 20 working days.</p>
+					<p>Looking at how long it took for MSD to fully complete OIA requests (i.e. if they decide to grant a request, the time it took for them to release the information), it turns out MSD were just as likely to release information within 20 working days as they were to take longer.</p>
 				</div>
 			</section>
 
@@ -16607,7 +16600,7 @@
 
 					<p>The Ministry of Health extended my request at 4:55pm on its original due date, pushing the deadline out another 21 working days. The eventual response squeezed in at 4:39pm on the new due date.</p>
 
-					<p>In Q3-4 2017, the Ministry received 353 requests, and they replied to 89% of them within the legislated timeframe. Looking at the distribution of response times, the spike at the due date is less pronounced than for many other agencies:</p>
+					<p>In Q3-4 2017, the Ministry received 354 requests, and they replied to 89% of them within the legislated timeframe. Looking at the distribution of response times, the spike at the due date is less pronounced than for many other agencies:</p>
 				</div>
 
 				<div class="chart chart--has-x-label chart--has-y-label">
@@ -20205,7 +20198,7 @@
 				<div class="content">
 					<p>Like with other agencies, there is a large spike of responses with 0 days remaining. However, the drop off after this date is slower than seen with other agencies, which I expect is due to the Ministry of Education extending deadlines under section 15(1AA) of the OIA.</p>
 
-					<p>Even taking that into account, though, there are still a lot of requests that appear to be more than seven working days overdue. If I were to assume that those requests are the only ones that were actually overdue, that's still 28 requests. That's a much higher proportion than the four late requests reported for this period by the SSC.</p>
+					<p>Even taking that into account, though, there are still a lot of requests that appear to be more than seven working days overdue. If I were to assume that those requests are the only ones that were actually overdue, that's still 29 requests. That's a much higher proportion than the four late requests reported for this period by the SSC.</p>
 
 					<p>Looking at the durations of the extensions granted by the Ministry of Education, there is a significant spike at 20 working days, with smaller spikes at and around other whole numbers of weeks:</p>
 				</div>
@@ -20801,7 +20794,7 @@
 				<div class="content">
 					<p>The Ministry of Education seems to handle its extensions slightly differently to other agencies. In the data they released, some extensions were described in terms of weeks or months instead of days, whereas every other agency I asked for this information appeared to only record extension durations as a number of working days.</p>
 
-					<p>That spike at 20 working days represents just under a third of all 95 requests the Ministry of Education extended within this period. Those requests extended by 20 working days were far more likely (20%) to receive a response on the last allowable day than requests extended by a different duration (6%), which seems to imply that the responses were delayed unnecessarily just because 20 working days was a nice round number of days to extend the request by.</p>
+					<p>That spike at 20 working days represents just under a third of all 104 requests the Ministry of Education extended within this period. Those requests extended by 20 working days were more likely (21%) to receive a response on the last allowable day than requests extended by a different duration (15%), which seems to imply that the responses may have been delayed unnecessarily just because 20 working days was a nice round number of days to extend the request by.</p>
 
 					<p>The fact that many extensions were recorded as a whole number of weeks or months is consistent with the idea that the Ministry of Education preferentially selects extensions that are neat, rather than estimating the precise amount of time still required to complete a request.</p>
 
