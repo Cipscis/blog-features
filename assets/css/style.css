@@ -33,6 +33,22 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto", Arial, sans-serif; }
 
+.content h1 {
+  font-size: 36px;
+  margin: 36px 0; }
+
+.content h2 {
+  font-size: 27px;
+  margin: 27px 0; }
+
+.content h3 {
+  font-size: 21px;
+  margin: 21px 0; }
+
+.content h4 {
+  font-size: 18px;
+  margin: 18px 0; }
+
 p,
 .p {
   display: block;
@@ -50,17 +66,22 @@ p,
     .p:last-child {
       margin-bottom: 18px; }
 
-.content a,
+.content a:not(.anchor),
 .a {
   cursor: pointer;
   color: #333;
   text-decoration: none;
   background: linear-gradient(to top, #aad5ff 0%, #aad5ff 5px, transparent 5.1px, transparent 100%); }
-  .content a:hover, .content a:focus,
+  .content a:not(.anchor):hover, .content a:not(.anchor):focus,
   .a:hover,
   .a:focus {
-    outline: none;
     background: linear-gradient(to top, #77bbff 0%, #77bbff 5px, transparent 5.1px, transparent 100%); }
+
+.anchor {
+  text-decoration: none; }
+  .anchor::before {
+    content: "🔗";
+    speak: never; }
 
 .content blockquote,
 .blockquote {
@@ -89,7 +110,7 @@ p,
 .content hr {
   margin: 36px 0;
   border: none;
-  border-bottom: 1px solid #ccc; }
+  border-bottom: 1px solid #ddd; }
 
 .content h4 {
   margin-bottom: 0; }
@@ -102,11 +123,14 @@ p,
   border-collapse: collapse; }
   .content table > tr:nth-child(2n-1),
   .content table tbody > tr:nth-child(2n-1) {
-    background: #ddd; }
+    background: #eee; }
   .content table td, .content table th {
     padding: 10px;
     border: 1px solid #666;
     text-align: left; }
+
+.todo {
+  background: yellow !important; }
 
 @media print {
   .content a,
@@ -158,8 +182,21 @@ body {
     top: -18px;
     bottom: -18px; }
 
+.tooltip:focus .tooltip__trigger {
+  outline-color: #4d90fe;
+  outline-offset: -2px;
+  outline-style: solid;
+  outline-width: 2px; }
+  @supports (outline-style: auto) {
+    .tooltip:focus .tooltip__trigger {
+      outline-style: auto; } }
+
 .tooltip:focus-within .tooltip__trigger {
-  background-color: #77ffbb; }
+  background-color: #77ffbb;
+  outline-color: #4d90fe;
+  outline-offset: -2px;
+  outline-style: solid;
+  outline-width: 2px; }
   .tooltip:focus-within .tooltip__trigger:before {
     content: "";
     position: absolute;
@@ -167,10 +204,13 @@ body {
     right: 0;
     top: -18px;
     bottom: -18px; }
+  @supports (outline-style: auto) {
+    .tooltip:focus-within .tooltip__trigger {
+      outline-style: auto; } }
 
 .tooltip__body {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   padding: 10px;
   margin: 10px 0;
   background: #fff;
@@ -229,6 +269,8 @@ body {
     display: inline-block;
     text-align: center;
     width: 30px;
+    height: 30px;
+    line-height: 30px;
     margin-right: 10px;
     border-radius: 50%; }
   .expander[aria-expanded="false"] .expander__trigger:before {
@@ -236,7 +278,14 @@ body {
   .expander__trigger:focus {
     outline: none; }
     .expander__trigger:focus:before {
+      outline-color: #4d90fe;
+      outline-offset: -2px;
+      outline-style: solid;
+      outline-width: 2px;
       background: #ddffee; }
+      @supports (outline-style: auto) {
+        .expander__trigger:focus:before {
+          outline-style: auto; } }
 
 .expander__body {
   display: block;
@@ -251,15 +300,20 @@ body {
     display: block !important; } }
 
 .article-meta {
-  color: #666;
   font-size: 0.75em; }
   .article-meta:after {
     content: "";
     display: table;
     clear: both; }
+  .article-meta, .article-meta a {
+    color: #666; }
 
 .article-meta__author {
   float: left; }
+
+.article-meta__codebook {
+  float: left;
+  clear: left; }
 
 .article-meta__date {
   float: right;
@@ -281,20 +335,19 @@ body {
 .chart {
   position: relative;
   z-index: 1;
-  width: 100%;
-  margin: 20px 0;
-  page-break-inside: avoid; }
-  @media (min-width: 768px) {
-    .chart {
-      margin: 40px 0; } }
+  width: 100%; }
 
-.chart--has-labels {
-  padding-left: 10px;
-  margin-bottom: 40px; }
+.chart--has-x-label {
+  padding-bottom: 40px; }
   @media (min-width: 768px) {
-    .chart--has-labels {
-      padding-left: 16px;
-      margin-bottom: 72px; } }
+    .chart--has-x-label {
+      padding-bottom: 32px; } }
+
+.chart--has-y-label {
+  padding-left: 10px; }
+  @media (min-width: 768px) {
+    .chart--has-y-label {
+      padding-left: 32px; } }
 
 .chart__title {
   display: block;
@@ -305,16 +358,10 @@ body {
 .chart__area {
   position: relative;
   width: 100%;
-  padding-top: calc(56.25% - 40px);
-  left: -15px; }
+  padding-top: calc(56.25% - 40px); }
   @media (min-width: 768px) {
     .chart__area {
       padding-top: 50%; } }
-  .chart--has-labels .chart__area {
-    left: auto; }
-  @media (min-width: 768px) {
-    .chart__area {
-      left: auto; } }
 
 .chart__axis--v {
   display: flex;
@@ -324,23 +371,19 @@ body {
   position: absolute;
   z-index: 2;
   left: 0;
-  bottom: 20px;
-  width: 30px;
+  bottom: 30px;
   top: 16px;
+  width: 50px;
   margin: 0;
   padding: 0;
   list-style: none; }
-  @media (min-width: 768px) {
-    .chart__axis--v {
-      bottom: 30px;
-      width: 50px; } }
   .chart__axis--v:after {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
     right: -1px;
-    border-right: 1px solid #ccc; }
+    border-right: 1px solid #999; }
   .chart__axis--v .chart__axis-item {
     position: absolute;
     text-align: right;
@@ -351,15 +394,9 @@ body {
     display: block;
     width: 100%;
     padding: 0 10px 0 0;
-    font-size: 10px;
+    font-size: 16px;
     line-height: 16px;
     transform: translateY(50%); }
-    @media (min-width: 425px) {
-      .chart__axis--v .chart__axis-label {
-        font-size: 2.35vw; } }
-    @media (min-width: 768px) {
-      .chart__axis--v .chart__axis-label {
-        font-size: 16px; } }
 
 .chart__axis--h {
   display: flex;
@@ -367,24 +404,20 @@ body {
   align-items: flex-start;
   position: absolute;
   z-index: 2;
-  left: 30px;
-  height: 20px;
+  left: 50px;
   bottom: 0;
   right: 0;
+  height: 30px;
   margin: 0;
   padding: 0;
   list-style: none; }
-  @media (min-width: 768px) {
-    .chart__axis--h {
-      left: 50px;
-      height: 30px; } }
   .chart__axis--h:after {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
     top: -1px;
-    border-top: 1px solid #ccc; }
+    border-top: 1px solid #999; }
   .chart__axis--h .chart__axis-item {
     position: absolute;
     text-align: center; }
@@ -393,14 +426,8 @@ body {
     position: absolute;
     transform: translateX(-50%);
     padding: 10px 0 0;
-    font-size: 10px;
-    line-height: 1; }
-    @media (min-width: 425px) {
-      .chart__axis--h .chart__axis-label {
-        font-size: 2.35vw; } }
-    @media (min-width: 768px) {
-      .chart__axis--h .chart__axis-label {
-        font-size: 16px; } }
+    font-size: 16px;
+    line-height: 16px; }
 
 .chart__axis--v-label {
   position: absolute;
@@ -437,112 +464,112 @@ body {
   align-items: center;
   position: absolute;
   z-index: 1;
-  left: 30px;
-  bottom: 20px;
+  left: 50px;
+  bottom: 30px;
   top: 16px;
   right: 0;
   margin: 0;
   padding: 0;
   list-style: none; }
-  @media (min-width: 768px) {
-    .chart__gridlines--h,
-    .chart__gridlines--v {
-      left: 50px;
-      bottom: 30px; } }
 
 .chart__gridlines--h {
   flex-direction: column-reverse; }
   .chart__gridlines--h .chart__gridlines-item {
     position: absolute;
-    left: 1px;
-    right: 1px;
+    left: 0;
+    right: 0;
     border-top: 1px solid #ddd; }
 
 .chart__gridlines--v .chart__gridlines-item {
   position: absolute;
-  top: 1px;
-  bottom: 1px;
+  top: -1px;
+  bottom: 0;
   border-right: 1px solid #ddd; }
 
 .chart__legend {
   z-index: 4;
-  top: 64px;
-  right: 0;
   margin: 0; }
   .chart__legend:after {
     content: "";
     display: table;
     clear: both; }
 
-.chart__legend--left {
-  right: auto;
-  left: 60px; }
-
 .chart__legend-name {
   float: left;
-  line-height: 1;
   width: calc(100% - 16px);
   padding-left: 8px;
-  margin-bottom: 8px; }
+  margin-bottom: 8px;
+  line-height: 1; }
 
 .chart__legend-indicator {
   clear: left;
   float: left;
   margin: 0;
   background: #999;
+  border: 1px solid #000;
   width: 16px;
   height: 16px;
   margin-bottom: 8px; }
 
-.chart__bars--v,
-.chart__bars--h {
+.chart__bar-groups--v,
+.chart__bar-groups--h {
   display: flex;
-  justify-content: space-bweten;
+  justify-content: space-between;
   position: absolute;
   z-index: 3;
-  left: 31px;
-  bottom: 21px;
+  left: 51px;
   right: 0;
+  bottom: 31px;
   top: 16px;
   margin: 0;
   padding: 0;
   list-style: none; }
-  @media (min-width: 768px) {
-    .chart__bars--v,
-    .chart__bars--h {
-      left: 51px;
-      bottom: 31px; } }
-  .chart__bars--v .chart__bar,
-  .chart__bars--h .chart__bar {
+  .chart__bar-groups--v .chart__bar-group,
+  .chart__bar-groups--h .chart__bar-group {
     position: relative;
     flex: 1 1 0%;
     height: 100%;
     display: flex; }
-  .chart__bars--v .chart__bar-area,
-  .chart__bars--h .chart__bar-area {
+  .chart__bar-groups--v .chart__bar-group-bars,
+  .chart__bar-groups--h .chart__bar-group-bars {
+    padding: 0;
+    width: 100%;
+    display: flex; }
+  .chart__bar-groups--v .chart__bar,
+  .chart__bar-groups--h .chart__bar {
+    position: relative;
+    flex: 1 1 0%;
+    height: 100%;
+    display: flex; }
+  .chart__bar-groups--v .chart__bar-area,
+  .chart__bar-groups--h .chart__bar-area {
     position: relative;
     background: #999;
     cursor: pointer; }
-    .chart__bars--v .chart__bar-area:hover, .chart__bars--v .chart__bar-area:focus,
-    .show-tooltips .chart__bars--v .chart__bar-area,
-    .chart__bars--h .chart__bar-area:hover,
-    .chart__bars--h .chart__bar-area:focus,
+    .chart__bar-groups--v .chart__bar-area:hover, .chart__bar-groups--v .chart__bar-area:focus,
+    .show-tooltips .chart__bar-groups--v .chart__bar-area,
+    .chart__bar-groups--h .chart__bar-area:hover,
+    .chart__bar-groups--h .chart__bar-area:focus,
     .show-tooltips
-    .chart__bars--h .chart__bar-area {
+    .chart__bar-groups--h .chart__bar-area {
       outline: none; }
-      .chart__bars--v .chart__bar-area:hover .chart__bar-tooltip, .chart__bars--v .chart__bar-area:focus .chart__bar-tooltip,
-      .show-tooltips .chart__bars--v .chart__bar-area .chart__bar-tooltip,
-      .chart__bars--h .chart__bar-area:hover .chart__bar-tooltip,
-      .chart__bars--h .chart__bar-area:focus .chart__bar-tooltip,
+      .chart__bar-groups--v .chart__bar-area:hover .chart__bar-tooltip, .chart__bar-groups--v .chart__bar-area:focus .chart__bar-tooltip,
+      .show-tooltips .chart__bar-groups--v .chart__bar-area .chart__bar-tooltip,
+      .chart__bar-groups--h .chart__bar-area:hover .chart__bar-tooltip,
+      .chart__bar-groups--h .chart__bar-area:focus .chart__bar-tooltip,
       .show-tooltips
-      .chart__bars--h .chart__bar-area .chart__bar-tooltip {
-        display: block; }
-    .show-tooltips .chart__bars--v .chart__bar-area, .show-tooltips
-    .chart__bars--h .chart__bar-area {
+      .chart__bar-groups--h .chart__bar-area .chart__bar-tooltip {
+        opacity: 1;
+        pointer-events: auto; }
+    .chart__bar-groups--v .chart__bar-area:focus,
+    .chart__bar-groups--h .chart__bar-area:focus {
+      box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.4); }
+    .show-tooltips .chart__bar-groups--v .chart__bar-area, .show-tooltips
+    .chart__bar-groups--h .chart__bar-area {
       cursor: default;
       cursor: unset; }
-    .chart__bars--v .chart__bar-area.is-selected:after,
-    .chart__bars--h .chart__bar-area.is-selected:after {
+    .chart__bar-groups--v .chart__bar-area.is-selected:after,
+    .chart__bar-groups--h .chart__bar-area.is-selected:after {
       content: "";
       position: absolute;
       top: 0;
@@ -550,95 +577,118 @@ body {
       left: 0;
       right: 0;
       background: rgba(255, 255, 255, 0.2); }
-  .chart__bars--v .chart__bar-tooltip,
-  .chart__bars--h .chart__bar-tooltip {
-    display: none;
+  .chart__bar-groups--v .chart__bar-tooltip,
+  .chart__bar-groups--h .chart__bar-tooltip {
+    opacity: 0;
+    pointer-events: none;
+    cursor: text;
     position: absolute;
     z-index: 1;
-    padding: 5px;
+    padding: 0 6px;
     background: #000;
-    color: #fff; }
+    border: 3px solid #000;
+    color: #fff;
+    text-align: center; }
+    .chart__bar-groups--v .chart__bar-tooltip .chart-bar__tooltip-series,
+    .chart__bar-groups--h .chart__bar-tooltip .chart-bar__tooltip-series {
+      display: block;
+      font-size: 12px; }
+    .chart__bar-groups--v .chart__bar-tooltip .chart-bar__tooltip-label,
+    .chart__bar-groups--h .chart__bar-tooltip .chart-bar__tooltip-label {
+      display: block;
+      font-size: 12px; }
+    .chart__bar-groups--v .chart__bar-tooltip .chart-bar__tooltip-value,
+    .chart__bar-groups--h .chart__bar-tooltip .chart-bar__tooltip-value {
+      display: block; }
 
-.chart__bars--v .chart__bar {
+.chart__bar-groups--v .chart__bar-group-bars--stacked {
+  flex-direction: column;
+  justify-content: flex-end; }
+  .chart__bar-groups--v .chart__bar-group-bars--stacked .chart__bar {
+    flex-grow: 0; }
+  .chart__bar-groups--v .chart__bar-group-bars--stacked .chart__bar-area {
+    height: 100%; }
+
+.chart__bar-groups--v .chart__bar {
   align-items: flex-end; }
 
-.chart__bars--v .chart__bar-area {
+.chart__bar-groups--v .chart__bar-area {
   width: 80%;
   margin: 0 auto;
   transition: height 0.5s; }
+  .chart__bar-groups--v .chart__bar-area::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    height: 5px; }
 
-.chart__bars--v.chart__bars--histogram .chart__bar-area {
+.chart__bar-groups--v.chart__bar-groups--histogram .chart__bar-area {
   width: 100%; }
 
-.chart__bars--v .chart__bar-label {
+.chart__bar-groups--v .chart__bar-label {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateY(100%) translateX(-50%);
-  padding-top: 10px;
+  padding: 10px 5px 0;
   min-width: 100%;
-  text-align: center;
-  font-size: 10px; }
-  @media (min-width: 425px) {
-    .chart__bars--v .chart__bar-label {
-      font-size: 2.35vw; } }
-  @media (min-width: 768px) {
-    .chart__bars--v .chart__bar-label {
-      font-size: 16px; } }
+  text-align: center; }
 
-.chart__bars--v .chart__bar-tooltip {
-  top: -7px;
+.chart__bar-groups--v .chart__bar-tooltip {
+  top: -5px;
   left: 50%;
   transform: translateX(-50%) translateY(-100%); }
-  .chart__bars--v .chart__bar-tooltip:after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-top: 5px solid #000;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent; }
 
-.chart__bars--h {
+.chart__bar-groups--h {
   flex-direction: column; }
-  .chart__bars--h .chart__bar {
+  .chart__bar-groups--h .chart__bar-group-bars {
+    flex-direction: column; }
+  .chart__bar-groups--h .chart__bar-group-bars--stacked {
+    flex-direction: row-reverse;
+    justify-content: flex-end; }
+    .chart__bar-groups--h .chart__bar-group-bars--stacked .chart__bar {
+      flex-grow: 0; }
+    .chart__bar-groups--h .chart__bar-group-bars--stacked .chart__bar-area {
+      width: 100%; }
+  .chart__bar-groups--h .chart__bar {
     width: 100%;
     align-items: center; }
-  .chart__bars--h .chart__bar-area {
+  .chart__bar-groups--h .chart__bar-area {
     height: 80%;
     transition: width 0.5s; }
-  .chart__bars--h.chart__bars--histogram .chart__bar-area {
+    .chart__bar-groups--h .chart__bar-area::before {
+      content: "";
+      position: absolute;
+      left: 100%;
+      top: 0;
+      bottom: 0;
+      width: 5px; }
+  .chart__bar-groups--h.chart__bar-groups--histogram .chart__bar-area {
     height: 100%; }
-  .chart__bars--h .chart__bar-label {
+  .chart__bar-groups--h .chart__bar-label {
     position: absolute;
     top: 50%;
     right: 100%;
-    max-width: 30px;
+    max-width: 50px;
     transform: translateY(-50%);
     padding-right: 10px; }
-    @media (min-width: 768px) {
-      .chart__bars--h .chart__bar-label {
-        max-width: 50px; } }
-  .chart__bars--h .chart__bar-tooltip {
-    right: -5px;
+  .chart__bar-groups--h .chart__bar-tooltip {
     top: 50%;
-    transform: translateY(-50%) translateX(100%); }
+    left: 100%;
+    transform: translateX(5px) translateY(-50%); }
 
 .chart__points {
   position: absolute;
   z-index: 3;
-  left: 31px;
-  bottom: 21px;
+  left: 51px;
   right: 0;
+  bottom: 31px;
   top: 16px;
   margin: 0;
   padding: 0;
   list-style: none; }
-  @media (min-width: 768px) {
-    .chart__points {
-      left: 51px;
-      bottom: 31px; } }
 
 .chart__point {
   display: block;
@@ -653,24 +703,19 @@ body {
 .chart__lines-wrapper {
   position: absolute;
   z-index: 3;
-  left: 31px;
-  bottom: 21px;
+  left: 51px;
   right: 0;
+  bottom: 31px;
   top: 16px; }
-  @media (min-width: 768px) {
-    .chart__lines-wrapper {
-      left: 51px;
-      bottom: 31px; } }
 
 .chart__lines {
-  position: relative;
   height: 100%;
   width: 100%; }
 
 .chart__line {
   fill: none;
   vector-effect: non-scaling-stroke;
-  stroke-width: 1.5;
+  stroke-width: 3;
   stroke-linecap: round;
   stroke: #999;
   position: absolute;
@@ -715,10 +760,60 @@ body {
   top: -5px;
   left: 50%;
   transform: translateX(-50%) translateY(-100%);
-  display: none;
-  padding: 5px;
+  min-width: 80px;
+  opacity: 0;
+  pointer-events: none;
+  padding: 0 6px;
   background: #000;
-  color: #fff; }
+  border: 3px solid #000;
+  color: #fff;
+  text-align: center; }
   .chart__point-tooltip:hover .chart__point-tooltip-body,
   .chart__point-tooltip:focus .chart__point-tooltip-body {
+    opacity: 1;
+    pointer-events: auto; }
+  .chart__point-tooltip-body .chart-point__tooltip-series {
+    display: block;
+    font-size: 12px; }
+  .chart__point-tooltip-body .chart-point__tooltip-label {
+    display: block;
+    font-size: 12px; }
+  .chart__point-tooltip-body .chart-point__tooltip-value {
     display: block; }
+
+.content code,
+.code,
+.codebook__code,
+.codebook__log {
+  display: inline;
+  background: #eee;
+  color: #000;
+  padding: 3px 7px;
+  border-radius: 5px;
+  font-family: monospace;
+  white-space: pre-wrap;
+  tab-size: 4;
+  -moz-tab-size: 4;
+  max-width: 100%;
+  overflow: auto; }
+
+.code--block, .codebook__code, .codebook__log {
+  display: block;
+  min-height: 30px;
+  padding: 0 7px;
+  margin: 20px 0; }
+  .code--block:first-child, .codebook__code:first-child, .codebook__log:first-child {
+    margin-top: 0; }
+  .code--block:last-child, .codebook__code:last-child, .codebook__log:last-child {
+    margin-bottom: 0; }
+
+.codebook__panel {
+  margin: 20px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd; }
+  .codebook__panel:first-child {
+    margin-top: 0; }
+  .codebook__panel:last-child {
+    padding-bottom: none;
+    border-bottom: none;
+    margin-bottom: 0; }

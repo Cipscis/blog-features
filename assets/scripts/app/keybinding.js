@@ -19,14 +19,13 @@ const keys = (function () {
 		_isFocusOnInput: function () {
 			// Check if the current active element is an input that accepts keypresses
 
-			var $activeEl = document.activeElement;
-			var nodeName = $activeEl.nodeName.toLowerCase();
-			var inputType;
+			let $activeEl = document.activeElement;
+			let nodeName = $activeEl.nodeName.toLowerCase();
 
-			var isInput = (['input', 'textarea', 'select'].includes(nodeName));
+			let isInput = (['input', 'textarea', 'select'].includes(nodeName));
 
 			if (nodeName === 'input') {
-				inputType = $activeEl.attributes.type.value.toLowerCase();
+				let inputType = $activeEl.attributes.type.value.toLowerCase();
 
 				if (['color', 'radio', 'checkbox'].includes(inputType)) {
 					isInput = false;
@@ -51,22 +50,22 @@ const keys = (function () {
 		},
 
 		bind: function (key, fn, allowInInput, requireCtrl) {
-			var fnWrapper;
-
 			if (typeof key !== 'string') {
 				throw new TypeError('The key parameter to bind must be a string.');
 			} else {
 				key = key.toLowerCase();
 			}
 
-			fnWrapper = function (event) {
+			let fnWrapper = function (event) {
 				// Don't check key if focus is on an input element,
 				// unless it is allowed or requires Ctrl
 				if (!allowInInput && module._isFocusOnInput() && !requireCtrl) {
 					return;
 				}
 
-				if (event.key.toLowerCase() === key) {
+				// Some behaviour, like selecting an autocomplete result, can
+				// fire a keydown event with no key
+				if (event.key && event.key.toLowerCase() === key) {
 					if (!requireCtrl || event.ctrlKey) {
 						if (fn.apply(this, arguments) === false) {
 							// Implement jQuery-like shorthand of return false;
@@ -81,11 +80,10 @@ const keys = (function () {
 		},
 
 		unbind: function (key, fn) {
-			var binding = bindings[key];
-			var index;
-
+			let binding = bindings[key];
 			if (binding) {
 				// Find index
+				let index;
 				for (index = 0; index < binding.length; index++) {
 					if (binding[index].fn === fn) {
 						break;
@@ -105,8 +103,8 @@ const keys = (function () {
 		},
 
 		_getSequenceArgs: function (keyA, keyB, keyC, fn) {
-			var args = Array.prototype.splice.call(arguments, 0);
-			var keys = args[0];
+			let args = Array.prototype.splice.call(arguments, 0);
+			let keys = args[0];
 			fn = args[args.length-1]; // The function should be the last event
 
 			if (!Array.isArray(keys)) {
@@ -114,28 +112,24 @@ const keys = (function () {
 			}
 
 			return {
-				keys: keys,
-				fn: fn
+				keys,
+				fn
 			};
 		},
 
 		bindSequence: function (keyA, keyB, keyC, fn) {
-			var args = module._getSequenceArgs.apply(this, arguments);
-			var keys = args.keys;
+			let args = module._getSequenceArgs.apply(this, arguments);
+			let keys = args.keys;
 
-			var keyString;
-
-			var fnWrapper;
-			var keysPressed = [];
-			var i;
+			let keysPressed = [];
 
 			fn = args.fn;
 
 			if (keys.length > 1) {
 				// Record as many of the past keys pressed as required for the sequence
 
-				fnWrapper = function (event) {
-					var key = event.key.toLowerCase();
+				let fnWrapper = function (event) {
+					let key = event.key.toLowerCase();
 
 					// Don't check key presses if focus is on an input element
 					if (module._isFocusOnInput()) {
@@ -152,6 +146,7 @@ const keys = (function () {
 
 					if (key === keys[keys.length-1]) {
 						// When the final key is pressed, check if the whole sequence matches
+						let i;
 						for (i = 0; i < keys.length; i++) {
 							if (keys[i] !== keysPressed[i]) {
 								break;
@@ -169,14 +164,14 @@ const keys = (function () {
 					}
 				};
 
-				keyString = keys.join(',');
+				let keyString = keys.join(',');
 				module._bindFn(keyString, fn, fnWrapper);
 			}
 		},
 
 		unbindSequence: function (keyA, keyB, keyC, fn) {
-			var args = module._getSequenceArgs.apply(this, arguments);
-			var keyString = args.keys.join(',');
+			let args = module._getSequenceArgs.apply(this, arguments);
+			let keyString = args.keys.join(',');
 
 			fn = args.fn;
 
