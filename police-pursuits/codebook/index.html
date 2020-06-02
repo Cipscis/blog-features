@@ -1,0 +1,464 @@
+<html lang="en">
+<head>
+	<title>Code: NZ Police pursuits keep killing people</title>
+
+	<script src="/assets/scripts/app/main.js" type="module"></script>
+	<script src="/assets/scripts/app/codebook/codebook.js" type="module"></script>
+
+	<link rel="stylesheet" href="/assets/css/style.css" />
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="This document describes how data was analysed and how figures were produced for the article 'NZ Police pursuits keep killing people'" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@HonestUniverse" />
+	<meta name="twitter:creator" content="@HonestUniverse" />
+	<meta property="og:title" content="Code: NZ Police pursuits keep killing people" />
+	<meta property="og:description" content="This document describes how data was analysed and how figures were produced for the article 'NZ Police pursuits keep killing people'" />
+	<meta property="og:image" content="https://features.honestuniverse.com/assets/images/police-car.jpg" />
+	<!-- Source of OpenGraph image:
+		https://commons.wikimedia.org/wiki/File:2008-2009_Holden_VE_Commodore_Omega_sedan_(New_Zealand_Police)_01.jpg
+		Used under CC BY 2.0 License. Image has been cropped from the original -->
+</head>
+<body>
+	<div class="layout">
+		<article>
+			<section>
+				<div class="content">
+					<h1>Code: NZ Police pursuits keep killing people</h1>
+
+					<div class="article-meta">
+						<span class="article-meta__author">by Mark Hanna</span>
+						<span class="article-meta__date">Published 2020-06-02</span>
+
+						<a href="../" class="article-meta__codebook">See the article</a>
+					</div>
+
+					<p>This document describes how data was analysed and how figures were produced for the article <a href="../">NZ Police pursuits keep killing people</a>.</p>
+
+					<p>This article relied on two sources of data for the graphs it produced.</p>
+
+					<p>I used my <a href="https://github.com/Cipscis/charter" target="_blank">Charter</a> data analysis library to load and process the data and to produce the all graphs used in the article.</p>
+				</div>
+			</section>
+
+			<section class="expander js-expander" id="section-data-road-policing">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Data: Road policing driver offence</span> <a class="anchor" href="#section-data-road-policing"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>Police regularly release road policing driver offence data. This article used the 2009-2017 data released on the NZ Police website.</p>
+
+						<p>When Police release new data on their website, they overwrite the existing data and direct older pages to the most recent page. At the time this page was written, nearly two years after the article was published, the road policing driver offence data published on the NZ Police website covered January 2009 - December 2019.</p>
+
+						<p>However, the article was based on data extracted in 2018, which only covered up until 2017. A copy of this older data is available, but I will stress that more up-to-date information is available on the NZ Police website.</p>
+
+						<ul>
+							<li><a href="https://www.police.govt.nz/about-us/publication/road-policing-driver-offence-data-january-2009-december-2019" target="_blank">Road policing driver offence data - January 2009 to December 2019</a></li>
+							<li><a href="../data/2009-01-01 - 2017-12-31 Road policing driver offence data.xlsx" target="_blank">Road policing driver offence data - January 2009 to December 2017</a> (XSLX)</li>
+						</ul>
+
+						<p>Before being analysed, I extracted the "Fleeding Drivers" sheet from the road policing driver offence data spreadsheet, and converted it to CSV format using Google Drive. The "Fleeing driver incidents" table was then extracted from this CSV and transposed so that the regions were reflected by columns and each row was one month.</p>
+
+						<p>Some hand editing was also necessary to delete rows that had been used for formatting and the "total" rows for each calendar year, and to add missing month labels for October 2016 onwards.</p>
+
+						<p><a href="../data/2009-01-01 - 2017-12-31 Road policing driver offence data - Fleeing Drivers.csv" target="_blank">Road policing driver offence data, fleeing drivers - January 2009 to December 2019</a> (CSV)</p>
+
+						<p>This data was loaded into Charter using this code:</p>
+					</div>
+
+					<code class="codebook__code js-codebook__code js-codebook__source" data-codebook-set="road-policing">
+						const fileConfig = {
+							headerRows: 1,
+							cols: Analyser.getColNumbers({
+								MONTH: 'A',
+								AUCKLAND_CITY: 'B',
+								BAY_OF_PLENTY: 'C',
+								CANTERBURY: 'D',
+								CENTRAL: 'E',
+								COUNTIES_MANUKAU: 'F',
+								EASTERN: 'G',
+								NORTHLAND: 'H',
+								SOUTHERN: 'I',
+								TASMAN: 'J',
+								WAIKATO: 'K',
+								WAITEMATA: 'L',
+								WELLINGTON: 'M',
+								ALL: 'N'
+							})
+						};
+
+						Analyser.loadFile('../data/2009-01-01 - 2017-12-31 Road policing driver offence data - Fleeing Drivers.csv', fileConfig, analyseData);
+					</code>
+				</div>
+			</section>
+
+			<section class="expander js-expander" id="section-chart-police-pursuits">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Chart: Police Pursuits</span> <a class="anchor" href="#section-chart-police-pursuits"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>The "Police Pursuits" chart was created using the road policing driver offence data. This code was used to create a line graph of police pursuits per month:</p>
+					</div>
+
+					<code class="codebook__code js-codebook__code" data-codebook-set="road-policing" data-codebook-chart="chart-pursuits">
+						let labels = rows.getCol(cols.MONTH);
+						// Replace hyphen with non-breaking hyphen
+						labels = labels.map(month => month.replace('-', '‑'));
+
+						const pursuitsChart = {
+							title: 'Police Pursuits',
+							showLegend: true,
+							showTooltips: true,
+							labels: labels,
+							dataSeries: [
+								{
+									name: 'Pursuits per month',
+									color: '#66c',
+									dataPoints: rows.getCol(cols.ALL)
+								}
+							]
+						};
+
+						const pursuitsAxisY = {
+							min: 0,
+							max: 400,
+							values: 4
+						};
+
+						const pursuitsAxisX = {
+							valuesEvery: 12
+						};
+
+						let $pursuitsChart = Charter.createLineGraph(pursuitsChart, pursuitsAxisY, pursuitsAxisX);
+
+						chart($pursuitsChart);
+					</code>
+
+					<div id="chart-pursuits"></div>
+				</div>
+			</section>
+
+			<section class="expander js-expander" id="section-data-pursuits-oia">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Data: Pursuit statistics OIA</span> <a class="anchor" href="#section-data-pursuits-oia"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>In February 2018, I asked Police to release certain statistics on Police pursuits under the Official Information Act:</p>
+
+						<blockquote>
+							<p>Please release the following information:</p>
+
+							<p>1. The current New Zealand Police pursuit policy.<br />
+							1a. All past iterations of the New Zealand Police pursuit policy that were in use from 1 January 2012, and the dates on which they were introduced.</p>
+
+							<p>Please release the following information, broken down by month, from January 2012 until the most recent month for which data is available:</p>
+
+							<p>2. The number of police pursuits.<br />
+							3. The number of police pursuits that were abandoned.<br />
+							4. The number of police pursuits that resulted in at least one injury.<br />
+							4a. The number of injuries that were the result of a police pursuit, broken down by offender and police officer.<br />
+							5. The number of police pursuits that resulted in at least one death.<br />
+							5a. The number of deaths that were the result of a police pursuit, broken down by offender and police officer.</p>
+
+							<cite><a href="https://fyi.org.nz/request/7257-police-pursuit-policy-and-statistics/" target="_blank">Police pursuit policy and statistics</a> | Mark Hanna</cite>
+						</blockquote>
+
+						<p>After receiving Police's response, I sent a follow-up request after observing a discrepancy between the information I had been provided and media reports, and realising I had not asked about injuries and deaths of bystanders:</p>
+
+						<blockquote>
+							<p>I've been looking through the information released and I have some follow-up questions I hope you'll be able to help me with.</p>
+
+							<p>1. The spreadsheet lists no offender deaths during July 2017, but there were media reports of a motorcyclist who died in a police pursuit in July 2017 in Māngere: <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&objectid=11894208" target+"_blank">http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&objectid=11894208</a></p>
+
+							<p>Is there any particular reason why this death was not included in the spreadsheet, and are there likely to be other similar deaths that have been excluded?</p>
+
+							<p>2. Since sending the request last month, I've realised that I worded part of it poorly. In asking that injuries and deaths be broken down by offenders and police, I neglected to ask about injuries and deaths of bystanders.</p>
+
+							<p>In the IPCA's report on their 2009 review of police pursuits they reported that, from 19 December 2003 to 19 December 2008, three innocent members of the public died in police pursuits, 18 were seriously injured, and 29 suffered minor injuries. In that period, that amounted to 14% of deaths, 25% of all serious injuries, and 29% of minor injuries. So I am now concerned that the way I worded my request may potentially have excluded a significant number of injuries and deaths.</p>
+
+							<p>Though I had intended that parts 4a and 5a would each cover all injuries and all deaths, given the breakdown I had requested I can understand why it was interpreted to only include injuries and deaths of offenders and police.</p>
+
+							<p>Could you please provide the equivalent statistics for injuries and deaths to bystanders in pursuits, and any other relevant categories of person that I may have missed, for the same period?</p>
+
+							<cite><a href="https://fyi.org.nz/request/7482-police-pursuit-policy-and-statistics-follow-up" target="_blank">Police pursuit policy and statistics follow-up</a> | Mark Hanna</cite>
+						</blockquote>
+
+						<p>Police assured me that the single discrepancy I had found was the only one:</p>
+
+						<blockquote>
+							<p>Data used to produce this report is sourced from the Fleeding Driver Notification Database. If a notification is not fully completed, then information about that particular pursuit will not appear in any report. As previously stated the data provided is drawn from a dynamic operational database that is subject to change as new information is recorded or recoded. In this instance one notification was not completed, and another was completed several months after the crash. As these had not been completed in a timely manner, they did not show up in any reports generated from this database. A detailed examination of the fleeing driver notifications has been undertaken, cross-matching them with fatal crashes in the NZTA Crash Analysis System (CAS). Police are now confident that the data it holds on fatal fleeing driver incidents is accurate and measures are to be put in place to ensure that any future fatal fleeing driver event notifications will be completed in a timely manner.</p>
+
+							<cite><a href="https://fyi.org.nz/request/7482/response/24753/attach/8/Hanna%20Mark%2016%207758%2014%20Reply.pdf" target="_blank">NZ Police</a></cite>
+						</blockquote>
+
+						<p>Police also sent me revised data including the information on injuries and deaths to bystanders I had asked for. They included this note alongside the information:</p>
+
+						<blockquote>
+							<p>Please note that the 'Offender' category includes any persons in the offending vehicle and the 'Third Party' category includes occupants of any other vehicle involved, pedestrians, cyclists or any other road users.</p>
+
+							<cite><a href="https://fyi.org.nz/request/7482/response/24753/attach/8/Hanna%20Mark%2016%207758%2014%20Reply.pdf" target="_blank">NZ Police</a></cite>
+						</blockquote>
+
+						<p>The revised data they provided can be found here:</p>
+
+						<p><a href="../data/Hanna Mark 16 7758 14 Pursuit data.xlsx" target="_blank">Hanna Mark 16 7758 14 Pursuit data.xlsx</a></p>
+
+						<p>I converted this spreadsheet to CSV format using Google Drive, and the explanatory note and two empty formatting rows were removed for ease of processing the file:</p>
+
+						<p><a href="../data/Hanna Mark 16 7758 14 Pursuit data.xlsx - Sheet1.csv">Hanna Mark 16 7758 14 Pursuit data.xlsx - Sheet1.csv</a></p>
+
+						<p>This data was loaded into Charter using this code:</p>
+					</div>
+
+					<code class="codebook__code js-codebook__code js-codebook__source" data-codebook-set="pursuits-oia">
+						const cols = Analyser.getColNumbers({
+							MONTH: 'A',
+							PURSUITS_TOTAL: 'B',
+							PURSUITS_ABANDONED: 'C',
+							PURSUITS_INJURY: 'D',
+							PURSUITS_FATAL: 'H',
+
+							OFFENDERS_INJURY: 'E',
+							OFFENDERS_DEATH: 'I',
+
+							POLICE_INJURY: 'F',
+
+							BYSTANDERS_INJURY: 'G',
+							BYSTANDERS_DEATH: 'J'
+						});
+
+						const defaultCols = {
+							[cols.PURSUITS_TOTAL]: 0,
+							[cols.PURSUITS_ABANDONED]: 0,
+							[cols.PURSUITS_INJURY]: 0,
+							[cols.PURSUITS_FATAL]: 0,
+
+							[cols.OFFENDERS_INJURY]: 0,
+							[cols.OFFENDERS_DEATH]: 0,
+
+							[cols.POLICE_INJURY]: 0,
+
+							[cols.BYSTANDERS_INJURY]: 0,
+							[cols.BYSTANDERS_DEATH]: 0
+						};
+
+						const fileConfig = {
+							headerRows: 1,
+							cols,
+							defaultCols
+						};
+
+						Analyser.loadFile('../data/Hanna Mark 16 7758 14 Pursuit data.xlsx - Sheet1.csv', fileConfig, analyseData);
+					</code>
+				</div>
+			</section>
+
+			<section class="expander js-expander" id="section-chart-pursuits-abandoned">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Chart: Abandoned Police Pursuits</span> <a class="anchor" href="#section-chart-pursuits-abandoned"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>The "Abandoned Police Pursuits" chart was created using the pursuit statistics released by NZ Police under the Official Information Act.</p>
+
+						<p>This code was used to calculate the rate at which pursuits were abandoned each month, and to produce a line graph showing this rate:</p>
+					</div>
+
+					<code class="codebook__code js-codebook__code" data-codebook-set="pursuits-oia" data-codebook-log="log-pursuits-abandoned" data-codebook-chart="chart-pursuits-abandoned">
+						let getAbandonedPursuitsPercent = function (row) {
+							let abandoned = row[cols.PURSUITS_ABANDONED];
+							let pursuits = row[cols.PURSUITS_TOTAL];
+
+							let abandonedPercent = abandoned/pursuits;
+
+							return abandonedPercent;
+						};
+
+						cols.PURSUITS_ABANDONED_PERCENT = rows.addDerivedCol(getAbandonedPursuitsPercent);
+
+						let labels = rows.getCol(cols.MONTH);
+						// Replace hyphen with non-breaking hyphen
+						labels = labels.map(month => month.replace('-', '‑'));
+
+						const abandonedPursuitsChart = {
+							title: 'Abandoned Police Pursuits',
+							showLegend: true,
+							showTooltips: true,
+							labels: labels,
+							dataSeries: [
+								{
+									name: 'Abandoned pursuits',
+									color: '#66c',
+									dataPoints: rows.getCol(cols.PURSUITS_ABANDONED_PERCENT)
+								}
+							]
+						};
+
+						const abandonedPursuitsAxisY = {
+							min: 0,
+							max: 1,
+							values: 4,
+
+							toFixed: 0,
+							percentage: true
+						};
+
+						const abandonedPursuitsAxisX = {
+							valuesEvery: 12
+						};
+
+						let $abandonedPursuitsChart = Charter.createLineGraph(abandonedPursuitsChart, abandonedPursuitsAxisY, abandonedPursuitsAxisX);
+
+						chart($abandonedPursuitsChart);
+					</code>
+
+					<!-- <samp class="codebook__log" id="log-pursuits-abandoned"></samp> -->
+
+					<div id="chart-pursuits-abandoned"></div>
+				</div>
+			</section>
+
+			<section class="expander js-expander" id="section-chart-injury-rate">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Chart Injury Rate in Police Pursuits</span> <a class="anchor" href="#section-chart-injury-rate"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>The graph "Injury Rate in Police Pursuits" was created by calculating the number of people injured per month, and dividing it by the number of pursuits. Because the number of injuries per month is quite sporadic, the graph was produced using combined numbers for sets of three months.</p>
+
+						<p>This code was used to create it:</p>
+					</div>
+
+					<code class="codebook__code js-codebook__code" data-codebook-set="pursuits-oia" data-codebook-log="log-pursuits-injury" data-codebook-chart="chart-pursuits-injury">
+						let pursuitQuarters = Stats.chunk(rows.getCol(cols.PURSUITS_TOTAL), 3);
+
+						let getNumPeopleInjured = function (row) {
+							let numPeopleInjured = row[cols.OFFENDERS_INJURY] + row[cols.POLICE_INJURY] + row[cols.BYSTANDERS_INJURY];
+
+							return numPeopleInjured;
+						};
+
+						cols.TOTAL_INJURED = rows.addDerivedCol(getNumPeopleInjured);
+
+						let pursuitInjuryQuarters = Stats.chunk(rows.getCol(cols.TOTAL_INJURED), 3);
+
+						let pursuitInjuryRateQuarters = pursuitInjuryQuarters.map((el, i) => el / pursuitQuarters[i]);
+
+						const quarterLabels = ['Q1 2012', 'Q2 2012', 'Q3 2012', 'Q4 2012', 'Q1 2013', 'Q2 2013', 'Q3 2013', 'Q4 2013', 'Q1 2014', 'Q2 2014', 'Q3 2014', 'Q4 2014', 'Q1 2015', 'Q2 2015', 'Q3 2015', 'Q4 2015', 'Q1 2016', 'Q2 2016', 'Q3 2016', 'Q4 2016', 'Q1 2017', 'Q2 2017', 'Q3 2017', 'Q4 2017', 'Q1 2018'];
+
+						const injuryRateChart = {
+							title: 'Injury Rate in Police Pursuits',
+							showLegend: true,
+							showTooltips: true,
+							labels: quarterLabels,
+							dataSeries: [
+								{
+									name: 'Injury rate',
+									color: '#933',
+									dataPoints: pursuitInjuryRateQuarters
+								}
+							]
+						};
+
+						const injuryRateAxisY = {
+							min: 0,
+							values: 5,
+
+							toFixed: 0,
+							percentage: true
+						};
+
+						const injuryRateAxisX = {
+							valuesEvery: 2
+						};
+
+						let $injuryRateChart = Charter.createLineGraph(injuryRateChart, injuryRateAxisY, injuryRateAxisX);
+
+						chart($injuryRateChart);
+					</code>
+
+					<!-- <samp class="codebook__log" id="log-pursuits-injury"></samp> -->
+
+					<div id="chart-pursuits-injury"></div>
+				</div>
+			</section>
+
+			<section class="expander js-expander" id="pursuits-death">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Chart: Deaths in Police Pursuits</span> <a class="anchor" href="#pursuits-death"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>The graph "Deaths in Police Pursuits" was created using the combined figures for each calendar year.</p>
+
+						<p>This code was used to create it:</p>
+					</div>
+
+					<code class="codebook__code js-codebook__code" data-codebook-set="pursuits-oia" data-codebook-log="log-pursuits-death" data-codebook-chart="chart-pursuits-death">
+						let getNumDeaths = function (row) {
+							// No police deaths column to count
+							let numDeaths = row[cols.OFFENDERS_DEATH] + row[cols.BYSTANDERS_DEATH];
+
+							return numDeaths;
+						};
+
+						cols.TOTAL_DEATH = rows.addDerivedCol(getNumDeaths);
+
+						let pursuitDeathYears = Stats.chunk(rows.getCol(cols.TOTAL_DEATH), 12);
+
+						// Remove last item because the year is incomplete
+						pursuitDeathYears.pop();
+
+						const yearLabels = ['2012', '2013', '2014', '2015', '2016', '2017'];
+
+						const pursuitDeathChart = {
+							title: 'Deaths in Police Pursuits',
+							showLegend: true,
+							showTooltips: false,
+							labels: yearLabels,
+							dataSeries: [
+								{
+									name: 'Deaths',
+									color: '#933',
+									dataPoints: pursuitDeathYears
+								}
+							]
+						};
+
+						const pursuitDeathAxisY = {
+							min: 0,
+							max: 15,
+							values: 5,
+
+							toFixed: 0
+						};
+
+						const pursuitDeathAxisX = {
+							valuesEvery: 2
+						};
+
+						let $pursuitDeathChart = Charter.createBarChart(pursuitDeathChart, pursuitDeathAxisY, pursuitDeathAxisX);
+
+						chart($pursuitDeathChart);
+					</code>
+
+					<!-- <samp class="codebook__log" id="log-pursuits-death"></samp> -->
+
+					<div id="chart-pursuits-death"></div>
+				</div>
+			</section>
+		</article>
+	</div>
+</body>
+</html>
