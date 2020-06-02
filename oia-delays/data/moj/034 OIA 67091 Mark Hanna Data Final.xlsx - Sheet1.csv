@@ -1,0 +1,449 @@
+Number,Type, Date Received,Date Responded,Actual Due Date,Extended Yes/No, Extended Due Date,Number of Working  Days* To Respond,Days Overdue,Outcome 
+1,Ministry OIA,1/7/2017,31/7/2017,28/7/2017,No ,-,20,1,Complete
+2,Ministry OIA,2/7/2017,21/7/2017,28/7/2017,No ,-,14,-,Complete
+3,Ministry OIA,2/7/2017,26/7/2017,28/7/2017,No ,-,17,-,Complete
+4,Ministry OIA,2/7/2017,27/7/2017,28/7/2017,No ,-,18,-,Complete
+5,Ministry OIA,3/7/2017,25/7/2017,31/7/2017,No ,-,16,-,Complete
+6,Ministry OIA,3/7/2017,26/7/2017,31/7/2017,No ,-,17,-,Complete
+7,Ministry OIA,3/7/2017,13/7/2017,31/7/2017,No ,-,8,-,Complete
+8,Ministry OIA,3/7/2017,28/7/2017,31/7/2017,No ,-,19,-,Complete
+9,Ministry OIA,3/7/2017,25/7/2017,31/7/2017,No ,-,16,-,Complete
+10,Ministry OIA,4/7/2017,24/7/2017,1/8/2017,No ,-,14,-,Complete
+11,Ministry OIA,4/7/2017,2/8/2017,1/8/2017,No ,-,21,1,Complete
+12,Ministry OIA,5/7/2017,2/8/2017,2/8/2017,No ,-,20,-,Complete
+13,Ministry OIA,5/7/2017,30/8/2017,30/8/2017,Yes,30/8/2017,40,-,Complete
+14,Ministry OIA,5/7/2017,8/8/2017,2/8/2017,No ,-,24,4,Complete
+15,Ministry OIA,5/7/2017,5/7/2017,2/8/2017,No ,-,0,-,Complete
+16,Ministry OIA,6/7/2017,3/8/2017,3/8/2017,No ,-,20,-,Complete
+17,Ministry OIA,6/7/2017,14/7/2017,3/8/2017,No ,-,6,-,Complete
+18,Ministry OIA,7/7/2017,31/7/2017,4/8/2017,No ,-,16,-,Complete
+19,Ministry OIA,7/7/2017,8/8/2017,4/8/2017,No ,-,22,2,Complete
+20,Ministry OIA,7/7/2017,27/7/2017,4/8/2017,No ,-,14,-,Complete
+21,Ministry OIA,9/7/2017,18/7/2017,4/8/2017,No ,-,6,-,Complete
+22,Ministry OIA,10/7/2017,12/7/2017,7/8/2017,No ,-,2,-,Transferred
+23,Ministry OIA,10/7/2017,7/8/2017,7/8/2017,No ,-,20,-,Complete
+24,Ministry OIA,10/7/2017,7/8/2017,7/8/2017,No ,-,20,-,Complete
+25,Ministry OIA,10/7/2017,17/7/2017,7/8/2017,No ,-,5,-,Complete
+26,Ministry OIA,10/7/2017,1/8/2017,7/8/2017,No ,-,16,-,Complete
+27,Ministry OIA,10/7/2017,25/7/2017,7/8/2017,No ,-,11,-,Complete
+28,Ministry OIA,10/7/2017,10/7/2017,7/8/2017,No ,-,0,-,Transferred
+29,Ministry OIA,11/7/2017,30/8/2017,8/8/2017,No ,-,36,16,Complete
+30,Ministry OIA,11/7/2017,7/8/2017,8/8/2017,No ,-,19,-,Complete
+31,Ministry OIA,11/7/2017,10/8/2017,8/8/2017,No ,-,22,2,Complete
+32,Ministry OIA,11/7/2017,8/8/2017,8/8/2017,No ,-,20,-,Complete
+33,Ministry OIA,11/7/2017,4/8/2017,8/8/2017,No ,-,18,-,Complete
+34,Ministry OIA,11/7/2017,25/7/2017,8/8/2017,No ,-,10,-,Transferred
+35,Ministry OIA,11/7/2017,28/7/2017,8/8/2017,No ,-,13,-,Transferred
+36,Ministry OIA,12/7/2017,21/7/2017,9/8/2017,No ,-,7,-,Complete
+37,Ministry OIA,13/7/2017,10/8/2017,10/8/2017,No ,-,20,-,Complete
+38,Ministry OIA,13/7/2017,28/7/2017,10/8/2017,No ,-,11,-,Complete
+39,Ministry OIA,13/7/2017,10/8/2017,10/8/2017,No ,-,20,-,Complete
+40,Ministry OIA,13/7/2017,7/8/2017,10/8/2017,No ,-,17,-,Complete
+41,Ministry OIA,14/7/2017,25/8/2017,11/8/2017,No ,-,30,10,Complete
+42,Ministry OIA,14/7/2017,7/8/2017,11/8/2017,No ,-,16,-,Complete
+43,Ministry OIA,17/7/2017,9/8/2017,14/8/2017,No ,-,17,-,Complete
+44,Ministry OIA,17/7/2017,24/7/2017,14/8/2017,No ,-,5,-,Complete
+45,Ministry OIA,17/7/2017,27/7/2017,14/8/2017,No ,-,8,-,Complete
+46,Ministry OIA,17/7/2017,30/8/2017,14/8/2017,No ,-,32,12,Transferred
+47,Ministry OIA,18/7/2017,14/8/2017,15/8/2017,No ,-,19,-,Complete
+48,Ministry OIA,18/7/2017,15/8/2017,15/8/2017,No ,-,20,-,Complete
+49,Ministry OIA,18/7/2017,10/8/2017,15/8/2017,No ,-,17,-,Complete
+50,Ministry OIA,18/7/2017,3/8/2017,15/8/2017,No ,-,12,-,Complete
+51,Ministry OIA,18/7/2017,16/8/2017,15/8/2017,No ,-,21,1,Complete
+52,Ministry OIA,18/7/2017,5/9/2017,6/9/2017,Yes,6/9/2017,35,-,Complete
+53,Ministry OIA,18/7/2017,27/7/2017,15/8/2017,No ,-,7,-,Complete
+54,Ministry OIA,18/7/2017,26/9/2017,22/9/2017,Yes,22/9/2017,50,2,Complete
+55,Ministry OIA,19/7/2017,9/8/2017,16/8/2017,No ,-,15,-,Complete
+56,Ministry OIA,19/7/2017,19/7/2017,16/8/2017,No ,-,0,-,Complete
+57,Ministry OIA,19/7/2017,4/8/2017,16/8/2017,No ,-,12,-,Complete
+58,Ministry OIA,19/7/2017,29/8/2017,28/8/2017,Yes,28/8/2017,29,1,Complete
+59,Ministry OIA,20/7/2017,17/8/2017,17/8/2017,No ,-,20,-,Complete
+60,Ministry OIA,21/7/2017,31/7/2017,18/8/2017,No ,-,6,-,Transferred
+61,Ministry OIA,24/7/2017,25/9/2017,25/9/2017,Yes,25/9/2017,45,-,Complete
+62,Ministry OIA,24/7/2017,28/7/2017,21/8/2017,No ,-,4,-,Complete
+63,Ministry OIA,25/7/2017,22/8/2017,22/8/2017,No ,-,20,-,Complete
+64,Ministry OIA,25/7/2017,15/8/2017,22/8/2017,No ,-,15,-,Complete
+65,Ministry OIA,25/7/2017,-,22/8/2017,No ,-,-,-,On Hold
+66,Ministry OIA,25/7/2017,25/7/2017,22/8/2017,No ,-,0,-,Transferred
+67,Ministry OIA,25/7/2017,21/8/2017,22/8/2017,No ,-,19,-,Complete
+68,Ministry OIA,25/7/2017,31/8/2017,22/8/2017,No ,-,27,7,Complete
+69,Ministry OIA,26/7/2017,7/8/2017,23/8/2017,No ,-,8,-,Complete
+70,Ministry OIA,26/7/2017,30/8/2017,1/9/2017,Yes,1/9/2017,25,-,Complete
+71,Ministry OIA,26/7/2017,28/7/2017,23/8/2017,No ,-,2,-,Complete
+72,Ministry OIA,27/7/2017,29/8/2017,24/8/2017,No ,-,23,3,Complete
+73,Ministry OIA,27/7/2017,22/8/2017,24/8/2017,No ,-,18,-,Complete
+74,Ministry OIA,27/7/2017,30/8/2017,24/8/2017,No ,-,24,4,Complete
+75,Ministry OIA,27/7/2017,4/9/2017,24/8/2017,No ,-,27,7,Complete
+76,Ministry OIA,27/7/2017,24/8/2017,24/8/2017,No ,-,20,-,Complete
+77,Ministry OIA,27/7/2017,24/8/2017,24/8/2017,No ,-,20,-,Complete
+78,Ministry OIA,28/7/2017,24/8/2017,25/8/2017,No ,-,19,-,Complete
+79,Ministry OIA,31/7/2017,22/8/2017,28/8/2017,No ,-,16,-,Complete
+80,Ministry OIA,31/7/2017,31/7/2017,28/8/2017,No ,-,0,-,Transferred
+81,Ministry OIA,31/7/2017,7/8/2017,28/8/2017,No ,-,5,-,Complete
+82,Ministry OIA,31/7/2017,31/8/2017,28/8/2017,No ,-,23,3,Complete
+83,Ministry OIA,1/8/2017,9/8/2017,29/8/2017,No ,-,6,-,Complete
+84,Ministry OIA,1/8/2017,5/10/2017,28/9/2017,Yes,28/9/2017,47,5,Complete
+85,Ministry OIA,2/8/2017,4/8/2017,30/8/2017,No ,-,2,-,Complete
+86,Ministry OIA,2/8/2017,21/8/2017,30/8/2017,No ,-,13,-,Complete
+87,Ministry OIA,2/8/2017,8/9/2017,30/8/2017,No ,-,27,7,Complete
+88,Ministry OIA,2/8/2017,21/8/2017,30/8/2017,No ,-,13,-,Complete
+89,Ministry OIA,3/8/2017,24/8/2017,31/8/2017,No ,-,15,-,Complete
+90,Ministry OIA,3/8/2017,22/8/2017,31/8/2017,No ,-,13,-,Complete
+91,Ministry OIA,3/8/2017,14/8/2017,31/8/2017,No ,-,7,-,Complete
+92,Ministry OIA,4/8/2017,1/9/2017,1/9/2017,No ,-,20,-,Complete
+93,Ministry OIA,4/8/2017,21/8/2017,1/9/2017,No ,-,11,-,Complete
+94,Ministry OIA,4/8/2017,21/8/2017,1/9/2017,No ,-,11,-,Complete
+95,Ministry OIA,4/8/2017,1/9/2017,1/9/2017,No ,-,20,-,Complete
+96,Ministry OIA,6/8/2017,1/9/2017,1/9/2017,No ,-,19,-,Complete
+97,Ministry OIA,7/8/2017,29/8/2017,4/9/2017,No ,-,16,-,Complete
+98,Ministry OIA,7/8/2017,15/8/2017,4/9/2017,No ,-,6,-,Transferred
+99,Ministry OIA,7/8/2017,31/8/2017,4/9/2017,No ,-,18,-,Complete
+100,Ministry OIA,7/8/2017,9/8/2017,4/9/2017,No ,-,2,-,Complete
+101,Ministry OIA,8/8/2017,1/9/2017,5/9/2017,No ,-,18,-,Complete
+102,Ministry OIA,8/8/2017,24/8/2017,5/9/2017,No ,-,12,-,Complete
+103,Ministry OIA,8/8/2017,5/9/2017,5/9/2017,No ,-,20,-,Complete
+104,Ministry OIA,8/8/2017,5/9/2017,5/9/2017,No ,-,20,-,Complete
+105,Ministry OIA,8/8/2017,29/8/2017,5/9/2017,No ,-,15,-,Complete
+106,Ministry OIA,9/8/2017,16/8/2017,6/9/2017,No ,-,5,-,Complete
+107,Ministry OIA,9/8/2017,20/9/2017,6/9/2017,No ,-,30,10,Complete
+108,Ministry OIA,9/8/2017,5/9/2017,6/9/2017,No ,-,19,-,Complete
+109,Ministry OIA,9/8/2017,5/9/2017,6/9/2017,No ,-,19,2,Complete
+110,Ministry OIA,9/8/2017,8/9/2017,6/9/2017,No ,-,22,2,Complete
+111,Ministry OIA,10/8/2017,7/9/2017,7/9/2017,No ,-,20,-,Complete
+112,Ministry OIA,10/8/2017,3/10/2017,4/10/2017,Yes,4/10/2017,38,-,Complete
+113,Ministry OIA,10/8/2017,15/8/2017,7/9/2017,No ,-,3,-,Complete
+114,Ministry OIA,11/8/2017,11/8/2017,8/9/2017,No ,-,0,-,Transferred
+115,Ministry OIA,11/8/2017,21/8/2017,8/9/2017,No ,-,6,-,Complete
+116,Ministry OIA,11/8/2017,8/9/2017,8/9/2017,No ,-,20,-,Complete
+117,Ministry OIA,11/8/2017,21/8/2017,8/9/2017,No ,-,6,-,Complete
+118,Ministry OIA,14/8/2017,23/8/2017,11/9/2017,No ,-,7,-,Complete
+119,Ministry OIA,14/8/2017,11/9/2017,11/9/2017,No ,-,20,-,Complete
+120,Ministry OIA,14/8/2017,1/9/2017,11/9/2017,No ,-,14,-,Transferred
+121,Ministry OIA,14/8/2017,11/9/2017,11/9/2017,No ,-,20,-,Complete
+122,Ministry OIA,15/8/2017,-,12/9/2017,No ,-,-,-,On Hold
+123,Ministry OIA,15/8/2017,31/8/2017,12/9/2017,No ,-,12,-,Complete
+124,Ministry OIA,16/8/2017,-,13/9/2017,No ,-,-,-,On Hold
+125,Ministry OIA,16/8/2017,13/9/2017,13/9/2017,No ,-,20,-,Complete
+126,Ministry OIA,16/8/2017,15/9/2017,13/9/2017,No ,-,22,2,Complete
+127,Ministry OIA,17/8/2017,23/8/2017,14/9/2017,No ,-,4,-,Complete
+128,Ministry OIA,17/8/2017,4/9/2017,14/9/2017,No ,-,12,-,Complete
+129,Ministry OIA,17/8/2017,25/9/2017,14/9/2017,No ,-,27,7,Complete
+130,Ministry OIA,17/8/2017,14/9/2017,14/9/2017,No ,-,20,-,Complete
+131,Ministry OIA,18/8/2017,23/8/2017,15/9/2017,No ,-,3,-,Complete
+132,Ministry OIA,18/8/2017,15/9/2017,15/9/2017,No ,-,20,-,Complete
+133,Ministry OIA,21/8/2017,11/9/2017,18/9/2017,No ,-,15,-,Complete
+134,Ministry OIA,21/8/2017,6/9/2017,18/9/2017,No ,-,12,-,Complete
+135,Ministry OIA,21/8/2017,21/9/2017,18/9/2017,No ,-,23,3,Complete
+136,Ministry OIA,22/8/2017,19/9/2017,19/9/2017,No ,-,20,-,Complete
+137,Ministry OIA,22/8/2017,4/9/2017,19/9/2017,No ,-,9,-,Complete
+138,Ministry OIA,22/8/2017,22/8/2017,19/9/2017,No ,-,0,-,Complete
+139,Ministry OIA,22/8/2017,19/9/2017,19/9/2017,No ,-,20,-,Complete
+140,Ministry OIA,23/8/2017,21/9/2017,20/9/2017,No ,-,21,1,Complete
+141,Ministry OIA,23/8/2017,20/9/2017,20/9/2017,No ,-,20,-,Complete
+142,Ministry OIA,23/8/2017,20/9/2017,20/9/2017,No ,-,20,1,Complete
+143,Ministry OIA,23/8/2017,8/9/2017,20/9/2017,No ,-,12,-,Complete
+144,Ministry OIA,23/8/2017,11/10/2017,11/10/2017,Yes,11/10/2017,35,-,Complete
+145,Ministry OIA,24/8/2017,18/10/2017,19/10/2017,Yes,19/10/2017,39,-,Complete
+146,Ministry OIA,24/8/2017,10/11/2017,16/11/2017,Yes,16/11/2017,55,-,Complete
+147,Ministry OIA,25/8/2017,21/9/2017,22/9/2017,No ,-,19,-,Complete
+148,Ministry OIA,25/8/2017,21/9/2017,22/9/2017,No ,-,19,-,Complete
+149,Ministry OIA,25/8/2017,27/9/2017,29/9/2017,Yes,29/9/2017,23,-,Complete
+150,Ministry OIA,25/8/2017,21/9/2017,22/9/2017,No ,-,19,-,Complete
+151,Ministry OIA,25/8/2017,15/9/2017,22/9/2017,No ,-,15,-,Complete
+152,Ministry OIA,25/8/2017,22/9/2017,22/9/2017,No ,-,20,-,Complete
+153,Ministry OIA,28/8/2017,9/10/2017,9/10/2017,Yes,9/10/2017,30,-,Complete
+154,Ministry OIA,28/8/2017,7/9/2017,25/9/2017,No ,-,8,-,Complete
+155,Ministry OIA,28/8/2017,27/9/2017,25/9/2017,No ,-,22,2,Complete
+156,Ministry OIA,28/8/2017,26/9/2017,25/9/2017,No ,-,21,1,Complete
+157,Ministry OIA,28/8/2017,6/9/2017,25/9/2017,No ,-,7,-,Complete
+158,Ministry OIA,29/8/2017,28/9/2017,26/9/2017,No ,-,22,2,Complete
+159,Ministry OIA,29/8/2017,18/9/2017,26/9/2017,No ,-,14,-,Complete
+160,Ministry OIA,29/8/2017,6/9/2017,26/9/2017,No ,-,6,-,Complete
+161,Ministry OIA,29/8/2017,6/9/2017,26/9/2017,No ,-,6,1,Complete
+162,Ministry OIA,30/8/2017,18/9/2017,27/9/2017,No ,-,13,-,Complete
+163,Ministry OIA,30/8/2017,20/9/2017,27/9/2017,No ,-,15,-,Complete
+164,Ministry OIA,30/8/2017,26/9/2017,27/9/2017,No ,-,19,-,Complete
+165,Ministry OIA,30/8/2017,11/9/2017,27/9/2017,No ,-,8,-,Complete
+166,Ministry OIA,30/8/2017,-,27/9/2017,No ,-,-,-,On Hold
+167,Ministry OIA,31/8/2017,25/9/2017,28/9/2017,No ,-,17,-,Complete
+168,Ministry OIA,31/8/2017,4/9/2017,28/9/2017,No ,-,2,-,Complete
+169,Ministry OIA,1/9/2017,3/10/2017,29/9/2017,No ,-,22,2,Complete
+170,Ministry OIA,1/9/2017,28/9/2017,29/9/2017,No ,-,19,-,Complete
+171,Ministry OIA,1/9/2017,18/9/2017,29/9/2017,No ,-,11,-,Complete
+172,Ministry OIA,4/9/2017,15/9/2017,2/10/2017,No ,-,9,-,Complete
+173,Ministry OIA,4/9/2017,2/10/2017,2/10/2017,No ,-,20,-,Complete
+174,Ministry OIA,4/9/2017,12/9/2017,2/10/2017,No ,-,6,-,Complete
+175,Ministry OIA,4/9/2017,2/10/2017,2/10/2017,No ,-,20,-,Complete
+176,Ministry OIA,4/9/2017,21/9/2017,2/10/2017,No ,-,13,-,Complete
+177,Ministry OIA,5/9/2017,12/9/2017,3/10/2017,No ,-,5,-,Complete
+178,Ministry OIA,5/9/2017,7/9/2017,3/10/2017,No ,-,2,-,Complete
+179,Ministry OIA,5/9/2017,29/9/2017,3/10/2017,No ,-,18,-,Complete
+180,Ministry OIA,5/9/2017,-,3/10/2017,No ,-,-,-,On Hold
+181,Ministry OIA,6/9/2017,6/10/2017,4/10/2017,No ,-,22,2,Complete
+182,Ministry OIA,6/9/2017,28/11/2017,28/11/2017,Yes,28/11/2017,58,-,Complete
+183,Ministry OIA,6/9/2017,28/11/2017,28/11/2017,Yes,28/11/2017,58,-,Complete
+184,Ministry OIA,6/9/2017,3/10/2017,4/10/2017,No ,-,19,-,Complete
+185,Ministry OIA,6/9/2017,4/10/2017,4/10/2017,No ,-,20,-,Complete
+186,Ministry OIA,6/9/2017,6/11/2017,31/10/2017,Yes,31/10/2017,42,4,Complete
+187,Ministry OIA,6/9/2017,9/10/2017,4/10/2017,No ,-,23,3,Complete
+188,Ministry OIA,6/9/2017,18/10/2017,18/10/2017,Yes,18/10/2017,30,-,Complete
+189,Ministry OIA,6/9/2017,9/10/2017,4/10/2017,No ,-,23,3,Complete
+190,Ministry OIA,7/9/2017,12/10/2017,12/10/2017,Yes,12/10/2017,25,-,Complete
+191,Ministry OIA,7/9/2017,24/10/2017,31/10/2017,Yes,31/10/2017,32,-,Complete
+192,Ministry OIA,7/9/2017,24/10/2017,31/10/2017,Yes,31/10/2017,32,-,Complete
+193,Ministry OIA,8/9/2017,3/10/2017,6/10/2017,No ,-,17,-,Complete
+194,Ministry OIA,8/9/2017,9/10/2017,6/10/2017,No ,-,21,1,Complete
+195,Ministry OIA,8/9/2017,10/11/2017,13/11/2017,Yes,13/11/2017,44,-,Complete
+196,Ministry OIA,11/9/2017,2/10/2017,9/10/2017,No ,-,15,-,Complete
+197,Ministry OIA,11/9/2017,6/10/2017,9/10/2017,No ,-,19,-,Complete
+198,Ministry OIA,11/9/2017,19/9/2017,9/10/2017,No ,-,6,-,Complete
+199,Ministry OIA,11/9/2017,20/9/2017,9/10/2017,No ,-,7,-,Complete
+200,Ministry OIA,12/9/2017,20/10/2017,10/10/2017,No ,-,28,8,Complete
+201,Ministry OIA,12/9/2017,24/10/2017,10/10/2017,No ,-,29,9,Complete
+202,Ministry OIA,12/9/2017,15/11/2017,8/11/2017,Yes,8/11/2017,45,5,Complete
+203,Ministry OIA,13/9/2017,4/10/2017,11/10/2017,No ,-,15,-,Complete
+204,Ministry OIA,13/9/2017,2/10/2017,11/10/2017,No ,-,13,-,Complete
+205,Ministry OIA,14/9/2017,10/10/2017,12/10/2017,No ,-,18,-,Complete
+206,Ministry OIA,14/9/2017,12/10/2017,12/10/2017,No ,-,20,-,Complete
+207,Ministry OIA,14/9/2017,10/10/2017,12/10/2017,No ,-,18,-,Complete
+208,Ministry OIA,14/9/2017,4/10/2017,12/10/2017,No ,-,14,-,Complete
+209,Ministry OIA,15/9/2017,5/10/2017,13/10/2017,No ,-,14,-,Complete
+210,Ministry OIA,15/9/2017,6/10/2017,13/10/2017,No ,-,15,-,Complete
+211,Ministry OIA,18/9/2017,16/10/2017,16/10/2017,No ,-,20,-,Complete
+212,Ministry OIA,18/9/2017,16/10/2017,16/10/2017,No ,-,20,-,Complete
+213,Ministry OIA,18/9/2017,14/11/2017,13/11/2017,Yes,13/11/2017,40,1,Complete
+214,Ministry OIA,18/9/2017,10/11/2017,13/12/2017,Yes,13/12/2017,38,-,Complete
+215,Ministry OIA,18/9/2017,28/11/2017,28/11/2017,Yes,28/11/2017,50,-,Complete
+216,Ministry OIA,18/9/2017,20/10/2017,20/10/2017,Yes,20/10/2017,24,-,Complete
+217,Ministry OIA,18/9/2017,16/10/2017,16/10/2017,No ,-,20,-,Complete
+218,Ministry OIA,19/9/2017,21/9/2017,17/10/2017,No ,-,2,-,Complete
+219,Ministry OIA,20/9/2017,22/9/2017,18/10/2017,No ,-,2,-,Complete
+220,Ministry OIA,20/9/2017,9/10/2017,18/10/2017,No ,-,13,-,Complete
+221,Ministry OIA,20/9/2017,20/9/2017,18/10/2017,No ,-,0,-,Transferred
+222,Ministry OIA,20/9/2017,18/10/2017,18/10/2017,No ,-,20,-,Complete
+223,Ministry OIA,21/9/2017,13/10/2017,19/10/2017,No ,-,16,3,Complete
+224,Ministry OIA,21/9/2017,21/9/2017,19/10/2017,No ,-,0,-,Complete
+225,Ministry OIA,21/9/2017,24/10/2017,19/10/2017,No ,-,22,2,Complete
+226,Ministry OIA,22/9/2017,5/10/2017,20/10/2017,No ,-,9,-,Transferred
+227,Ministry OIA,22/9/2017,19/10/2017,20/10/2017,No ,-,19,-,Complete
+228,Ministry OIA,22/9/2017,16/10/2017,20/10/2017,No ,-,16,-,Complete
+229,Ministry OIA,25/9/2017,16/11/2017,28/11/2017,Yes,28/11/2017,37,-,Complete
+230,Ministry OIA,25/9/2017,14/10/2017,24/10/2017,No ,-,14,-,Complete
+231,Ministry OIA,25/9/2017,24/10/2017,24/10/2017,No ,-,20,-,Complete
+232,Ministry OIA,25/9/2017,28/9/2017,24/10/2017,No ,-,3,-,Complete
+233,Ministry OIA,26/9/2017,25/10/2017,25/10/2017,No ,-,20,-,Complete
+234,Ministry OIA,26/9/2017,26/9/2017,25/10/2017,No ,-,0,-,Transferred
+235,Ministry OIA,27/9/2017,5/10/2017,26/10/2017,No ,-,6,-,Complete
+236,Ministry OIA,27/9/2017,14/12/2017,14/12/2017,Yes,14/12/2017,55,-,Complete
+237,Ministry OIA,27/9/2017,26/10/2017,26/10/2017,No ,-,20,-,Complete
+238,Ministry OIA,28/9/2017,25/10/2017,27/10/2017,No ,-,18,-,Complete
+239,Ministry OIA,28/9/2017,24/10/2017,27/10/2017,No ,-,17,-,Complete
+240,Ministry OIA,29/9/2017,17/10/2017,30/10/2017,No ,-,12,-,Complete
+241,Ministry OIA,29/9/2017,13/10/2017,30/10/2017,No ,-,10,-,Complete
+242,Ministry OIA,29/9/2017,13/10/2017,30/10/2017,No ,-,10,-,Complete
+243,Ministry OIA,2/10/2017,27/10/2017,31/10/2017,No ,-,18,-,Complete
+244,Ministry OIA,2/10/2017,31/10/2017,31/10/2017,No ,-,20,-,Complete
+245,Ministry OIA,2/10/2017,17/10/2017,31/10/2017,No ,-,11,-,Complete
+246,Ministry OIA,2/10/2017,2/10/2017,31/10/2017,No ,-,0,-,Complete
+247,Ministry OIA,2/10/2017,13/10/2017,31/10/2017,No ,-,9,-,Complete
+248,Ministry OIA,3/10/2017,16/10/2017,1/11/2017,No ,-,9,-,Complete
+249,Ministry OIA,3/10/2017,1/11/2017,1/11/2017,No ,-,20,-,Complete
+250,Ministry OIA,3/10/2017,13/11/2017,16/11/2017,No ,-,28,-,Complete
+251,Ministry OIA,5/10/2017,20/11/2017,24/11/2017,Yes,24/11/2017,31,-,Complete
+252,Ministry OIA,5/10/2017,20/10/2017,3/11/2017,No ,-,11,-,Complete
+253,Ministry OIA,6/10/2017,10/10/2017,6/11/2017,No ,-,2,-,Complete
+254,Ministry OIA,6/10/2017,3/11/2017,6/11/2017,No ,-,19,-,Complete
+255,Ministry OIA,9/10/2017,18/10/2017,7/11/2017,No ,-,7,-,Complete
+256,Ministry OIA,9/10/2017,13/10/2017,7/11/2017,No ,-,4,-,Complete
+257,Ministry OIA,9/10/2017,4/12/2017,5/12/2017,Yes,5/12/2017,39,-,Complete
+258,Ministry OIA,9/10/2017,6/11/2017,7/11/2017,No ,-,19,-,Complete
+259,Ministry OIA,9/10/2017,16/10/2017,7/11/2017,No ,-,5,-,Complete
+260,Ministry OIA,9/10/2017,31/10/2017,7/11/2017,No ,-,15,-,Complete
+261,Ministry OIA,10/10/2017,21/11/2017,28/11/2017,No ,-,29,-,Complete
+262,Ministry OIA,10/10/2017,24/11/2017,28/11/2017,No ,-,32,-,Complete
+263,Ministry OIA,10/10/2017,19/10/2017,8/11/2017,No ,-,7,-,Transferred
+264,Ministry OIA,10/10/2017,31/1/2018,31/1/2018,Yes,31/1/2018,64,2,Complete
+265,Ministry OIA,11/10/2017,28/11/2017,9/11/2017,No ,-,33,13,Complete
+266,Ministry OIA,11/10/2017,31/10/2017,9/11/2017,No ,-,13,-,Complete
+267,Ministry OIA,11/10/2017,19/10/2017,9/11/2017,No ,-,6,-,Complete
+268,Ministry OIA,11/10/2017,9/11/2017,9/11/2017,No ,-,20,-,Complete
+269,Ministry OIA,12/10/2017,24/10/2017,10/11/2017,No ,-,7,-,Complete
+270,Ministry OIA,12/10/2017,3/11/2017,10/11/2017,No ,-,15,-,Complete
+271,Ministry OIA,12/10/2017,3/11/2017,10/11/2017,No ,-,15,-,Complete
+272,Ministry OIA,13/10/2017,8/11/2017,13/11/2017,No ,-,17,-,Complete
+273,Ministry OIA,13/10/2017,13/11/2017,13/11/2017,No ,-,20,-,Complete
+274,Ministry OIA,13/10/2017,3/11/2017,13/11/2017,No ,-,14,-,Complete
+275,Ministry OIA,13/10/2017,3/11/2017,13/11/2017,No ,-,14,-,Complete
+276,Ministry OIA,15/10/2017,31/10/2017,13/11/2017,No ,-,10,-,Complete
+277,Ministry OIA,15/10/2017,17/11/2017,13/11/2017,No ,-,23,4,Complete
+278,Ministry OIA,15/10/2017,10/11/2017,13/11/2017,No ,-,18,-,Complete
+279,Ministry OIA,16/10/2017,19/10/2017,14/11/2017,No ,-,3,-,Complete
+280,Ministry OIA,16/10/2017,27/10/2017,14/11/2017,No ,-,8,-,Complete
+281,Ministry OIA,17/10/2017,26/10/2017,15/11/2017,No ,-,6,-,Complete
+282,Ministry OIA,17/10/2017,27/10/2017,15/11/2017,No ,-,7,-,Complete
+283,Ministry OIA,18/10/2017,8/11/2017,16/11/2017,No ,-,14,-,Complete
+284,Ministry OIA,19/10/2017,17/11/2017,17/11/2017,No ,-,20,-,Complete
+285,Ministry OIA,19/10/2017,26/10/2017,17/11/2017,No ,-,4,-,Complete
+286,Ministry OIA,20/10/2017,10/11/2017,20/11/2017,No ,-,14,-,Complete
+287,Ministry OIA,20/10/2017,27/10/2017,20/11/2017,No ,-,4,-,Complete
+288,Ministry OIA,23/10/2017,9/11/2017,20/11/2017,No ,-,12,-,Complete
+289,Ministry OIA,24/10/2017,31/10/2017,21/11/2017,No ,-,5,-,Complete
+290,Ministry OIA,24/10/2017,9/11/2017,21/11/2017,No ,-,12,-,Complete
+291,Ministry OIA,24/10/2017,14/11/2017,21/11/2017,No ,-,15,-,Complete
+292,Ministry OIA,24/10/2017,10/11/2017,21/11/2017,No ,-,13,-,Complete
+293,Ministry OIA,25/10/2017,17/11/2017,17/11/2017,No ,-,17,-,Complete
+294,Ministry OIA,25/10/2017,8/11/2017,22/11/2017,No ,-,10,-,Complete
+295,Ministry OIA,25/10/2017,25/10/2017,22/11/2017,No ,-,0,-,Complete
+296,Ministry OIA,26/10/2017,21/11/2017,23/11/2017,No ,-,18,-,Complete
+297,Ministry OIA,26/10/2017,31/10/2017,23/11/2017,No ,-,3,-,Complete
+298,Ministry OIA,26/10/2017,14/11/2017,23/11/2017,No ,-,13,-,Complete
+299,Ministry OIA,26/10/2017,31/10/2017,23/11/2017,No ,-,3,-,Complete
+300,Ministry OIA,26/10/2017,17/11/2017,17/11/2017,No ,-,16,-,Complete
+301,Ministry OIA,26/10/2017,14/11/2017,23/11/2017,No ,-,13,-,Complete
+302,Ministry OIA,26/10/2017,21/11/2017,23/11/2017,No ,-,18,-,Complete
+303,Ministry OIA,27/10/2017,9/11/2017,24/11/2017,No ,-,9,-,Complete
+304,Ministry OIA,27/10/2017,8/11/2017,24/11/2017,No ,-,8,-,Complete
+305,Ministry OIA,27/10/2017,21/11/2017,24/11/2017,No ,-,17,-,Complete
+306,Ministry OIA,30/10/2017,2/11/2017,27/11/2017,No ,-,3,-,Complete
+307,Ministry OIA,30/10/2017,7/12/2017,20/12/2017,Yes,20/12/2017,28,-,Complete
+308,Ministry OIA,30/10/2017,9/11/2017,27/11/2017,No ,-,8,-,Complete
+309,Ministry OIA,30/10/2017,31/10/2017,27/11/2017,No ,-,1,-,Complete
+310,Ministry OIA,30/10/2017,7/12/2017,15/12/2017,Yes,15/12/2017,28,-,Complete
+311,Ministry OIA,2/11/2017,24/11/2017,30/11/2017,No ,-,16,-,Complete
+312,Ministry OIA,2/11/2017,10/11/2017,30/11/2017,No ,-,6,-,Complete
+313,Ministry OIA,2/11/2017,3/11/2017,30/11/2017,No ,-,1,-,Transferred
+314,Ministry OIA,3/11/2017,10/11/2017,1/12/2017,No ,-,5,-,Transferred
+315,Ministry OIA,3/11/2017,14/11/2017,1/12/2017,No ,-,7,-,Complete
+316,Ministry OIA,6/11/2017,24/11/2017,4/12/2017,No ,-,14,-,Complete
+317,Ministry OIA,6/11/2017,17/11/2017,4/12/2017,No ,-,9,-,Complete
+318,Ministry OIA,6/11/2017,30/11/2017,4/12/2017,No ,-,18,-,Complete
+319,Ministry OIA,6/11/2017,21/11/2017,4/12/2017,No ,-,11,-,Complete
+320,Ministry OIA,6/11/2017,15/12/2017,15/12/2017,Yes,15/12/2017,29,-,Complete
+321,Ministry OIA,7/11/2017,4/12/2017,5/12/2017,No ,-,19,-,Complete
+322,Ministry OIA,7/11/2017,10/11/2017,5/12/2017,No ,-,3,-,Complete
+323,Ministry OIA,8/11/2017,6/12/2017,6/12/2017,No ,-,20,-,Complete
+324,Ministry OIA,8/11/2017,6/12/2017,6/12/2017,No ,-,20,1,Complete
+325,Ministry OIA,8/11/2017,5/12/2017,5/12/2017,No ,-,19,-,Complete
+326,Ministry OIA,9/11/2017,14/11/2017,7/12/2017,No ,-,3,-,Complete
+327,Ministry OIA,9/11/2017,7/12/2017,7/12/2017,No ,-,20,-,Complete
+328,Ministry OIA,9/11/2017,7/12/2017,7/12/2017,No ,-,20,-,Complete
+329,Ministry OIA,9/11/2017,27/11/2017,7/12/2017,No ,-,12,-,Complete
+330,Ministry OIA,9/11/2017,29/11/2017,7/12/2017,No ,-,14,-,Complete
+331,Ministry OIA,9/11/2017,9/11/2017,7/12/2017,No ,-,0,-,Complete
+332,Ministry OIA,10/11/2017,21/12/2017,8/12/2017,No ,-,29,9,Complete
+333,Ministry OIA,10/11/2017,17/11/2017,8/12/2017,No ,-,5,-,Transferred
+334,Ministry OIA,10/11/2017,20/11/2017,8/12/2017,No ,-,6,-,Complete
+335,Ministry OIA,13/11/2017,23/11/2017,11/12/2017,No ,-,8,-,Complete
+336,Ministry OIA,13/11/2017,11/12/2017,11/12/2017,No ,-,20,-,Complete
+337,Ministry OIA,13/11/2017,15/11/2017,11/12/2017,No ,-,2,-,Complete
+338,Ministry OIA,13/11/2017,5/12/2017,11/12/2017,No ,-,16,-,Complete
+339,Ministry OIA,13/11/2017,22/11/2017,11/12/2017,No ,-,7,-,Complete
+340,Ministry OIA,13/11/2017,11/12/2017,11/12/2017,No ,-,20,-,Complete
+341,Ministry OIA,13/11/2017,8/12/2017,11/12/2017,No ,-,19,-,Complete
+342,Ministry OIA,13/11/2017,20/11/2017,11/12/2017,No ,-,5,-,Complete
+343,Ministry OIA,14/11/2017,23/11/2017,12/12/2017,No ,-,7,-,Complete
+344,Ministry OIA,14/11/2017,7/12/2017,13/12/2017,No ,-,17,-,Complete
+345,Ministry OIA,15/11/2017,28/11/2017,13/12/2017,No ,-,9,-,Complete
+346,Ministry OIA,15/11/2017,4/12/2017,13/12/2017,No ,-,13,-,Complete
+347,Ministry OIA,15/11/2017,15/12/2017,13/12/2017,No ,-,22,2,Complete
+348,Ministry OIA,15/11/2017,21/12/2017,1/2/2018,Yes,1/2/2018,26,-,Complete
+349,Ministry OIA,16/11/2017,14/12/2017,14/12/2017,No ,-,20,-,Complete
+350,Ministry OIA,16/11/2017,18/12/2017,14/12/2017,No ,-,22,2,Complete
+351,Ministry OIA,16/11/2017,14/12/2017,14/12/2017,No ,-,20,-,Complete
+352,Ministry OIA,16/11/2017,16/11/2017,14/12/2017,No ,-,0,-,Complete
+353,Ministry OIA,16/11/2017,4/12/2017,14/12/2017,No ,-,12,-,Complete
+354,Ministry OIA,17/11/2017,15/12/2017,15/12/2017,No ,-,20,-,Complete
+355,Ministry OIA,17/11/2017,29/11/2017,15/12/2017,No ,-,8,-,Complete
+356,Ministry OIA,17/11/2017,29/11/2017,15/12/2017,No ,-,8,-,Complete
+357,Ministry OIA,17/11/2017,20/11/2017,15/12/2017,No ,-,1,-,Complete
+358,Ministry OIA,18/11/2017,12/12/2017,15/12/2017,No ,-,16,-,Complete
+359,Ministry OIA,19/11/2017,21/12/2017,22/12/2017,Yes,22/12/2017,23,4,Complete
+360,Ministry OIA,20/11/2017,21/12/2017,18/12/2017,No ,-,23,3,Complete
+361,Ministry OIA,21/11/2017,23/1/2018,19/12/2017,No ,-,29,9,Complete
+362,Ministry OIA,21/11/2017,29/11/2017,19/12/2017,No ,-,6,-,Complete
+363,Ministry OIA,21/11/2017,19/12/2017,19/12/2017,No ,-,20,-,Complete
+364,Ministry OIA,21/11/2017,14/2/2018,28/2/2018,Yes,28/2/2018,44,-,Complete
+365,Ministry OIA,21/11/2017,18/12/2017,19/12/2017,No ,-,19,-,Complete
+366,Ministry OIA,21/11/2017,19/12/2017,19/12/2017,No ,-,20,-,Complete
+367,Ministry OIA,21/11/2017,1/12/2017,19/12/2017,No ,-,8,-,Complete
+368,Ministry OIA,21/11/2017,19/12/2017,19/12/2017,No ,-,20,-,Complete
+369,Ministry OIA,21/11/2017,19/12/2017,19/12/2017,No ,-,20,-,Complete
+370,Ministry OIA,21/11/2017,4/12/2017,19/12/2017,No ,-,9,-,Complete
+371,Ministry OIA,22/11/2017,12/12/2017,20/12/2017,No ,-,14,-,Complete
+372,Ministry OIA,22/11/2017,20/12/2017,20/12/2017,No ,-,20,-,Complete
+373,Ministry OIA,23/11/2017,5/12/2017,21/12/2017,No ,-,8,-,Complete
+374,Ministry OIA,23/11/2017,29/11/2017,21/12/2017,No ,-,4,-,Complete
+375,Ministry OIA,23/11/2017,23/11/2017,21/12/2017,No ,-,0,-,Complete
+376,Ministry OIA,23/11/2017,13/2/2018,12/2/2018,Yes,12/2/2018,41,1,Complete
+377,Ministry OIA,23/11/2017,18/12/2017,21/12/2017,No ,-,17,-,Complete
+378,Ministry OIA,23/11/2017,28/11/2017,21/12/2017,No ,-,3,-,Complete
+379,Ministry OIA,23/11/2017,30/11/2017,21/12/2017,No ,-,5,-,Complete
+380,Ministry OIA,24/11/2017,13/2/2018,13/2/2018,Yes,13/2/2018,40,-,Complete
+381,Ministry OIA,24/11/2017,21/12/2017,22/12/2017,No ,-,19,-,Complete
+382,Ministry OIA,24/11/2017,7/2/2018,13/2/2018,Yes,13/2/2018,36,-,Complete
+383,Ministry OIA,27/11/2017,30/1/2018,30/1/2018,Yes,30/1/2018,30,-,Complete
+384,Ministry OIA,27/11/2017,22/12/2017,16/1/2018,No ,-,19,-,Complete
+385,Ministry OIA,27/11/2017,17/1/2018,18/1/2018,No ,-,21,-,Complete
+386,Ministry OIA,28/11/2017,1/2/2018,17/1/2018,No ,-,31,11,Complete
+387,Ministry OIA,28/11/2017,20/12/2017,17/1/2018,No ,-,16,-,Complete
+388,Ministry OIA,28/11/2017,7/12/2017,17/1/2018,No ,-,7,-,Complete
+389,Ministry OIA,28/11/2017,16/1/2018,17/1/2018,No ,-,19,-,Complete
+390,Ministry OIA,29/11/2017,18/1/2018,18/1/2018,No ,-,20,4,Complete
+391,Ministry OIA,29/11/2017,5/12/2017,18/1/2018,No ,-,4,-,Complete
+392,Ministry OIA,29/11/2017,8/1/2018,18/1/2018,No ,-,17,-,Complete
+393,Ministry OIA,29/11/2017,8/12/2017,18/1/2018,No ,-,7,-,Complete
+394,Ministry OIA,29/11/2017,6/12/2017,18/1/2018,No ,-,5,-,Complete
+395,Ministry OIA,29/11/2017,4/12/2017,18/1/2018,No ,-,3,-,Complete
+396,Ministry OIA,29/11/2017,11/12/2017,18/1/2018,No ,-,8,-,Complete
+397,Ministry OIA,29/11/2017,18/1/2018,18/1/2018,No ,-,20,-,Complete
+398,Ministry OIA,29/11/2017,18/1/2018,18/1/2018,No ,-,20,-,Complete
+399,Ministry OIA,30/11/2017,11/12/2017,19/1/2018,No ,-,7,-,Complete
+400,Ministry OIA,30/11/2017,15/12/2017,19/1/2018,No ,-,11,-,Complete
+401,Ministry OIA,30/11/2017,1/12/2017,19/1/2018,No ,-,1,-,Complete
+402,Ministry OIA,30/11/2017,7/2/2018,13/2/2018,Yes,13/2/2018,32,-,Complete
+403,Ministry OIA,30/11/2017,3/1/2018,19/1/2018,No ,-,16,-,Complete
+404,Ministry OIA,1/12/2017,20/12/2017,22/1/2018,No ,-,13,-,Complete
+405,Ministry OIA,1/12/2017,19/1/2018,22/1/2018,No ,-,19,-,Complete
+406,Ministry OIA,1/12/2017,1/12/2017,22/1/2018,No ,-,0,-,Complete
+407,Ministry OIA,1/12/2017,19/1/2018,22/1/2018,No ,-,19,-,Complete
+408,Ministry OIA,3/12/2017,19/1/2018,22/1/2018,No ,-,18,-,Complete
+409,Ministry OIA,4/12/2017,26/1/2018,23/1/2018,No ,-,23,3,Complete
+410,Ministry OIA,4/12/2017,2/2/2018,7/2/2018,Yes,7/2/2018,28,-,Complete
+411,Ministry OIA,4/12/2017,23/1/2018,23/1/2018,No ,-,20,-,Complete
+412,Ministry OIA,4/12/2017,4/12/2017,23/1/2018,No ,-,0,-,Complete
+413,Ministry OIA,5/12/2017,21/12/2017,24/1/2018,No ,-,12,-,Complete
+414,Ministry OIA,6/12/2017,29/1/2018,25/1/2018,No ,-,22,2,Complete
+415,Ministry OIA,6/12/2017,24/1/2018,25/1/2018,No ,-,19,-,Complete
+416,Ministry OIA,6/12/2017,19/1/2018,25/1/2018,No ,-,16,-,Complete
+417,Ministry OIA,6/12/2017,26/1/2018,25/1/2018,No ,-,21,1,Complete
+418,Ministry OIA,7/12/2017,16/1/2018,26/1/2018,No ,-,12,-,Complete
+419,Ministry OIA,8/12/2017,-,29/1/2018,No ,-,-,-,On Hold
+420,Ministry OIA,10/12/2017,18/12/2017,29/1/2018,No ,-,5,-,Transferred
+421,Ministry OIA,11/12/2017,30/1/2018,30/1/2018,No ,-,20,-,Complete
+422,Ministry OIA,11/12/2017,25/1/2018,30/1/2018,No ,-,17,-,Complete
+423,Ministry OIA,11/12/2017,19/12/2017,30/1/2018,No ,-,6,-,Complete
+424,Ministry OIA,11/12/2017,26/1/2018,30/1/2018,No ,-,18,-,Complete
+425,Ministry OIA,12/12/2017,20/12/2017,31/1/2018,No ,-,6,-,Complete
+426,Ministry OIA,12/12/2017,30/1/2018,31/1/2018,No ,-,19,-,Complete
+427,Ministry OIA,12/12/2017,18/12/2017,31/1/2018,No ,-,4,-,Complete
+428,Ministry OIA,13/12/2017,30/1/2018,1/2/2018,No ,-,18,-,Complete
+429,Ministry OIA,14/12/2017,20/12/2017,2/2/2018,No ,-,4,-,Complete
+430,Ministry OIA,14/12/2017,2/2/2018,2/2/2018,No ,-,20,-,Complete
+431,Ministry OIA,14/12/2017,29/1/2018,2/2/2018,No ,-,16,-,Complete
+432,Ministry OIA,15/12/2017,5/2/2018,5/2/2018,No ,-,20,-,Complete
+433,Ministry OIA,15/12/2017,7/2/2018,5/2/2018,No ,-,21,1,Complete
+434,Ministry OIA,18/12/2017,21/12/2017,6/2/2018,No ,-,3,-,Complete
+435,Ministry OIA,19/12/2017,7/2/2018,8/2/2018,No ,-,19,-,Complete
+436,Ministry OIA,19/12/2017,30/1/2018,8/2/2018,No ,-,14,-,Complete
+437,Ministry OIA,19/12/2017,2/2/2018,7/2/2018,No ,-,17,-,Complete
+438,Ministry OIA,20/12/2017,31/1/2018,9/2/2018,No ,-,14,-,Complete
+439,Ministry OIA,20/12/2017,20/12/2017,9/2/2018,No ,-,0,-,Transferred
+440,Ministry OIA,20/12/2017,12/2/2018,16/2/2018,Yes,16/2/2018,21,-,Complete
+441,Ministry OIA,20/12/2017,31/1/2018,8/2/2018,No ,-,14,-,Complete
+442,Ministry OIA,22/12/2017,13/2/2018,13/2/2018,No ,-,20,-,Complete
+443,Ministry OIA,22/12/2017,13/2/2018,13/2/2018,No ,-,20,-,Complete
+444,Ministry OIA,22/12/2017,12/2/2018,13/2/2018,No ,-,19,-,Complete
+445,Ministry OIA,26/12/2017,-,13/2/2018,No ,-,-,-,On Hold
+446,Ministry OIA,30/12/2017,15/1/2018,13/2/2018,No ,-,-1,-,Complete
+,,,,,,,,,
+*The definition of working days is available in the Interpretation (Section 2) of the OIA.,,,,,,,,,
