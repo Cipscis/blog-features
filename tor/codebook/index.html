@@ -1,0 +1,1177 @@
+<html lang="en">
+<head>
+	<title>NZ Police Tactical Options Reporting Data</title>
+
+	<script src="/assets/scripts/app/main.js" type="module"></script>
+	<script src="/assets/scripts/app/codebook/codebook.js" type="module"></script>
+
+	<link rel="stylesheet" href="/assets/css/style.css" />
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="This document describes how NZ Police Tactical Options Reporting data was analysed to produce various charts." />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@HonestUniverse" />
+	<meta name="twitter:creator" content="@HonestUniverse" />
+	<meta property="og:title" content="NZ Police Tactical Options Reporting Data" />
+	<meta property="og:description" content="This document describes how NZ Police Tactical Options Reporting data was analysed to produce various charts." />
+	<meta property="og:image" content="https://features.honestuniverse.com/assets/images/police-aos.jpg" />
+	<!-- Source of OpenGraph image:
+		https://commons.wikimedia.org/wiki/File:Wellington_Armed_Offenders_Squad_(AOS)_-_Flickr_-_111_Emergency_(2).jpg
+		Used under CC BY 2.0 License. Image has been cropped from the original -->
+</head>
+<body>
+	<div class="layout">
+		<article>
+			<section>
+				<div class="content">
+					<h1>NZ Police Tactical Options Reporting Data</h1>
+
+					<div class="article-meta">
+						<span class="article-meta__author">by Mark Hanna</span>
+						<span class="article-meta__date">Published 2020-06-06</span>
+					</div>
+
+					<p>This document describes how NZ Police Tactical Options Reporting data was analysed to produce various charts.</p>
+
+					<p>I used my <a href="https://github.com/Cipscis/charter" target="_blank">Charter</a> data analysis library to load and process the data, and to produce all the charts in this document.</p>
+
+					<p>The charts were produced based on three sources of Tactical Options Reporting (TOR) data released by New Zealand Police under the Official Information Act (OIA).</p>
+
+					<p>TOR data records how NZ Police used force, with certain exceptions:</p>
+
+					<ul>
+						<li>Armed Offenders Squad activity</li>
+						<li>Prior to 2018, events in which someone died</li>
+					</ul>
+
+					<p>For information regarding how Police record their use of force in the TOR database, please see the document <a href="../references/Use of Force Overview Reporting.pdf" target="_blank">Use of Force Overview - Reporting (PDF)</a>. This document was extracted from the NZ Police Intranet on 23 August 2019, and <a href="https://fyi.org.nz/request/10536-use-of-force-and-police-dogs-chapter-of-the-police-manual#incoming-39362" target="_blank">released by Police</a> under the OIA on 26 August 2019.</p>
+
+					<p>This Police guideline contains some important caveats regarding when Police do and don't record certain types of force. In particular, uses of "open hand" don't include pushing a person unless that person falls, and uses of "handcuff/restraint" are only recorded if it is used with "pain compliance" or if it is used alongside another tactical option:</p>
+
+					<blockquote>
+						<h3>Employees who use force must report</h3>
+
+						<h4>Shows of force</h4>
+
+						<p>Shows of:</p>
+
+						<ul>
+							<li>a TASER (i.e. presentation, laser painting or arcing)</li>
+							<li>A firearm.</li>
+						</ul>
+
+						<p>To be reported on: <strong>Standard TOR</strong></p>
+
+						<p><strong>Note: Excluding</strong> Armed Offenders Squad or Special Tactics Group shows of a TASER or a firearm and shows of force during training.</p>
+
+						<h4>Uses of force</h4>
+
+						<p><span class="text-decoration: underline;">Uses</span> of:</p>
+
+						<ul>
+							<li>communication, but <strong>only</strong> when used with one or more of the tactical options below, and <strong>only</strong> the first time it is used</li>
+							<li>
+								metal or plastic handcuffs, a waist restraint belt, and a leg restraint &mdash; vehicle:
+								<ul>
+									<li><strong>with</strong> <span style="text-decoration: underline;">pain compliance</span></li>
+									<li><strong>without</strong> pain compliance, but <strong>only</strong> when handcuffs, a waist restraint belt, and a leg restraint &mdash; vehicle are used with another reportable tactical option</li>
+								</ul>
+							</li>
+							<li>a spitting hood</li>
+							<li>a restraint chair</li>
+							<li><span style="text-decoration: underline;">empty hand techniques</span> <strong>excluding</strong> touching, guiding, escorting, lifting, and pushing where a person does not fall to the ground</li>
+							<li>O C spray (spraying)</li>
+							<li>a baton (striking)</li>
+							<li>a weapon of opportunity, e.g. a Police torch</li>
+							<li>a Police dog when the subject is bitten and/or otherwise injured</li>
+							<li>a TASER by discharge and/or contact stun</li>
+							<li>a sponge round</li>
+							<li>a firearm (discharge).</li>
+						</ul>
+
+						<p>To be reported on: <strong>Standard TOR</strong></p>
+
+						<p>
+							<strong>Notes:</strong><br />
+							<strong>Excluding</strong> any use of force during training.<br />
+							Unintentional or unauthorised TASER or firearms discharges must be reported in an Unintentional/Unauthorised Discharge form.
+						</p>
+
+						<cite><a href="../references/Use of Force Overview Reporting.pdf" target="_blank">Use of Force Overview - Reporting</a> | NZ Police</cite>
+					</blockquote>
+
+					<p>Each individual TOR report records one officer using force against one person. If two officers use force against one person, this will be recorded as two separate TOR events.</p>
+				</div>
+			</section>
+
+			<section class="expander js-expander js-codebook__set" id="section-data-tor-2016-jul-dec" data-codebook-set="tor">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Data: TOR July&nbsp;&ndash;&nbsp;December&nbsp;2016</span> <a class="anchor" href="#section-data-tor-2016-jul-dec"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>On 30 November 2016, Emmy Rākete requested information from Police under the OIA, including:</p>
+
+						<blockquote>
+							<p>Provide all raw data being used in the creation of the biannual tactical options research report for 1 July &ndash; 31 December 2016.</p>
+
+							<cite><a href="https://fyi.org.nz/request/5039-tactical-options-research-report#outgoing-9769" target="_blank">OIA request: Tactical options research report</a> | Emmy Rākete</cite>
+						</blockquote>
+
+						<p>In their response on 22 December 2016, Police refused the request under <a href="http://www.legislation.govt.nz/act/public/1982/0156/latest/whole.html#DLM64785" target="_blank">section 18(e) of the OIA</a>, asserting that the requested information did not exist. They also explained:</p>
+
+						<blockquote>
+							<p>a technical fault occurred with the Tactical Options Reporting (TOR) database which has delayed the production of the report on the use of tactical options in 2015. The technical fault has been fixed, however, there are carry-on issues which are still being resolved.</p>
+
+							<cite><a href="https://fyi.org.nz/request/5039/response/16394/attach/3/Rakete%20Emmy%2016%2011336%20reply.pdf" target="_blank">Superintendent Chris Scahill</a> | NZ Police</cite>
+						</blockquote>
+
+						<p>On 18 January 2017, <a href="https://fyi.org.nz/request/5039-tactical-options-research-report#incoming-16673" target="_blank">Police acknowledged</a> that Ms Rākete considered two matters in her request to be outstanding, and extended her request to 20 February 2017.</p>
+
+						<p>On 16 March 2017, NZ Police sent <a href="https://fyi.org.nz/request/5039/response/17868/attach/4/Rakete%20Emilie%2016%2011336%20reply.pdf" target="_bank">a further response</a>, in which they acknowledged that they had been informed by the Ombudsman that Ms Rākete had laid a complaint because Police had not responded to two parts of her request, including the part asking for raw TOR data.</p>
+
+						<p>In this response, Police explained that they had refused Ms Rākete's request for data being used in the creation of the TOR report to cover July-December 2016 because no such report was being created, and the data covering July-December 2016 was incomplete.</p>
+
+						<p>However, Police also said they had reconsidered Ms Rākete's request for raw data, and released TOR data covering 1 July &ndash; 31 December 2016 in the following spreadsheet:
+
+						<p><a href="../data/2016/jul-dec/170202 RAKETE 16 11336 TOR xlsx.xlsx" target="_blank">170202 RAKETE 16 11336 TOR xlsx.xlsx</a></p>
+
+						<p>This spreadsheet contains a "Notes" sheet detailing how the export was created and what fields had been removed or recoded:</p>
+
+						<blockquote>
+							<p>The export was created using the following search criteria</p>
+							<ul>
+								<li>Incident start date = 1/07/2016</li>
+								<li>Incident end date = 31/12/2016</li>
+							</ul>
+
+							<p>The following fields have been removed pursuant to section 9(2)(a) of the Official Infromation [<i>sic</i>] Act 1982</p>
+							<ul>
+								<li>Incident station</li>
+								<li>Area</li>
+								<li>Reporter Name</li>
+								<li>Reporter QID</li>
+								<li>Reporter Rank</li>
+								<li>Reporter position</li>
+								<li>Other Police QIDs</li>
+								<li>Subject [name]</li>
+								<li>TaserCam Serial No</li>
+							</ul>
+
+							<p>The following fields have been replaced by other calculated fields pursuant to section 9(2)(a) of the Official Infromation [<i>sic</i>] Act 1982</p>
+							<ul>
+								<li>Incident date has been replaced by month and year</li>
+								<li>Subject DOB has been replaced by Subject Age</li>
+							</ul>
+
+							<p>The following fields have been removed, pursuant to section 9(2)(a) of the Offician Infromation [<i>sic</i>] Act 1982</p>
+							<ul>
+								<li>Your [Reporter] Role</li>
+								<li>[Subject] Role</li>
+								<li>Relevant factors</li>
+								<li>Subject Weapon</li>
+								<li>Subject behaviours [for all Tactical Options]</li>
+								<li>Handcuff Types for all uses of Handcuff/Restraints]</li>
+								<li>Technique [for all uses of Empty Hand tactics]</li>
+								<li>Reason no warning [for all uses of TASER]</li>
+								<li>Other tactic [type] [for all uses of Other tactics]</li>
+								<li>Most effective tactic</li>
+								<li>Subject resolution</li>
+								<li>Staff Injury: type</li>
+								<li>Staff Injury By Police: Actions</li>
+								<li>Staff Injury By Equipment</li>
+								<li>Staff Injury By Equipment: Failure</li>
+								<li>Staff Injury by Other</li>
+								<li>SRBA: Why Not</li>
+								<li>SRBA: Negative How</li>
+							</ul>
+
+							<p>
+								Caveats:<br />The records provided in this spreadsheet are derived from the Tactical Options Reporting (TOR) database which records the reportable use of force by Police officers. Each row is a "TOR event" which is the reportable use of one or more tactical options, by one officer, against one individual. Multiple TOR events can occur at one incident. TOR data does not include events where the use of force is associated with a fatality as these events are instead the subject of internal and external investigations.
+							</p>
+
+							<cite>NZ Police</cite>
+						</blockquote>
+
+						<p>The Notes sheet also included the following section. I have added emphasis:</p>
+
+						<blockquote>
+							<p>While this data could potentially be used to create a biannual report, this data is incomplete and has not been cleaned or coded for analysis or to correct any errors. Some columns have been removed or altered (as outlined above), pursuant to section 9(2)(a) of the Official Information Act 1982, to protect the privacy of natural persons. Given the incomplete and unreliable nature of this data, Police takes no responsibility for its accuracy and correctness, and advises that it is incomplete. <strong>Police requests that if you publish this data in any form, you attach a proviso noting that Police have communicated to you that this information is raw data which has not been checked and which is therefore incomplete and unreliable</strong>. Furthermore, Police will not be liable for any loss or damage arising directly or indirectly from reliance on the data or information presented in the spreadsheet.</p>
+
+							<cite>NZ Police</cite>
+						</blockquote>
+
+						<p>I converted the "Export - Redacted" sheet of this spreadsheet to a CSV using Google Sheets:</p>
+
+						<p><a href="../data/2016/jul-dec/170202 RAKETE 16 11336 TOR xlsx.xlsx - Export - Redacted.csv" target="_blank">170202 RAKETE 16 11336 TOR xlsx.xlsx - Export - Redacted.csv</a></p>
+
+						<p>This data was loaded into Charter using this code:</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code js-codebook__source">
+						let fileConfig2016 = (() => {
+							let cols = Analyser.getColNumbers({
+								ID: 'A',
+								MONTH: 'C',
+								YEAR: 'D',
+								TIME: 'E',
+
+								DISTRICT: 'F',
+								AGE: 'I',
+								GENDER: 'J',
+								ETHNICITY: 'K',
+								SUBJECT_ARMED: 'L',
+								TACTICS: 'M',
+
+								INCIDENT_TYPE: 'FS',
+
+								// INJURY
+								INJURIES: 'FT',
+								INJURY_CAUSE_1: 'FU',
+								INJURY_CAUSE_2: 'FZ',
+								INJURY_CAUSE_3: 'GE',
+
+								INJURY_SITE_1: 'FV',
+								INJURY_SITE_2: 'GA',
+								INJURY_SITE_3: 'GF',
+
+								INJURY_TREATMENT_REQUIRED_1: 'FX',
+								INJURY_TREATMENT_RECEIVED_1: 'FY',
+								INJURY_TREATMENT_REQUIRED_2: 'GC',
+								INJURY_TREATMENT_RECEIVED_2: 'GD',
+								INJURY_TREATMENT_REQUIRED_3: 'GH',
+								INJURY_TREATMENT_RECEIVED_3: 'GI',
+
+								// DOG
+								DOG_PCA_1: 'CH',
+								DOG_PCA_2: 'CM',
+
+								DOG_BITTEN_1: 'CI',
+								DOG_BITTEN_2: 'CH',
+
+								DOG_LOCATION_TYPE_1: 'CJ',
+								DOG_LOCATION_TYPE_2: 'CO',
+
+								DOG_LOCATION_DESCRIPTION_1: 'CK',
+								DOG_LOCATION_DESCRIPTION_2: 'CP',
+
+								DOG_EFFECT_1: 'CL',
+								DOG_EFFECT_2: 'CQ',
+
+								// TASER
+								TASER_METHOD_1: 'CU',
+								TASER_METHOD_2: 'DH',
+								TASER_METHOD_3: 'DU',
+
+								TASER_PCA_1: 'CS',
+								TASER_PCA_2: 'DF',
+								TASER_PCA_3: 'DS',
+
+								TASER_DISCHARGES_1: 'CV',
+								TASER_DISCHARGES_2: 'DI',
+								TASER_DISCHARGES_3: 'DV',
+
+								TASER_CONTACT_STUNS_1: 'CW',
+								TASER_CONTACT_STUNS_2: 'DJ',
+								TASER_CONTACT_STUNS_3: 'DW',
+
+								TASER_CYCLES_1: 'CX',
+								TASER_CYCLES_2: 'DK',
+								TASER_CYCLES_3: 'DX',
+
+								// FIREARM
+								FIREARM_TYPE_1: 'ES',
+								FIREARM_TYPE_2: 'FB',
+
+								FIREARM_PCA_1: 'ER',
+								FIREARM_PCA_2: 'FA',
+
+								FIREARM_METHOD_1: 'ET',
+								FIREARM_METHOD_2: 'FC',
+
+								// OC SPRAY
+								OC_SPRAY_PCA_1: 'AJ',
+								OC_SPRAY_PCA_2: 'AQ',
+								OC_SPRAY_PCA_3: 'AX'
+							});
+
+							let arrayCols = {
+								[cols.TACTICS]: '\n'
+							};
+
+							let fileConfig = {
+								headerRows: 2,
+								cols: cols,
+								aliases: {
+									ETHNICITY: [
+										[
+											'Pacific', // Not represented in data, but used as a label
+											'Pacific Island',
+											'Pacific Islander',
+											'Other - Cook Island/Maori',
+											'Other - Fijian/PI',
+											'Other - Tongan'
+										],
+										[
+											'African',
+											'Native African (or cultural group of African origin)',
+											'Other - african'
+										],
+										[
+											'Pākehā', // Not represented in data, but used as a label
+											'European',
+											'Other - Maori/European',
+											'Other - European/Maori'
+										],
+										[
+											'Māori', // Not represented in data, but used as a label
+											'Maori',
+											'Other - Maori/European',
+											'Other - Cook Island/Maori',
+											'Other - European/Maori'
+										]
+									]
+								},
+								arrayCols: arrayCols,
+								enumsMap: {
+									TASER_METHOD: [cols.TASER_METHOD_1, cols.TASER_METHOD_2, cols.TASER_METHOD_3],
+									INJURY_CAUSE: [cols.INJURY_CAUSE_1, cols.INJURY_CAUSE_2, cols.INJURY_CAUSE_3],
+									INJURY_SITE: [cols.INJURY_SITE_1, cols.INJURY_SITE_2, cols.INJURY_SITE_3],
+									INJURY_TREATMENT_REQUIRED: [cols.INJURY_TREATMENT_REQUIRED_1, cols.INJURY_TREATMENT_REQUIRED_2, cols.INJURY_TREATMENT_REQUIRED_3],
+									INJURY_TREATMENT_RECEIVED: [cols.INJURY_TREATMENT_RECEIVED_1, cols.INJURY_TREATMENT_RECEIVED_2, cols.INJURY_TREATMENT_RECEIVED_3]
+								}
+							};
+
+							return fileConfig;
+						})();
+					</script>
+				</div>
+			</section>
+
+			<section class="expander js-expander js-codebook__set" id="section-data-tor-2017-jan-jun" data-codebook-set="tor">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Data: TOR Jan&nbsp;&ndash;&nbsp;Jun&nbsp;2017</span> <a class="anchor" href="#section-data-tor-2017-jan-jun"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>On 16 September 2017, I requested information from Police under the OIA, including:</p>
+
+						<blockquote>
+							<p>TOR data for the 1 January - 30 June 2017 reporting period, in the same format as was released for the July - December 2016 reporting period.</p>
+
+							<cite><a href="https://fyi.org.nz/request/6558-tactical-options-reporting-data-january-june-2017">OIA request: Tactical Options Reporting Data January-June 2017</a> | Mark Hanna</cite>
+						</blockquote>
+
+						<p>I also asked that Police consider including some information that was redacted from the previous release:</p>
+
+						<blockquote>
+							<p>In the data released in March, the following information was withheld entirely "as they may contain free-text (including names)":</p>
+
+							<ul>
+								<li>Your [Reporter] Role</li>
+								<li>[Subject] Role</li>
+								<li>Relevant factors</li>
+								<li>Subject Weapon</li>
+								<li>Subject behaviours [for all Tactical Options]</li>
+								<li>Handcuff Types [for all uses of Handcuff/Restraints]</li>
+								<li>Technique [for all uses of Empty Hand tactics]</li>
+								<li>Reason no warning [for all uses of TASER]</li>
+								<li>Other tactic [type] [for all uses of Other tactics]</li>
+								<li>Most effective tactic</li>
+								<li>Subject resolution</li>
+								<li>Staff Injury: type</li>
+								<li>Staff Injury By Police: Actions</li>
+								<li>Staff Injury By Equipment</li>
+								<li>Staff Injury By Equipment: Failure</li>
+								<li>Staff Injury By Other</li>
+								<li>SRBA: Why Not</li>
+								<li>SRBA: Negative How</li>
+							</ul>
+
+							<p>I would ask that you consider whether, as required by s9(2)(a) of the Official Information Act, it is *necessary* to withhold all of this information in order to protect the privacy of natural persons. I expect this is not the case, and it would be preferable if only that information which it is necessary to withhold for that reason should be withheld, rather than the entire content of these columns.</p>
+
+							<p>I understand that this would likely require significantly more work before the data is fit for release. I would be happy to consult with you regarding this part of my request if necessary, to discuss potential compromises that will allow more of the data to be released without requiring a charge or being refused under s18(f) of the Official Information Act.</p>
+
+							<cite><a href="https://fyi.org.nz/request/6558-tactical-options-reporting-data-january-june-2017">OIA request: Tactical Options Reporting Data January-June 2017</a> | Mark Hanna</cite>
+						</blockquote>
+
+						<p>On 25 September 2017, a Police employee consulted with me on refining this part of my request. She explained that manually reviewing the fields that had previously been redacted in this way would take a very long time, and proposed a compromise:</p>
+
+						<blockquote>
+							<p>in order to facilitate your request, Police are willing to recode some of these variables, so long as the total time required to prepare the dataset remains under one hour (in line with Ministry of Justice guidelines). As such, we would recode variables for which we already have a robust recoding technique established (but which has not yet been applied to this current dataset). This would likely include Subject relevant factors and subject weapon types.</p>
+
+							<cite><a href="https://fyi.org.nz/request/6558-tactical-options-reporting-data-january-june-2017#incoming-21771">OIA Response</a> | NZ Police</cite>
+						</blockquote>
+
+						<p>I responded to clarify that I was most interested these columns being included:</p>
+
+						<ul>
+							<li>Subject Weapon</li>
+							<li>Reason no warning [for all uses of TASER]</li>
+							<li>Other tactic [type] [for all uses of Other tactics]</li>
+						</ul>
+
+						<p>I also said I would appreciate if the "Relevant factors" column could be included if Police had sufficient time.</p>
+
+						<p>Police responded again to tell me what additional work they would be willing to do to allow more information to be included in the release:</p>
+
+						<blockquote>
+							<p>Based on your response Police are willing to recode the "Subject Weapon" and, if time permits, the "subject relevant factors" fields.</p>
+
+							<p>For the "Other tactic" and "Reason no warning" fields, these are solely free-text fields which we do not currently have a recording process for. However due to the relatively low number of cases for each field we believe that we can redact any personal information that may exist in these cells, within the one-hour timeframe .</p>
+
+							<p>During this process, it may be necessary to redact additional content in the free-text fields for reasons other than privacy (for example, under sections 6(c) or 9(2)(g)(i)). The reasons for any redaction will be noted in the cells.</p>
+
+							<p>Also, please be aware that the content in the "Other tactic" fields are particularly prone to data entry errors. Police will not be investigating nor correcting or recoding any data errors.</p>
+
+							<cite><a href="https://fyi.org.nz/request/6558-tactical-options-reporting-data-january-june-2017#incoming-21784" target="_blank">OIA Response</a> | NZ Police</cite>
+						</blockquote>
+
+						<p>On 25 October 2017, Police released TOR data covering 1 January 2017 &ndash; 30 June 2017 in this spreadsheet:</p>
+
+						<p><a href="../data/2017/jan-jun/Mark Hanna spreadsheet.xlsx">Mark Hanna spreadsheet.xlsx</a></p>
+
+						<p>This spreadsheet contains a "Notes" sheet detailing how the export was created and what fields had been removed or recoded:</p>
+
+						<blockquote>
+							<p></p>
+
+							<cite>NZ Police</cite>
+						</blockquote>
+
+						<p>The Notes sheet also included the following section. I have added emphasis:</p>
+
+						<blockquote>
+							<p>The export was created using the following search criteria</p>
+							<ul>
+								<li>Incident start date = 1/01/2017</li>
+								<li>Incident end date = 30/06/2017</li>
+								<li>Status = Complete</li>
+							</ul>
+
+							<p>The following fields have been removed pursuant to section 9(2)(a) of the Official Infromation [<i>sic</i>] Act 1982</p>
+							<ul>
+								<li>Incident station</li>
+								<li>Area</li>
+								<li>Reporter Name</li>
+								<li>Reporter QID</li>
+								<li>Reporter Rank</li>
+								<li>Reporter position</li>
+								<li>Other Police QIDs</li>
+								<li>Subject [name]</li>
+								<li>TaserCam Serial No</li>
+							</ul>
+
+							<p>The following fields have been replaced by other calculated, recoded or redacted fields  pursuant to section 9(2)(a) of the Offical Infromation [<i>sic</i>] Act 1982</p>
+							<ul>
+								<li>ID number has been created for this request. This is a unique randomly generated ID reference number </li>
+								<li>Incident date has been replaced by month and year</li>
+								<li>Subject DOB has been replaced by Subject Age</li>
+								<li>Relevant factors has been replaced by multiple varibales [<i>sic</i>] beinging [<i>sic</i>] with "RF:…"</li>
+								<li>Most effective tactic has been replaced by Most effective tactic - RECODE</li>
+								<li>Subject Weapon  has been replaced by Subject Weapon - RECODE</li>
+								<li>Taser 1: Reason No Warning has been replaced by Taser 1: Reason No Warning - REDACTED</li>
+								<li>Firearm 1: Firearm Type has been replaced by Firearm 1: Firearm Type - RECODED</li>
+								<li>Other 1: Tactic has been replaced by Other 1: Tactic - REDACTED</li>
+							</ul>
+
+							<p>The following fields have been removed, pursuant to section 9(2)(a) of the Offical Infromation [<i>sic</i>] Act 1982, as they may contain free-text (including names)</p>
+							<ul>
+								<li>Your [Reporter] Role</li>
+								<li>[Subject] Role</li>
+								<li>Subject behaviours [for all Tactical Options]</li>
+								<li>Handcuff Types [for all uses of Handcuff/Restraints]</li>
+								<li>Technique [for all uses of Empty Hand tactics]</li>
+								<li>Subject resolution</li>
+								<li>Staff Injury: type</li>
+								<li>Staff Injury By Police: Actions</li>
+								<li>Staff Injury By Equipment</li>
+								<li>Staff Injury By Equipment: Failure</li>
+								<li>Staff Injury By Other</li>
+								<li>SRBA: Why Not</li>
+								<li>SRBA: Negative How</li>
+							</ul>
+
+							<p>
+								Caveats:<br />
+								The records provided in this spreadsheet are derived from the Tactical Options Reporting (TOR) database which records the reportable use of force by Police officers. Each row is a "TOR event" which is the reportable use of one or more tactical options, by one officer, against one individual. Multiple TOR events can occur at one incident. TOR data does not include events where the use of force is associated with a fatality as these events are instead the subject of internal and external investigations.
+							</p>
+
+							<cite>NZ Police</cite>
+						</blockquote>
+
+						<p>The Notes sheet also included the following section. I have added emphasis:</p>
+
+						<blockquote>
+							<p>This data is incomplete and has not been cleaned or coded for analysis or to correct any errors. Some columns have been removed or altered (as outlined above), pursuant to section 9(2)(a) of the Official Information Act 1982, to protect the privacy of natural persons. Given the incomplete and potentially unreliable nature of this data, Police takes no responsibility for its accuracy and correctness, and advises that it is incomplete. <strong>Police requests that if you publish this data in any form, you attach a proviso noting that Police have communicated to you that this information is raw data which has not been checked and which is therefore incomplete and may be unreliable</strong>. Furthermore, Police will not be liable for any loss or damage arising directly or indirectly from reliance on the data or information presented in the spreadsheet.</p>
+
+							<cite>NZ Police</cite>
+						</blockquote>
+
+						<p>I converted the "TOR Export - Hanna" sheet of this spreadsheet to a CSV using Google Sheets:</p>
+
+						<p><a href="../data/2017/jan-jun/Mark Hanna spreadsheet.xlsx - TOR Export - Hanna.csv">Mark Hanna spreadsheet.xlsx - TOR Export - Hanna.csv</a></p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code js-codebook__source">
+						let fileConfig2017a = (() => {
+							let cols = Analyser.getColNumbers({
+								ID: 'A',
+								MONTH: 'C',
+								YEAR: 'D',
+								TIME: 'E',
+
+								DISTRICT: 'F',
+								AGE: 'I',
+								GENDER: 'J',
+								ETHNICITY: 'K',
+								SUBJECT_ARMED: 'W',
+								TACTICS: 'Y',
+
+								SPECIAL_POLICE_GROUPS: 'G',
+								INCIDENT_TYPE: 'GM',
+
+								// RELEVANT FACTORS
+								RF_HISTORY_OF_CARRYING_WEAPONS: 'L',
+								RF_HISTORY_OF_VIOLENCE_AGAINST_POLICE: 'M',
+								RF_HISTORY_OF_VIOLENCE_AGAINST_NON_POLICE: 'N',
+								RF_ALCOHOL: 'O',
+								RF_DRUGS: 'P',
+								RF_MENTAL_HEALTH: 'Q',
+								RF_DISTRESSED_NOT_MENTAL_HEALTH: 'R',
+								RF_SUICIDAL: 'S',
+								RF_EXCITED_DELERIUM: 'T',
+								RF_MEDICAL: 'U',
+								RF_OTHER: 'V',
+
+								// INJURY
+								INJURIES: 'GO',
+								INJURY_CAUSE_1: 'GP',
+								INJURY_CAUSE_2: 'GU',
+								INJURY_CAUSE_3: 'GZ',
+
+								INJURY_SITE_1: 'GQ',
+								INJURY_SITE_2: 'GV',
+								INJURY_SITE_3: 'HA',
+
+								INJURY_TREATMENT_REQUIRED_1: 'GS',
+								INJURY_TREATMENT_RECEIVED_1: 'GT',
+								INJURY_TREATMENT_REQUIRED_2: 'GX',
+								INJURY_TREATMENT_RECEIVED_2: 'GY',
+								INJURY_TREATMENT_REQUIRED_3: 'HC',
+								INJURY_TREATMENT_RECEIVED_3: 'HD',
+
+								// DOG
+								DOG_PCA_1: 'CU',
+								DOG_PCA_2: 'CZ',
+
+								DOG_BITTEN_1: 'CV',
+								DOG_BITTEN_2: 'DA',
+
+								DOG_LOCATION_TYPE_1: 'CW',
+								DOG_LOCATION_TYPE_2: 'DB',
+
+								DOG_LOCATION_DESCRIPTION_1: 'CX',
+								DOG_LOCATION_DESCRIPTION_2: 'DC',
+
+								DOG_EFFECT_1: 'CY',
+								DOG_EFFECT_2: 'DD',
+
+								// TASER
+								TASER_METHOD_1: 'DI',
+								TASER_METHOD_2: 'DW',
+								TASER_METHOD_3: 'EK',
+
+								TASER_PCA_1: 'DF',
+								TASER_PCA_2: 'DT',
+								TASER_PCA_3: 'EH',
+
+								TASER_DISCHARGES_1: 'DJ',
+								TASER_DISCHARGES_2: 'DX',
+								TASER_DISCHARGES_3: 'EL',
+
+								TASER_CONTACT_STUNS_1: 'DK',
+								TASER_CONTACT_STUNS_2: 'DY',
+								TASER_CONTACT_STUNS_3: 'EM',
+
+								TASER_CYCLES_1: 'DL',
+								TASER_CYCLES_2: 'DZ',
+								TASER_CYCLES_3: 'EN',
+
+								// FIREARM
+								FIREARM_TYPE_1: 'FK',
+								FIREARM_TYPE_2: 'FT',
+
+								FIREARM_PCA_1: 'FJ',
+								FIREARM_PCA_2: 'FS',
+
+								FIREARM_METHOD_1: 'FL',
+								FIREARM_METHOD_2: 'FU',
+
+								// OC SPRAY
+								OC_SPRAY_PCA_1: 'AV',
+								OC_SPRAY_PCA_2: 'BC',
+								OC_SPRAY_PCA_3: 'BJ'
+							});
+
+							let arrayCols = {
+								[cols.TACTICS]: '\n',
+								[cols.SPECIAL_POLICE_GROUPS]: ', ',
+								[cols.INJURY_SITE_1]: '\n',
+								[cols.INJURY_SITE_2]: '\n',
+								[cols.INJURY_SITE_3]: '\n'
+							};
+
+							let fileConfig = {
+								headerRows: 2,
+								cols: cols,
+								aliases: {
+									ETHNICITY: [
+										[
+											'Pacific', // Not represented in data, but used as a label
+											'Pacific Island',
+											'Pacific Islander',
+											'Other - COOK ISLAND MAORI',
+											'Other - maori-cook islander',
+											'Other - Tongan',
+											'Other - EUROPEAN/SAMOAN'
+										],
+										[
+											'African',
+											'Native African (or cultural group of African origin)',
+											'Other - SUDANESE',
+											'Other - Sudanese'
+										],
+										[
+											'Pākehā', // Not represented in data, but used as a label
+											'European',
+											'Other - EUROPEAN/SAMOAN'
+										],
+										[
+											'Māori', // Not represented in data, but used as a label
+											'Maori',
+											'Other - Maori/Chillean',
+											'Other - COOK ISLAND MAORI',
+											'Other - maori-cook islander'
+										]
+									]
+								},
+								arrayCols: arrayCols,
+								enumsMap: {
+									TASER_METHOD: [cols.TASER_METHOD_1, cols.TASER_METHOD_2, cols.TASER_METHOD_3],
+									INJURY_CAUSE: [cols.INJURY_CAUSE_1, cols.INJURY_CAUSE_2, cols.INJURY_CAUSE_3],
+									INJURY_SITE: [cols.INJURY_SITE_1, cols.INJURY_SITE_2, cols.INJURY_SITE_3],
+									INJURY_TREATMENT_REQUIRED: [cols.INJURY_TREATMENT_REQUIRED_1, cols.INJURY_TREATMENT_REQUIRED_2, cols.INJURY_TREATMENT_REQUIRED_3],
+									INJURY_TREATMENT_RECEIVED: [cols.INJURY_TREATMENT_RECEIVED_1, cols.INJURY_TREATMENT_RECEIVED_2, cols.INJURY_TREATMENT_RECEIVED_3]
+								}
+							};
+
+							return fileConfig;
+						})();
+					</script>
+				</div>
+			</section>
+
+			<section class="expander js-expander js-codebook__set" id="section-data-tor-2017-jul-dec" data-codebook-set="tor">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Data: TOR Jul&nbsp;&ndash;&nbsp;Dec&nbsp;2017</span> <a class="anchor" href="#section-data-tor-2017-jul-dec"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>On 5 July 2018, I requested information from Police under the OIA, including:</p>
+
+						<blockquote>
+							<p>TOR data for the 1 July - 31 December 2017 reporting period, in the same format as was released for the January-June 2017 reporting period.</p>
+
+							<cite><a href="https://fyi.org.nz/request/8236-tactical-options-reporting-data-july-december-2017">OIA request: Tactical Options Reporting Data July-December 2017</a></cite>
+						</blockquote>
+
+						<p>On 9 August 2018, after I had queried why Police had not responded to my request within the legislative time limit, they told me:</p>
+
+						<blockquote>
+							<p>On the [<i>sic</i>] 24 July 2018 we experienced a system fault with the Tactical Options Reporting database, among some others. This fault saw the database out of commission for a week.</p>
+
+							<p>I can advise you that the database is back on line and the request has been prepared and is currently proceeding through the Executive and Legal consultation process and should be released to you shortly.</p>
+
+							<cite><a href="https://fyi.org.nz/request/8236-tactical-options-reporting-data-july-december-2017#incoming-27242">OIA Response</a> | NZ Police</cite>
+						</blockquote>
+
+						<p>On 29 August 2018, Police released TOR data covering 1 July 2017 – 31 December in this spreadsheet:</p>
+
+						<p><a href="../data/2017/jul-dec/Hanna Mark IR 01 18 5190 TOR Data for Release.xlsx">Hanna Mark IR 01 18 5190 TOR Data for Release.xlsx</a></p><p>This spreadsheet contains a "Notes" sheet detailing how the export was created and what fields had been removed or recoded:</p>
+
+						<blockquote>
+							<p>The export was created using the following search criteria</p>
+							<ul>
+								<li>Incident start date = 1/07/2017</li>
+								<li>Incident end date  = 31/12/2017</li>
+								<li>Status = Complete</li>
+							</ul>
+
+							<p>The following fields have been removed pursuant to section 9(2)(a) of the Offical Infromation [<i>sic</i>] Act 1982</p>
+							<ul>
+								<li>Incident station</li>
+								<li>Area</li>
+								<li>Reporter Name</li>
+								<li>Reporter QID</li>
+								<li>Reporter Rank</li>
+								<li>Reporter position</li>
+								<li>Other Police QIDs</li>
+								<li>Subject [name]</li>
+								<li>TaserCam Serial No</li>
+							</ul>
+
+							<p>The following fields have been replaced by other calculated, recoded or redacted fields  pursuant to section 9(2)(a) of the Offical Infromation [<i>sic</i>] Act 1982</p>
+							<ul>
+								<li>ID number has been created for this request. This is a unique randomly generated ID reference number</li>
+								<li>Incident date has been replaced by month and year</li>
+								<li>Subject DOB has been replaced by Subject Age</li>
+								<li>Relevant factors has been replaced by multiple varibales [<i>sic</i>] beinging [<i>sic</i>] with "RF:…"</li>
+								<li>Most effective tactic has been replaced by Most effective tactic - RECODE</li>
+								<li>Subject Weapon  has been replaced by Subject Weapon - RECODE</li>
+								<li>Taser 1: Reason No Warning has been replaced by Taser 1: Reason No Warning - REDACTED</li>
+								<li>Firearm 1: Firearm Type has been replaced by Firearm 1: Firearm Type - RECODED</li>
+								<li>Other 1: Tactic has been replaced by Other 1: Tactic - REDACTED</li>
+							</ul>
+
+							<p>The following fields have been removed, pursuant to section 9(2)(a) of the Offical Infromation [<i>sic</i>] Act 1982, as they may contain free-text (including names)</p>
+							<ul>
+								<li>Your [Reporter] Role</li>
+								<li>[Subject] Role</li>
+								<li>Subject behaviours [for all Tactical Options]</li>
+								<li>Handcuff Types [for all uses of Handcuff/Restraints]</li>
+								<li>Technique [for all uses of Empty Hand tactics]</li>
+								<li>Subject resolution</li>
+								<li>Staff Injury: type</li>
+								<li>Staff Injury By Police: Actions</li>
+								<li>Staff Injury By Equipment</li>
+								<li>Staff Injury By Equipment: Failure</li>
+								<li>Staff Injury By Other</li>
+								<li>SRBA: Why Not</li>
+								<li>SRBA: Negative How</li>
+							</ul>
+
+							<p>
+								Caveats:<br />
+								"The records provided in the attached spreadsheet are derived from the Tactical Options Reporting (TOR) database, which records the reportable use of force by police officers. Each row is a ‘TOR event’, which is the reportable use of one or more tactical options, by one officer, against one individual. Multiple TOR events can occur at one incident.<br />
+								During the period of this analysis, TOR data does not include events where the use of force is associated with a fatality, as these events are the subject of internal and external investigations."
+							</p>
+
+							<cite>NZ Police</cite>
+						</blockquote>
+
+						<p>The Notes sheet also included the following section. I have added emphasis:</p>
+
+						<blockquote>
+							<p>This data is incomplete and has not been cleaned or coded for analysis or to correct any errors. Some columns have been removed or altered (as outlined above), pursuant to section 9(2)(a) of the Official Information Act 1982, to protect the privacy of natural persons. Given the incomplete and potentially unreliable nature of this data, Police takes no responsibility for its accuracy and correctness, and advises that it is incomplete. <strong>Police requests that if you publish this data in any form, you attach a proviso noting that Police have communicated to you that this information is raw data which has not been checked and which is therefore incomplete and may be unreliable</strong>. Furthermore, Police will not be liable for any loss or damage arising directly or indirectly from reliance on the data or information presented in the spreadsheet.</p>
+
+							<cite>NZ Police</cite>
+						</blockquote>
+
+						<p>I converted the "Hanna - TOR data" sheet of this spreadsheet to a CSV using Google Sheets:</p>
+
+						<p><a href="../data/2017/jul-dec/Hanna Mark IR 01 18 5190 TOR Data for Release.xlsx - Hanna - TOR data.csv">Hanna Mark IR 01 18 5190 TOR Data for Release.xlsx - Hanna - TOR data.csv</a></p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code js-codebook__source">
+						let fileConfig2017b = (() => {
+							let cols = Analyser.getColNumbers({
+								ID: 'A',
+								MONTH: 'C',
+								YEAR: 'D',
+								TIME: 'E',
+
+								DISTRICT: 'F',
+								AGE: 'I',
+								GENDER: 'J',
+								ETHNICITY: 'K',
+								SUBJECT_ARMED: 'W',
+								TACTICS: 'Y',
+
+								SPECIAL_POLICE_GROUPS: 'G',
+								INCIDENT_TYPE: 'GM',
+
+								// RELEVANT FACTORS
+								RF_HISTORY_OF_CARRYING_WEAPONS: 'L',
+								RF_HISTORY_OF_VIOLENCE_AGAINST_POLICE: 'M',
+								RF_HISTORY_OF_VIOLENCE_AGAINST_NON_POLICE: 'N',
+								RF_ALCOHOL: 'O',
+								RF_DRUGS: 'P',
+								RF_MENTAL_HEALTH: 'Q',
+								RF_DISTRESSED_NOT_MENTAL_HEALTH: 'R',
+								RF_SUICIDAL: 'S',
+								RF_EXCITED_DELERIUM: 'T',
+								RF_MEDICAL: 'U',
+								RF_OTHER: 'V',
+
+								// INJURY
+								INJURIES: 'GO',
+								INJURY_CAUSE_1: 'GP',
+								INJURY_CAUSE_2: 'GU',
+								INJURY_CAUSE_3: 'GZ',
+
+								INJURY_SITE_1: 'GQ',
+								INJURY_SITE_2: 'GV',
+								INJURY_SITE_3: 'HA',
+
+								INJURY_TREATMENT_REQUIRED_1: 'GS',
+								INJURY_TREATMENT_RECEIVED_1: 'GT',
+								INJURY_TREATMENT_REQUIRED_2: 'GX',
+								INJURY_TREATMENT_RECEIVED_2: 'GY',
+								INJURY_TREATMENT_REQUIRED_3: 'HC',
+								INJURY_TREATMENT_RECEIVED_3: 'HD',
+
+								// DOG
+								DOG_PCA_1: 'CU',
+								DOG_PCA_2: 'CZ',
+
+								DOG_BITTEN_1: 'CV',
+								DOG_BITTEN_2: 'DA',
+
+								DOG_LOCATION_TYPE_1: 'CW',
+								DOG_LOCATION_TYPE_2: 'DB',
+
+								DOG_LOCATION_DESCRIPTION_1: 'CX',
+								DOG_LOCATION_DESCRIPTION_2: 'DC',
+
+								DOG_EFFECT_1: 'CY',
+								DOG_EFFECT_2: 'DD',
+
+								// TASER
+								TASER_METHOD_1: 'DI',
+								TASER_METHOD_2: 'DW',
+								TASER_METHOD_3: 'EK',
+
+								TASER_PCA_1: 'DF',
+								TASER_PCA_2: 'DT',
+								TASER_PCA_3: 'EH',
+
+								TASER_DISCHARGES_1: 'DJ',
+								TASER_DISCHARGES_2: 'DX',
+								TASER_DISCHARGES_3: 'EL',
+
+								TASER_CONTACT_STUNS_1: 'DK',
+								TASER_CONTACT_STUNS_2: 'DY',
+								TASER_CONTACT_STUNS_3: 'EM',
+
+								TASER_CYCLES_1: 'DL',
+								TASER_CYCLES_2: 'DZ',
+								TASER_CYCLES_3: 'EN',
+
+								// FIREARM
+								FIREARM_TYPE_1: 'FK',
+								FIREARM_TYPE_2: 'FT',
+
+								FIREARM_PCA_1: 'FJ',
+								FIREARM_PCA_2: 'FS',
+
+								FIREARM_METHOD_1: 'FL',
+								FIREARM_METHOD_2: 'FU',
+
+								// OC SPRAY
+								OC_SPRAY_PCA_1: 'AV',
+								OC_SPRAY_PCA_2: 'BC',
+								OC_SPRAY_PCA_3: 'BJ'
+							});
+
+							let arrayCols = {
+								[cols.TACTICS]: '\n',
+								[cols.SPECIAL_POLICE_GROUPS]: ', ',
+								[cols.INJURY_SITE_1]: '\n',
+								[cols.INJURY_SITE_2]: '\n',
+								[cols.INJURY_SITE_3]: '\n'
+							};
+
+							let fileConfig = {
+								headerRows: 2,
+								cols: cols,
+								aliases: {
+									ETHNICITY: [
+										[
+											'Pacific', // Not represented in data, but used as a label
+											'Pacific Island',
+											'Pacific Islander',
+											'Other - European/Pacific Islander',
+											'Other - Maori/Polynesian',
+											'Other - Papau New Guinea',
+											'Other - Samoan'
+										],
+										[
+											'African',
+											'Native African (or cultural group of African origin)'
+										],
+										[
+											'Pākehā', // Not represented in data, but used as a label
+											'European',
+											'Maori / European',
+											'Other - European/Pacific Islander'
+										],
+										[
+											'Māori', // Not represented in data, but used as a label
+											'Maori',
+											'Maori / European',
+											'Other - Maori/Polynesian'
+										]
+									]
+								},
+								arrayCols: arrayCols,
+								enumsMap: {
+									TASER_METHOD: [cols.TASER_METHOD_1, cols.TASER_METHOD_2, cols.TASER_METHOD_3],
+									INJURY_CAUSE: [cols.INJURY_CAUSE_1, cols.INJURY_CAUSE_2, cols.INJURY_CAUSE_3],
+									INJURY_SITE: [cols.INJURY_SITE_1, cols.INJURY_SITE_2, cols.INJURY_SITE_3],
+									INJURY_TREATMENT_REQUIRED: [cols.INJURY_TREATMENT_REQUIRED_1, cols.INJURY_TREATMENT_REQUIRED_2, cols.INJURY_TREATMENT_REQUIRED_3],
+									INJURY_TREATMENT_RECEIVED: [cols.INJURY_TREATMENT_RECEIVED_1, cols.INJURY_TREATMENT_RECEIVED_2, cols.INJURY_TREATMENT_RECEIVED_3]
+								}
+							};
+
+							return fileConfig;
+						})();
+					</script>
+				</div>
+			</section>
+
+			<section class="expander js-expander js-codebook__set" id="section-data-tor-combined" data-codebook-set="tor">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Data: TOR combined</span> <a href="#section-data-tor-combined" class="anchor"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>The data sets were all loaded together and then combined to be analysed at once.</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code js-codebook__source">
+						Analyser.loadFile(
+							'../data/2016/jul-dec/170202 RAKETE 16 11336 TOR xlsx.xlsx - Export - Redacted.csv', fileConfig2016,
+							'../data/2017/jan-jun/Mark Hanna spreadsheet.xlsx - TOR Export - Hanna.csv', fileConfig2017a,
+							'../data/2017/jul-dec/Hanna Mark IR 01 18 5190 TOR Data for Release.xlsx - Hanna - TOR data.csv', fileConfig2017b,
+
+							analyseData
+						);
+					</script>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-index="0" data-codebook-log="log-tor-combined">
+						let data = (() => {
+							let data2016 = arguments[0];
+							let data2017a = arguments[1];
+							let data2017b = arguments[2];
+
+							let data = {
+								'2016': data2016,
+								'2017a': data2017a,
+								'2017b': data2017b,
+								'combined': Analyser.combineData(data2016, data2017a, data2017b)
+							};
+
+							return data;
+						})();
+
+						rows = data.combined.rows;
+						cols = data.combined.cols;
+
+						log(`Number of TOR events: ${rows.length}`);
+
+						log('Number of TOR events for each tactic:', rows.getColSummary(cols.TACTICS));
+					</script>
+
+					<samp class="codebook__log" id="log-tor-combined"></samp>
+
+					<div class="content">
+						<p>Rows where the only tactical option recorded was "communication" were removed. I'm uncertain why any events were loaded this way, as the <a href="../references/Use of Force Overview Reporting.pdf" target="_blank">Use of Force Overview - Reporting</a> document says "communication" should only be recorded when used alongside another tactical option.</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-index="0" data-codebook-log="log-tor-remove-communication-only">
+						(() => {
+							let numRows = rows.length;
+
+							rows = rows.filter(cols.TACTICS, tactics => tactics[0] !== 'Communication' || tactics.length > 1);
+
+							log(`Rows removed: ${numRows - rows.length}`);
+						})();
+					</script>
+
+					<samp class="codebook__log" id="log-tor-remove-communication-only"></samp>
+				</div>
+			</section>
+
+			<section class="expander js-expander js-codebook__set" id="section-chart-tor-firearm-pca" data-codebook-set="tor">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Chart: TOR Firearm PCA</span> <a class="anchor" href="#section-chart-tor-firearm-pca"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>PCA stands for Perceived Cumulative Assessment. It is part of NZ Police's Tactical Options Framework (TOF), and provides a set of categories for police officers to use when making a risk assessment as part of Police's "TENR" (<b>T</b>hreat, <b>E</b>xposure, <b>N</b>ecessity, <b>R</b>esponse) risk assessment model, also part of the TOF.</p>
+
+						<p><a href="https://fyi.org.nz/request/5014-selected-police-manuals#incoming-16479" target="_blank">Police released a summary</a> of their Tactical Options Framework under the OIA on 4 January 2017: <a href="../references/Tactical Options Framework.pdf">Tactical Options Framework (PDF)</a></p>
+
+						<blockquote>
+							<p><strong>Perceived cumulative assessment</strong></p>
+
+							<p>Your subjective assessment and continuous reassessment of an incident, using the TENR model, based on information known about the situation and the subject’s behaviour. The PCA may escalate and/or de-escalate more than once during an incident.</p>
+
+							<p>There are five categories in the PCA, which are represented in the TOF – cooperative, passive resistance, active resistance, assaultive, GBH or death.</p>
+
+							<cite><a href="../references/Tactical Options Framework.pdf">Tactical Options Framework</a> | NZ Police</cite>
+						</blockquote>
+					</div>
+
+					<div class="content">
+						<p>TOR events can involve more than one use of a firearm. For this chart, I looked specifically at the first recorded use of a firearm during a given TOR event.</p>
+
+						<p>I only looked at the first instance because, in the few rare cases in which multiple uses of a firearm are recorded in the same TOR event, each use had the same PCA and method recorded:</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-firearm-pca-first">
+						(() => {
+							let firearms = rows.filter(cols.TACTICS, 'Firearm');
+
+							let firearms2 = firearms.filter(cols.FIREARM_PCA_2, a => !!a);
+
+							firearms2.forEach((row, i) => {
+								if (i > 0) {
+									log('');
+								}
+								log(`${row[cols.FIREARM_PCA_1]}, ${row[cols.FIREARM_METHOD_1]}`);
+								log(`${row[cols.FIREARM_PCA_2]}, ${row[cols.FIREARM_METHOD_2]}`);
+							});
+						})();
+					</script>
+
+					<samp class="codebook__log" id="log-tor-firearm-pca-first"></samp>
+					<div class="content">
+						<p>Because TOR events involving firearms exclude Armed Offenders Squad activity and, prior to 2018, exclude incidents where a person was killed, events where police officers discharged a firearm are likely to be excluded from the TOR database. Because these events are rare anyway, with the vast majority of events being presentation only, I have excluded them:</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-firearm-presentation-only">
+						log(rows.filter(cols.TACTICS, 'Firearm').getColSummary(cols.FIREARM_METHOD_1));
+
+						let firearmP = rows.filter(
+							cols.TACTICS, 'Firearm',
+							cols.FIREARM_METHOD_1, 'Presentation only'
+						);
+					</script>
+
+					<samp class="codebook__log" id="log-tor-firearm-presentation-only"></samp>
+
+					<div class="content">
+						<p>When creating the graph, I split the events by district. I put events in the three districts <a href="https://www.police.govt.nz/can-you-help-us/armed-response-team-trial" target="_blank">where Armed Response Teams were trialed</a> - Counties Manukau, Wairarapa, and Canterbury - in one group and all other districts in the other group.</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-firearm-pca" data-codebook-chart="chart-tor-firearm-pca">
+						(() => {
+							log(`Firearm presentation events: ${firearmP.length}`);
+
+							log(firearmP.getColSummary(cols.FIREARM_PCA_1));
+
+							const armedResponseTeamDistricts = [
+								'Counties/Manukau',
+								'Waikato',
+								'Canterbury'
+							];
+
+							let firearmPArt = firearmP.filter(cols.DISTRICT, district => armedResponseTeamDistricts.includes(district));
+							let firearmPOther = firearmP.filter(cols.DISTRICT, district => !armedResponseTeamDistricts.includes(district));
+
+							let chartConfig = {
+								title: `NZ Police officers' risk assessment of a person when deciding to present a firearm<br />Jul&nbsp;2016&nbsp;&ndash;&nbsp;Dec&nbsp;2017`,
+								showLegend: true,
+								labels: ['Armed Response Teams trial districts', 'Other districts'],
+								dataSeries: [
+									{
+										name: 'GBH',
+										color:' #ccc',
+										dataPoints: [
+											firearmPArt.filter(cols.FIREARM_PCA_1, 'GBH').length / firearmPArt.length,
+											firearmPOther.filter(cols.FIREARM_PCA_1, 'GBH').length / firearmPOther.length
+										]
+									},
+									{
+										name: 'Assaultive',
+										color:' #f3dc51',
+										dataPoints: [
+											firearmPArt.filter(cols.FIREARM_PCA_1, 'Assaultive').length / firearmPArt.length,
+											firearmPOther.filter(cols.FIREARM_PCA_1, 'Assaultive').length / firearmPOther.length
+										]
+									},
+									{
+										name: 'Active Resistant',
+										color:' #e09d1c',
+										dataPoints: [
+											firearmPArt.filter(cols.FIREARM_PCA_1, 'Active Resistant').length / firearmPArt.length,
+											firearmPOther.filter(cols.FIREARM_PCA_1, 'Active Resistant').length / firearmPOther.length
+										]
+									},
+									{
+										name: 'Passive Resistant',
+										color:' #c55c00',
+										dataPoints: [
+											firearmPArt.filter(cols.FIREARM_PCA_1, 'Passive Resistant').length / firearmPArt.length,
+											firearmPOther.filter(cols.FIREARM_PCA_1, 'Passive Resistant').length / firearmPOther.length
+										]
+									},
+									{
+										name: 'Cooperative',
+										color:' #a20000',
+										dataPoints: [
+											firearmPArt.filter(cols.FIREARM_PCA_1, 'Cooperative').length / firearmPArt.length,
+											firearmPOther.filter(cols.FIREARM_PCA_1, 'Cooperative').length / firearmPOther.length
+										]
+									}
+								],
+								stacked: true
+							};
+
+							let yAxis = {
+								percentage: true,
+								max: 1,
+								values: 1,
+								valuesAt: [0.2, 0.3]
+							};
+
+							let xAxis = {};
+
+							let $chart = Charter.createBarChart(chartConfig, yAxis, xAxis);
+
+							chart($chart);
+						})();
+					</script>
+
+					<samp class="codebook__log js-codebook__log" id="log-tor-firearm-pca"></samp>
+
+					<div class="content">
+						<p>I also applied some custom CSS to this chart, to adjust its size and the position of its legend:</p>
+					</div>
+
+					<style type="text/css" class="codebook__style js-codebook__style">
+						#chart-tor-firearm-pca .chart {
+							max-width: 500px;
+						}
+
+						#chart-tor-firearm-pca .chart__area {
+							padding-top: 80%;
+						}
+
+						@media (min-width: 800px) {
+							#chart-tor-firearm-pca .chart__legend {
+								position: absolute;
+								left: 100%;
+								margin-left: 20px;
+								margin-top: 20px;
+								width: 200px;
+							}
+						}
+					</style>
+
+					<div id="chart-tor-firearm-pca"></div>
+				</div>
+			</section>
+		</article>
+	</div>
+</body>
+</html>

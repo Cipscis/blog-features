@@ -5,11 +5,14 @@ import Stats from './charter/stats.js';
 const selectors = {
 	code: '.js-codebook__code',
 	source: '.js-codebook__source',
+	style: '.js-codebook__style',
 	set: '.js-codebook__set'
 };
 
 const dataSelectors = {
 	set: 'data-codebook-set',
+	index: 'data-codebook-index',
+
 	log: 'data-codebook-log',
 	chart: 'data-codebook-chart'
 };
@@ -38,7 +41,7 @@ const module = {
 
 	_tidyCode: function () {
 		// Adjust indentation so it appears correctly on the page
-		let $code = document.querySelectorAll(`${selectors.code}, ${selectors.source}`);
+		let $code = document.querySelectorAll(`${selectors.code}, ${selectors.source}, ${selectors.style}`);
 
 		$code.forEach($el => {
 			let code = $el.innerHTML;
@@ -79,6 +82,27 @@ const module = {
 			}
 		});
 
+		for (let setName in sets) {
+			let set = sets[setName];
+
+			// If any sets have an explicit index, sort them
+			set.code.sort(($codeA, $codeB) => {
+				let iA = $codeA.getAttribute(dataSelectors.index);
+				let iB = $codeB.getAttribute(dataSelectors.index);
+
+				if (iA === iB) {
+					return 0; // Leave the order unchanged
+				} else if (iA !== null && iB === null) {
+					return -1; // Put $codeA first
+				} else if (iA === null && iB !== null) {
+					return +1; // Put $codeB first
+				} else {
+					// Neither index is null
+					return iA - iB; // Put the code with the lower index first
+				}
+			});
+		};
+
 		return sets;
 	},
 
@@ -104,7 +128,7 @@ const module = {
 		let source = set.source.reduce(module._combineCode, '');
 
 		let fileLoadedFnFactory = new Function('Charter', 'Analyser', 'Stats', '_log', '_chart', `
-			return function (data) {
+			return function (_data) {
 				'use strict';
 				let _$log = null;
 				let log = function () {};
@@ -112,8 +136,8 @@ const module = {
 				let _$chart = null;
 				let chart = function () {};
 
-				let rows = data.rows;
-				let cols = data.cols;
+				let rows = _data.rows;
+				let cols = _data.cols;
 
 				${code}
 			}

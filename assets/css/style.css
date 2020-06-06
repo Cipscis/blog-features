@@ -488,22 +488,21 @@ body {
 
 .chart__legend {
   z-index: 4;
-  margin: 0; }
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; }
   .chart__legend:after {
     content: "";
     display: table;
     clear: both; }
 
 .chart__legend-name {
-  float: left;
   width: calc(100% - 16px);
   padding-left: 8px;
   margin-bottom: 8px;
   line-height: 1; }
 
 .chart__legend-indicator {
-  clear: left;
-  float: left;
   margin: 0;
   background: #999;
   border: 1px solid #000;
@@ -608,6 +607,8 @@ body {
     flex-grow: 0; }
   .chart__bar-groups--v .chart__bar-group-bars--stacked .chart__bar-area {
     height: 100%; }
+  .chart__bar-groups--v .chart__bar-group-bars--stacked .chart__bar:nth-child(n+2) .chart__bar-area::before {
+    display: none; }
 
 .chart__bar-groups--v .chart__bar {
   align-items: flex-end; }
@@ -639,7 +640,8 @@ body {
 .chart__bar-groups--v .chart__bar-tooltip {
   top: -5px;
   left: 50%;
-  transform: translateX(-50%) translateY(-100%); }
+  transform: translateX(-50%) translateY(-100%);
+  min-width: 100%; }
 
 .chart__bar-groups--h {
   flex-direction: column; }
@@ -652,6 +654,8 @@ body {
       flex-grow: 0; }
     .chart__bar-groups--h .chart__bar-group-bars--stacked .chart__bar-area {
       width: 100%; }
+    .chart__bar-groups--h .chart__bar-group-bars--stacked .chart__bar:nth-child(n+2) .chart__bar-area::before {
+      display: none; }
   .chart__bar-groups--h .chart__bar {
     width: 100%;
     align-items: center; }
@@ -677,7 +681,8 @@ body {
   .chart__bar-groups--h .chart__bar-tooltip {
     top: 50%;
     left: 100%;
-    transform: translateX(5px) translateY(-50%); }
+    transform: translateX(5px) translateY(-50%);
+    min-height: 100%; }
 
 .chart__points {
   position: absolute;
@@ -784,7 +789,8 @@ body {
 .content code,
 .code,
 .codebook__code,
-.codebook__log {
+.codebook__log,
+.codebook__style {
   display: inline;
   background: #eee;
   color: #000;
@@ -797,14 +803,14 @@ body {
   max-width: 100%;
   overflow: auto; }
 
-.code--block, .codebook__code, .codebook__log {
+.code--block, .codebook__code, .codebook__log, .codebook__style {
   display: block;
   min-height: 30px;
   padding: 0 7px;
   margin: 20px 0; }
-  .code--block:first-child, .codebook__code:first-child, .codebook__log:first-child {
+  .code--block:first-child, .codebook__code:first-child, .codebook__log:first-child, .codebook__style:first-child {
     margin-top: 0; }
-  .code--block:last-child, .codebook__code:last-child, .codebook__log:last-child {
+  .code--block:last-child, .codebook__code:last-child, .codebook__log:last-child, .codebook__style:last-child {
     margin-bottom: 0; }
 
 .codebook__panel {
