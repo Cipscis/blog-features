@@ -1079,12 +1079,12 @@
 							let firearmPOther = firearmP.filter(cols.DISTRICT, district => !armedResponseTeamDistricts.includes(district));
 
 							let chartConfig = {
-								title: `NZ Police officers' risk assessment of a person when deciding to present a firearm<br />Jul&nbsp;2016&nbsp;&ndash;&nbsp;Dec&nbsp;2017`,
+								title: `Threat level when NZ Police presented firearms<br />Jul&nbsp;2016&nbsp;&ndash;&nbsp;Dec&nbsp;2017`,
 								showLegend: true,
 								labels: ['Armed Response Teams trial districts', 'Other districts'],
 								dataSeries: [
 									{
-										name: 'GBH',
+										name: 'Grievous Bodily Harm',
 										color:' #ccc',
 										dataPoints: [
 											firearmPArt.filter(cols.FIREARM_PCA_1, 'GBH').length / firearmPArt.length,
@@ -1158,12 +1158,15 @@
 						}
 
 						@media (min-width: 800px) {
+							#chart-tor-firearm-pca .chart__title {
+								margin-right: -240px; /* Extend width */
+							}
 							#chart-tor-firearm-pca .chart__legend {
 								position: absolute;
 								left: 100%;
 								margin-left: 20px;
 								margin-top: 20px;
-								width: 200px;
+								width: 220px;
 							}
 						}
 					</style>
