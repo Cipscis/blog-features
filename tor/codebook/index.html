@@ -31,6 +31,7 @@
 					<div class="article-meta">
 						<span class="article-meta__author">by Mark Hanna</span>
 						<span class="article-meta__date">Published 2020-06-06</span>
+						<span class="article-meta__date">Updated 2020-06-12</span>
 					</div>
 
 					<p>This document describes how NZ Police Tactical Options Reporting data was analysed to produce various charts.</p>
@@ -42,7 +43,7 @@
 					<p>TOR data records how NZ Police used force, with certain exceptions:</p>
 
 					<ul>
-						<li>Armed Offenders Squad activity</li>
+						<li>Presentation of tasers or firearms by the Armed Offenders Squad (AOS) or Special Tactics Group (STG)</li>
 						<li>Prior to 2018, events in which someone died</li>
 					</ul>
 
@@ -957,26 +958,26 @@
 
 					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-index="0" data-codebook-log="log-tor-combined">
 						let data = (() => {
-							let data2016 = arguments[0];
+							let data2016b = arguments[0];
 							let data2017a = arguments[1];
 							let data2017b = arguments[2];
 
 							let data = {
-								'2016': data2016,
+								'2016b': data2016b,
+
 								'2017a': data2017a,
 								'2017b': data2017b,
-								'combined': Analyser.combineData(data2016, data2017a, data2017b)
+								'2017': Analyser.combineData(data2017a, data2017b),
+
+								'combined': Analyser.combineData(data2016b, data2017a, data2017b)
 							};
 
 							return data;
 						})();
 
+						// By default, use all available data
 						rows = data.combined.rows;
 						cols = data.combined.cols;
-
-						log(`Number of TOR events: ${rows.length}`);
-
-						log('Number of TOR events for each tactic:', rows.getColSummary(cols.TACTICS));
 					</script>
 
 					<samp class="codebook__log" id="log-tor-combined"></samp>
@@ -1019,9 +1020,7 @@
 
 							<cite><a href="../references/Tactical Options Framework.pdf">Tactical Options Framework</a> | NZ Police</cite>
 						</blockquote>
-					</div>
 
-					<div class="content">
 						<p>TOR events can involve more than one use of a firearm. For this chart, I looked specifically at the first recorded use of a firearm during a given TOR event.</p>
 
 						<p>I only looked at the first instance because, in the few rare cases in which multiple uses of a firearm are recorded in the same TOR event, each use had the same PCA and method recorded:</p>
@@ -1045,7 +1044,7 @@
 
 					<samp class="codebook__log" id="log-tor-firearm-pca-first"></samp>
 					<div class="content">
-						<p>Because TOR events involving firearms exclude Armed Offenders Squad activity and, prior to 2018, exclude incidents where a person was killed, events where police officers discharged a firearm are likely to be excluded from the TOR database. Because these events are rare anyway, with the vast majority of events being presentation only, I have excluded them:</p>
+						<p>Because TOR events prior to 2018 excluded incidents where a person was killed, events where police officers discharged a firearm are likely to be excluded from the TOR database. These events are rare anyway, with the vast majority of events being presentation only, I have excluded them:</p>
 					</div>
 
 					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-firearm-presentation-only">
@@ -1060,6 +1059,8 @@
 					<samp class="codebook__log" id="log-tor-firearm-presentation-only"></samp>
 
 					<div class="content">
+						<p>It's still worth being aware that firearm presentations by the AOS and the STG are not recorded in the TOR database.</p>
+
 						<p>When creating the graph, I split the events by district. I put events in the three districts <a href="https://www.police.govt.nz/can-you-help-us/armed-response-team-trial" target="_blank">where Armed Response Teams were trialed</a> - Counties Manukau, Wairarapa, and Canterbury - in one group and all other districts in the other group.</p>
 					</div>
 
