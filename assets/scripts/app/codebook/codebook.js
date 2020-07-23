@@ -138,6 +138,7 @@ const module = {
 
 				let rows = _data.rows;
 				let cols = _data.cols;
+				let enums = _data.enums;
 
 				${code}
 			}
