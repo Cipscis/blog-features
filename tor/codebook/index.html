@@ -239,6 +239,10 @@
 								INJURY_SITE_2: 'GA',
 								INJURY_SITE_3: 'GF',
 
+								INJURY_TYPE_1: 'FW',
+								INJURY_TYPE_2: 'GB',
+								INJURY_TYPE_3: 'GG',
+
 								INJURY_TREATMENT_REQUIRED_1: 'FX',
 								INJURY_TREATMENT_RECEIVED_1: 'FY',
 								INJURY_TREATMENT_REQUIRED_2: 'GC',
@@ -339,8 +343,10 @@
 								arrayCols: arrayCols,
 								enumsMap: {
 									TASER_METHOD: [cols.TASER_METHOD_1, cols.TASER_METHOD_2, cols.TASER_METHOD_3],
+									FIREARM_METHOD: [cols.FIREARM_METHOD_1, cols.FIREARM_METHOD_2],
 									INJURY_CAUSE: [cols.INJURY_CAUSE_1, cols.INJURY_CAUSE_2, cols.INJURY_CAUSE_3],
 									INJURY_SITE: [cols.INJURY_SITE_1, cols.INJURY_SITE_2, cols.INJURY_SITE_3],
+									INJURY_TYPE: [cols.INJURY_TYPE_1, cols.INJURY_TYPE_2, cols.INJURY_TYPE_3],
 									INJURY_TREATMENT_REQUIRED: [cols.INJURY_TREATMENT_REQUIRED_1, cols.INJURY_TREATMENT_REQUIRED_2, cols.INJURY_TREATMENT_REQUIRED_3],
 									INJURY_TREATMENT_RECEIVED: [cols.INJURY_TREATMENT_RECEIVED_1, cols.INJURY_TREATMENT_RECEIVED_2, cols.INJURY_TREATMENT_RECEIVED_3]
 								}
@@ -559,6 +565,10 @@
 								INJURY_SITE_2: 'GV',
 								INJURY_SITE_3: 'HA',
 
+								INJURY_TYPE_1: 'GR',
+								INJURY_TYPE_2: 'GW',
+								INJURY_TYPE_3: 'HB',
+
 								INJURY_TREATMENT_REQUIRED_1: 'GS',
 								INJURY_TREATMENT_RECEIVED_1: 'GT',
 								INJURY_TREATMENT_REQUIRED_2: 'GX',
@@ -664,8 +674,10 @@
 								arrayCols: arrayCols,
 								enumsMap: {
 									TASER_METHOD: [cols.TASER_METHOD_1, cols.TASER_METHOD_2, cols.TASER_METHOD_3],
+									FIREARM_METHOD: [cols.FIREARM_METHOD_1, cols.FIREARM_METHOD_2],
 									INJURY_CAUSE: [cols.INJURY_CAUSE_1, cols.INJURY_CAUSE_2, cols.INJURY_CAUSE_3],
 									INJURY_SITE: [cols.INJURY_SITE_1, cols.INJURY_SITE_2, cols.INJURY_SITE_3],
+									INJURY_TYPE: [cols.INJURY_TYPE_1, cols.INJURY_TYPE_2, cols.INJURY_TYPE_3],
 									INJURY_TREATMENT_REQUIRED: [cols.INJURY_TREATMENT_REQUIRED_1, cols.INJURY_TREATMENT_REQUIRED_2, cols.INJURY_TREATMENT_REQUIRED_3],
 									INJURY_TREATMENT_RECEIVED: [cols.INJURY_TREATMENT_RECEIVED_1, cols.INJURY_TREATMENT_RECEIVED_2, cols.INJURY_TREATMENT_RECEIVED_3]
 								}
@@ -820,6 +832,10 @@
 								INJURY_SITE_2: 'GV',
 								INJURY_SITE_3: 'HA',
 
+								INJURY_TYPE_1: 'GR',
+								INJURY_TYPE_2: 'GW',
+								INJURY_TYPE_3: 'HB',
+
 								INJURY_TREATMENT_REQUIRED_1: 'GS',
 								INJURY_TREATMENT_RECEIVED_1: 'GT',
 								INJURY_TREATMENT_REQUIRED_2: 'GX',
@@ -923,8 +939,10 @@
 								arrayCols: arrayCols,
 								enumsMap: {
 									TASER_METHOD: [cols.TASER_METHOD_1, cols.TASER_METHOD_2, cols.TASER_METHOD_3],
+									FIREARM_METHOD: [cols.FIREARM_METHOD_1, cols.FIREARM_METHOD_2],
 									INJURY_CAUSE: [cols.INJURY_CAUSE_1, cols.INJURY_CAUSE_2, cols.INJURY_CAUSE_3],
 									INJURY_SITE: [cols.INJURY_SITE_1, cols.INJURY_SITE_2, cols.INJURY_SITE_3],
+									INJURY_TYPE: [cols.INJURY_TYPE_1, cols.INJURY_TYPE_2, cols.INJURY_TYPE_3],
 									INJURY_TREATMENT_REQUIRED: [cols.INJURY_TREATMENT_REQUIRED_1, cols.INJURY_TREATMENT_REQUIRED_2, cols.INJURY_TREATMENT_REQUIRED_3],
 									INJURY_TREATMENT_RECEIVED: [cols.INJURY_TREATMENT_RECEIVED_1, cols.INJURY_TREATMENT_RECEIVED_2, cols.INJURY_TREATMENT_RECEIVED_3]
 								}
@@ -943,7 +961,7 @@
 
 				<div class="expander__body">
 					<div class="content">
-						<p>The data sets were all loaded together and then combined to be analysed at once.</p>
+						<p>The data sets were all loaded together and then combined to be analysed in groups.</p>
 					</div>
 
 					<script type="text/codebook" class="codebook__code js-codebook__code js-codebook__source">
@@ -969,24 +987,109 @@
 								'2017b': data2017b,
 								'2017': Analyser.combineData(data2017a, data2017b),
 
-								'combined': Analyser.combineData(data2016b, data2017a, data2017b)
+								'2016b-2017': Analyser.combineData(data2016b, data2017a, data2017b)
 							};
+
+							let exampleSet = '2016b-2017';
+
+							log(`For the set '${exampleSet}':`);
+
+							log(`Number of TOR events: ${data[exampleSet].rows.length}`);
+
+							log('Number of TOR events for each tactic:', data[exampleSet].rows.getColSummary(data[exampleSet].cols.TACTICS));
 
 							return data;
 						})();
-
-						// By default, use all available data
-						rows = data.combined.rows;
-						cols = data.combined.cols;
 					</script>
 
 					<samp class="codebook__log" id="log-tor-combined"></samp>
 
 					<div class="content">
+						<p>I also created a utility function, <code>getTacticUseRows</code>, for easier filtering when looping through tactics for data sets containing derived <code>FIREARM_USED</code> and <code>TASER_USED</code> columns.</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code">
+						let getTacticUseRows = (tactic, filterRows) => {
+							if (typeof filterRows === 'undefined') {
+								filterRows = rows;
+							}
+
+							let tacticUseRows = filterRows.filter(cols.TACTICS, tactic);
+
+							if (tactic === 'Firearm') {
+								tacticUseRows = tacticUseRows.filter(cols.FIREARM_USED, true);
+							} else if (tactic === 'Taser') {
+								tacticUseRows = tacticUseRows.filter(cols.TASER_USED, true);
+							}
+
+							return tacticUseRows;
+						};
+					</script>
+
+					<div class="content">
+						<p>Those derived columns can be created using these functions with <a href="https://cipscis.github.io/charter/app/docs/#analyser-addderivedcol" target="_blank">addDerivedCol</a>:</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code">
+						let getTaserUsed = row => {
+							let taserUsed = false;
+
+							let taserUseMethods = ['Discharge', 'Contact stun'];
+
+							if (
+								taserUseMethods.includes(row[cols.TASER_METHOD_1]) ||
+								taserUseMethods.includes(row[cols.TASER_METHOD_2]) ||
+								taserUseMethods.includes(row[cols.TASER_METHOD_3])
+							) {
+								taserUsed = true;
+							}
+
+							return taserUsed;
+						};
+
+						let getFirearmUsed = row => {
+							let firearmUsed = false;
+
+							let firearmUseMethods = ['Shots fired'];
+
+							if (
+								firearmUseMethods.includes(row[cols.FIREARM_METHOD_1]) ||
+								firearmUseMethods.includes(row[cols.FIREARM_METHOD_2])
+							) {
+								firearmUsed = true;
+							}
+
+							return firearmUsed;
+						};
+					</script>
+				</div>
+			</section>
+
+			<section class="expander js-expander js-codebook__set" id="section-data-tor-2016b-2017" data-codebook-set="tor">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Data: TOR Jul 2016 &ndash; Dec 2017</span> <a href="#section-data-tor-2016b-2017" class="anchor"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>Using combined data from the second half of 2016 and the first and second halves of 2017:</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-2016b-2017-data">
+						rows = data['2016b-2017'].rows;
+						cols = data['2016b-2017'].cols;
+						enums = data['2016b-2017'].enums;
+
+						log(rows.length);
+					</script>
+
+					<samp class="codebook__log" id="log-tor-2016b-2017-data"></samp>
+
+					<div class="content">
 						<p>Rows where the only tactical option recorded was "communication" were removed. I'm uncertain why any events were loaded this way, as the <a href="../references/Use of Force Overview Reporting.pdf" target="_blank">Use of Force Overview - Reporting</a> document says "communication" should only be recorded when used alongside another tactical option.</p>
 					</div>
 
-					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-index="0" data-codebook-log="log-tor-remove-communication-only">
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-index="0" data-codebook-log="log-tor-2016b-2017-remove-communication-only">
 						(() => {
 							let numRows = rows.length;
 
@@ -996,7 +1099,77 @@
 						})();
 					</script>
 
-					<samp class="codebook__log" id="log-tor-remove-communication-only"></samp>
+					<samp class="codebook__log" id="log-tor-2016b-2017-remove-communication-only"></samp>
+
+					<div class="content">
+						<p>The TOR data's <code>TACTICS</code> column doesn't differentiate between firearm or taser shows or uses. Because presentation of these weapons are recorded (excluding when they are presented by the AOS or STG), but this is not the case for other tactical options available to Police, I created new derived columns to filter events based on whether or not a taser or firearm was used as opposed to only being shown.</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-2016b-2017-show-presentation">
+						(() => {
+							cols.TASER_USED = rows.addDerivedCol(getTaserUsed);
+							cols.FIREARM_USED = rows.addDerivedCol(getFirearmUsed);
+
+							log('Taser used:', rows.filter(cols.TACTICS, 'Taser').getColSummary(cols.TASER_USED));
+							log('Firearm used:', rows.filter(cols.TACTICS, 'Firearm').getColSummary(cols.FIREARM_USED));
+						})();
+					</script>
+
+					<samp class="codebook__log" id="log-tor-2016b-2017-show-presentation"></samp>
+				</div>
+			</section>
+
+			<section class="expander js-expander js-codebook__set" id="section-data-tor-2017" data-codebook-set="tor">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Data: TOR 2017</span> <a href="#section-data-tor-2017" class="anchor"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>Using combined data from the first and second halves of 2017:</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-2017-data">
+						rows = data['2017'].rows;
+						cols = data['2017'].cols;
+						enums = data['2017'].enums;
+
+						log(rows.length);
+					</script>
+
+					<samp class="codebook__log" id="log-tor-2017-data"></samp>
+
+					<div class="content">
+						<p>Rows where the only tactical option recorded was "communication" were removed. I'm uncertain why any events were loaded this way, as the <a href="../references/Use of Force Overview Reporting.pdf" target="_blank">Use of Force Overview - Reporting</a> document says "communication" should only be recorded when used alongside another tactical option.</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-index="0" data-codebook-log="log-tor-2017-remove-communication-only">
+						(() => {
+							let numRows = rows.length;
+
+							rows = rows.filter(cols.TACTICS, tactics => tactics[0] !== 'Communication' || tactics.length > 1);
+
+							log(`Rows removed: ${numRows - rows.length}`);
+						})();
+					</script>
+
+					<samp class="codebook__log" id="log-tor-2017-remove-communication-only"></samp>
+
+					<div class="content">
+						<p>The TOR data's <code>TACTICS</code> column doesn't differentiate between firearm or taser shows or uses. Because presentation of these weapons are recorded (excluding when they are presented by the AOS or STG), but this is not the case for other tactical options available to Police, I created new derived columns to filter events based on whether or not a taser or firearm was used as opposed to only being shown.</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-2017-show-presentation">
+						(() => {
+							cols.TASER_USED = rows.addDerivedCol(getTaserUsed);
+							cols.FIREARM_USED = rows.addDerivedCol(getFirearmUsed);
+
+							log('Taser used:', rows.filter(cols.TACTICS, 'Taser').getColSummary(cols.TASER_USED));
+							log('Firearm used:', rows.filter(cols.TACTICS, 'Firearm').getColSummary(cols.FIREARM_USED));
+						})();
+					</script>
+
+					<samp class="codebook__log" id="log-tor-2017-show-presentation"></samp>
 				</div>
 			</section>
 
@@ -1006,6 +1179,20 @@
 				</div>
 
 				<div class="expander__body">
+					<div class="content">
+						<p>Using data for July 2016 &ndash; December 2017:</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-firearm-pca-data">
+						rows = data['2016b-2017'].rows;
+						cols = data['2016b-2017'].cols;
+						enums = data['2016b-2017'].enums;
+
+						log(rows.length);
+					</script>
+
+					<samp class="codebook__log" id="log-tor-firearm-pca-data"></samp>
+
 					<div class="content">
 						<p>PCA stands for Perceived Cumulative Assessment. It is part of NZ Police's Tactical Options Framework (TOF), and provides a set of categories for police officers to use when making a risk assessment as part of Police's "TENR" (<b>T</b>hreat, <b>E</b>xposure, <b>N</b>ecessity, <b>R</b>esponse) risk assessment model, also part of the TOF.</p>
 
@@ -1173,6 +1360,469 @@
 					</style>
 
 					<div id="chart-tor-firearm-pca"></div>
+				</div>
+			</section>
+
+			<section class="expander js-expander js-codebook__set" id="section-chart-tor-mental-health" data-codebook-set="tor">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Chart: Mental Health</span> <a class="anchor" href="#section-chart-tor-mental-health"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>Using data for January &ndash; December 2017:</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-mental-health-data">
+						rows = data['2017'].rows;
+						cols = data['2017'].cols;
+						enums = data['2017'].enums;
+
+						log(rows.length);
+					</script>
+
+					<samp class="codebook__log" id="log-tor-mental-health-data"></samp>
+
+					<div class="content">
+						<p>Starting with the data covering January&nbsp;&ndash;&nbsp;June&nbsp;2017, NZ Police included "Relevant Factor" information.</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-mental-health" data-codebook-chart="chart-tor-mental-health">
+						(() => {
+							let rows = data['2017'].rows;
+							let cols = data['2017'].cols;
+
+							let tactics = data['2017'].enums.TACTICS;
+							tactics.sort((a, b) => {
+								return rows.filter(cols.TACTICS, b).length - rows.filter(cols.TACTICS, a).length;
+							});
+
+							tactics.splice(tactics.indexOf('Communication'), 1);
+
+							const labels = tactics;
+
+							let dataSeries = [
+								{
+									name: 'No',
+									color: '#ccc',
+									dataPoints: tactics.map(tactic => {
+										let rfRows = rows.filter(
+											cols.RF_MENTAL_HEALTH, 'N',
+											cols.RF_SUICIDAL, 'N',
+											cols.RF_DISTRESSED_NOT_MENTAL_HEALTH, 'N'
+										);
+
+										let events = rfRows.filter(cols.TACTICS, tactic);
+										let allEvents = rows.filter(cols.TACTICS, tactic);
+
+										let dataPoint = events.length / allEvents.length;
+
+										return dataPoint;
+									})
+								},
+								{
+									name: 'Yes',
+									color: '#a20000',
+									dataPoints: tactics.map(tactic => {
+										let rfRows = rows.filterOr(
+											cols.RF_MENTAL_HEALTH, 'Y',
+											cols.RF_SUICIDAL, 'Y',
+											cols.RF_DISTRESSED_NOT_MENTAL_HEALTH, 'Y'
+										);
+
+										let events = rfRows.filter(cols.TACTICS, tactic);
+										let allEvents = rows.filter(cols.TACTICS, tactic);
+
+										let dataPoint = events.length / allEvents.length;
+
+										return dataPoint;
+									})
+								}
+							];
+
+							let chartConfig = {
+								title: `Relevant Factor: Mental Health, Suicide, or Other Distress<br />Jan&nbsp;&ndash;&nbsp;Dec&nbsp;2017`,
+								showLegend: true,
+								labels,
+								dataSeries,
+								stacked: true
+							};
+
+							let yAxis = {
+								max: 1,
+								percentage: true
+							};
+
+							let xAxis = {};
+
+							let $chart = Charter.createBarChart(chartConfig, yAxis, xAxis);
+
+							chart($chart);
+						})();
+					</script>
+
+					<samp class="codebook__log" id="log-tor-mental-health"></samp>
+
+					<div id="chart-tor-mental-health"></div>
+				</div>
+			</section>
+
+			<section class="expander js-expander js-codebook__set" id="section-chart-tor-injuries" data-codebook-set="tor">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Chart: Injuries</span> <a class="anchor" href="#section-chart-tor-injuries"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>Using data for July 2016 &ndash; December 2017:</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-injuries-data">
+						rows = data['2016b-2017'].rows;
+						cols = data['2016b-2017'].cols;
+						enums = data['2016b-2017'].enums;
+
+						log(rows.length);
+					</script>
+
+					<samp class="codebook__log" id="log-tor-injuries-data"></samp>
+
+					<div class="content">
+						<p>TOR events recorded between 0 and 5 injuries, but only details for up to three injuries were recorded. Each injury's severity is recorded in two separate fields: "treatment required" and "treatment received". The cause, site(s), and type of each injury is also recorded.</p>
+
+						<p>Though were were a very small number of injuries recorded as having been caused by "Communication", I excluded these from the analysis under the assumption that they had not been recorded correctly.</p>
+
+						<p>I sorted the causes of injuries by the number of events at which a they were used, rather than the number of injuries they caused.</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-injury-communication">
+						let injuryCauses = enums.INJURY_CAUSE;
+						injuryCauses.sort((a, b) => getTacticUseRows(b).length - getTacticUseRows(a).length);
+
+						injuryCauses.splice(injuryCauses.indexOf('Communication'), 1);
+
+						log(injuryCauses.map(tactic => `${tactic}: ${getTacticUseRows(tactic).length}`).join('\n'));
+					</script>
+
+					<samp class="codebook__log" id="log-tor-injury-communication"></samp>
+
+					<div class="content">
+						<p>Because the details of each injury are recorded in a separate set of columns, they can't be easily compared across rows. I created a new derived column containing a more convenient way to examine a given event's recorded injuries.</p>
+
+						<p>Each injury has a separately recorded "treatment required" and "treatment received". I reduced these to a single reference property for an injury's treatment.</p>
+
+						<p>This property used the treatment received, except in cases where Police recorded that a higher level of treatment was required. In cases where the level of treatment required was higher than the level of treatment received, I used the level of treatment required. Those levels are:</p>
+
+						<ol>
+							<li>Refused (treatment received only)</li>
+							<li>Nil</li>
+							<li>Self</li>
+							<li>At Scene</li>
+							<li>Medical</li>
+							<li>Hospital</li>
+						</ol>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code">
+						const treatmentLevels = {
+							'Refused': -1,
+							'Nil': 0,
+							'Self': 1,
+							'At Scene': 2,
+							'Medical': 3,
+							'Hospital': 4
+						};
+
+						let getInjuryTreatment = injury => {
+							// The more serious between treatment required and treatment received
+
+							let treatment = injury.treatmentReceived;
+
+							let treatmentReceivedLevel = treatmentLevels[injury.treatmentReceived];
+							let treatmentRequiredLevel = treatmentLevels[injury.treatmentRequired];
+
+							if (treatmentRequiredLevel > treatmentReceivedLevel) {
+								treatment = injury.treatmentRequired;
+							}
+
+							return treatment;
+						};
+
+						let getInjuryDetails = row => {
+							let injuryDetails = [];
+							let numInjuries = row[cols.INJURIES];
+
+							if (numInjuries > 0) {
+								let injuryDetail = {
+									cause: row[cols.INJURY_CAUSE_1],
+									site: row[cols.INJURY_SITE_1],
+									type: row[cols.INJURY_TYPE_1],
+									treatmentRequired: row[cols.INJURY_TREATMENT_REQUIRED_1],
+									treatmentReceived: row[cols.INJURY_TREATMENT_RECEIVED_1],
+								};
+								injuryDetail.treatment = getInjuryTreatment(injuryDetail);
+								injuryDetails.push(injuryDetail);
+							}
+
+							if (numInjuries > 1) {
+								let injuryDetail = {
+									cause: row[cols.INJURY_CAUSE_2],
+									site: row[cols.INJURY_SITE_2],
+									type: row[cols.INJURY_TYPE_2],
+									treatmentRequired: row[cols.INJURY_TREATMENT_REQUIRED_2],
+									treatmentReceived: row[cols.INJURY_TREATMENT_RECEIVED_2],
+								};
+								injuryDetail.treatment = getInjuryTreatment(injuryDetail);
+								injuryDetails.push(injuryDetail);
+							}
+
+							if (numInjuries > 2) {
+								let injuryDetail = {
+									cause: row[cols.INJURY_CAUSE_3],
+									site: row[cols.INJURY_SITE_3],
+									type: row[cols.INJURY_TYPE_3],
+									treatmentRequired: row[cols.INJURY_TREATMENT_REQUIRED_3],
+									treatmentReceived: row[cols.INJURY_TREATMENT_RECEIVED_3],
+								};
+								injuryDetail.treatment = getInjuryTreatment(injuryDetail);
+								injuryDetails.push(injuryDetail);
+							}
+
+							return injuryDetails;
+						};
+
+						cols.INJURY_DETAILS = rows.addDerivedCol(getInjuryDetails);
+					</script>
+
+					<div class="content">
+						<p>I also created a derived column containing an array of the causes of each injury at an event, to make it easier to filter down to rows containing an injury caused by a particular tactical option.</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-injury-causes">
+						let getInjuryCauses = row => {
+							let injuryCauses = [];
+							let injuryDetails = row[cols.INJURY_DETAILS];
+
+							injuryCauses = injuryDetails.map(injury => injury.cause);
+
+							return injuryCauses;
+						};
+
+						cols.INJURY_CAUSES = rows.addDerivedCol(getInjuryCauses);
+
+						log(rows.getColSummary(cols.INJURY_CAUSES));
+					</script>
+
+					<samp class="codebook__log" id="log-tor-injury-causes"></samp>
+
+					<div class="content">
+						<p>I created the graph by looping through each treatment level, injury cause, and row to count the total number of matching injuries. This means if multiple injuries at the same event had the same cause, they would be counted individually.</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-chart="chart-tor-injury-severity">
+						(() => {
+							let dataSeries = (() => {
+								let colours = ['#ccc', '#f3dc51', '#e09d1c', '#c55c00', '#a20000'];
+
+								let dataSeries = (['Nil', 'Self', 'At Scene', 'Medical', 'Hospital']).map((treatment, i) => {
+									let injuries = {
+										name: treatment,
+										color: colours[i],
+										dataPoints: []
+									};
+									injuryCauses.forEach(tactic => {
+										let numInjuries = 0;
+
+										rows.filter(cols.INJURY_CAUSES, tactic).forEach(row => {
+											let injuries = row[cols.INJURY_DETAILS];
+
+											injuries.forEach(injury => {
+												if (injury.cause === tactic) {
+													if (injury.treatment === treatment) {
+														numInjuries += 1;
+													}
+												}
+											});
+										});
+
+										injuries.dataPoints.push(numInjuries);
+									});
+
+									return injuries;
+								});
+
+								return dataSeries;
+							})();
+
+							let chartConfig = {
+								title: `Injuries caused by Police tactical options<br />Jul&nbsp;2016&nbsp;&ndash;&nbsp;Dec&nbsp;2017`,
+								showLegend: true,
+								labels: injuryCauses,
+								dataSeries,
+								stacked: true
+							};
+
+							let yAxis = {
+								max: 800,
+								values: 4
+							};
+
+							let xAxis = {};
+
+							let $chart = Charter.createBarChart(chartConfig, yAxis, xAxis);
+
+							chart($chart);
+						})();
+					</script>
+
+					<div id="chart-tor-injury-severity"></div>
+
+					<div class="content">
+						<p>I created the rate graph by going through the same process as the prior graph, but dividing each column by the number of events at which a tactical option was used. For this process, I had to ignore injuries caused by "Other - not tactic".</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-chart="chart-tor-injury-rate">
+						(() => {
+							let dataSeries = (() => {
+								injuryCauses.splice(injuryCauses.indexOf('Other - not tactic'), 1);
+
+								let colours = ['#ccc', '#f3dc51', '#e09d1c', '#c55c00', '#a20000'];
+
+								let dataSeries = (['Nil', 'Self', 'At Scene', 'Medical', 'Hospital']).map((treatment, i) => {
+									let injuries = {
+										name: treatment,
+										color: colours[i],
+										dataPoints: []
+									};
+									injuryCauses.forEach(tactic => {
+										let numInjuries = 0;
+
+										rows.filter(cols.INJURY_CAUSES, tactic).forEach(row => {
+											let injuries = row[cols.INJURY_DETAILS];
+
+											injuries.forEach(injury => {
+												if (injury.cause === tactic) {
+													if (injury.treatment === treatment) {
+														numInjuries += 1;
+													}
+												}
+											});
+										});
+
+										injuries.dataPoints.push(numInjuries / getTacticUseRows(tactic).length);
+									});
+
+									return injuries;
+								});
+
+								return dataSeries;
+							})();
+
+							let chartConfig = {
+								title: `Rate of injuries caused by Police tactical options<br />Jul&nbsp;2016&nbsp;&ndash;&nbsp;Dec&nbsp;2017`,
+								showLegend: true,
+								labels: injuryCauses,
+								dataSeries,
+								stacked: true
+							};
+
+							let yAxis = {
+								percentage: true,
+								toFixed: 1,
+								max: 1,
+								values: 5
+							};
+
+							let xAxis = {};
+
+							let $chart = Charter.createBarChart(chartConfig, yAxis, xAxis);
+
+							chart($chart);
+						})();
+					</script>
+
+					<div id="chart-tor-injury-rate"></div>
+				</div>
+			</section>
+
+			<section class="expander js-expander js-codebook__set" id="section-chart-tor-use" data-codebook-set="tor">
+				<div class="content">
+					<h2><span class="expander__trigger js-expander__trigger" tabindex="0">Chart: Tactical Option Use</span> <a class="anchor" href="#section-chart-tor-use"></a></h2>
+				</div>
+
+				<div class="expander__body">
+					<div class="content">
+						<p>Using data for July 2016 &ndash; December 2017:</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-use-data">
+						rows = data['2016b-2017'].rows;
+						cols = data['2016b-2017'].cols;
+						enums = data['2016b-2017'].enums;
+
+						log(rows.length);
+					</script>
+
+					<samp class="codebook__log" id="log-tor-use-data"></samp>
+
+					<div class="content">
+						<p>I excluded the "Communication" tactic because it is not a use of force.</p>
+
+						<p>I sorted the list of tactics by the number of events at which a they were used.</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-log="log-tor-tactics-communication">
+						let tactics = enums.TACTICS;
+						tactics.sort((a, b) => {
+							return getTacticUseRows(b).length - getTacticUseRows(a).length;
+						});
+
+						tactics.splice(tactics.indexOf('Communication'), 1);
+
+						log(tactics.map(tactic => `${tactic}: ${getTacticUseRows(tactic).length}`).join('\n'));
+					</script>
+
+					<samp class="codebook__log" id="log-tor-tactics-communication"></samp>
+
+					<div class="content">
+						<p>I created the graph by counting the number of events at which each tactic was used, excluding recordings of firearms or tasers being shown but not used.</p>
+					</div>
+
+					<script type="text/codebook" class="codebook__code js-codebook__code" data-codebook-chart="chart-tor-use">
+						(() => {
+							const labels = tactics;
+
+							let dataSeries = (() => {
+								let dataSeries = [{
+									name: 'Tor Events',
+									color: '#ccc',
+									dataPoints: tactics.map(tactic => getTacticUseRows(tactic).length)
+								}];
+
+								return dataSeries;
+							})();
+
+							let chartConfig = {
+								title: `Tactical options used by Police<br />Jul&nbsp;2016&nbsp;&ndash;&nbsp;Dec&nbsp;2017`,
+								showLegend: false,
+								labels,
+								dataSeries
+							};
+
+							let yAxis = {
+								values: 1,
+								valuesAt: [500, 1500, 2500]
+							};
+
+							let xAxis = {};
+
+							let $chart = Charter.createBarChart(chartConfig, yAxis, xAxis);
+
+							chart($chart);
+						})();
+					</script>
+
+					<div id="chart-tor-use"></div>
 				</div>
 			</section>
 		</article>
