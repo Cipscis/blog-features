@@ -1,3 +1,5 @@
+/* Keybinding 1.0 */
+
 const keys = (function () {
 	const bindings = {};
 	/*

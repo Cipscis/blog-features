@@ -3,50 +3,66 @@ import fileIO from './lib/fileio.js';
 
 class AnalyserRows extends Array {
 	constructor(sourceArray) {
-		super(...sourceArray);
+		// Don't use spread operator as it will cause a
+		// stack overflow error with very large arrays
+		// super(...sourceArray);
+		super(sourceArray.length);
+		for (let i = 0; i < sourceArray.length; i++) {
+			this[i] = sourceArray[i];
+		}
 	}
 
 
 	getCol(colNum) {
-		return Analyser.getCol(this, colNum);
+		let args = [this].concat(Array.from(arguments));
+		return Analyser.getCol.apply(this, args);
 	}
 
 
 	addCol(col) {
-		return Analyser.addCol(this, col);
+		let args = [this].concat(Array.from(arguments));
+		return Analyser.addCol.apply(this, args);
 	}
 
 	getDerivedCol(processFn, ...cols) {
-		return Analyser.getDerivedCol(this, processFn, ...cols);
+		let args = [this].concat(Array.from(arguments));
+		return Analyser.getDerivedCol.apply(this, args);
 	}
 
 	addDerivedCol(callback, ...cols) {
-		return Analyser.addDerivedCol(this, callback, ...cols);
+		let args = [this].concat(Array.from(arguments));
+		return Analyser.addDerivedCol.apply(this, args);
 	}
 
 
 	createSubTable(cols, arraySeparator) {
-		return Analyser.createSubTable(this, cols, arraySeparator);
+		let args = [this].concat(Array.from(arguments));
+		return Analyser.createSubTable.apply(this, args);
 	}
 
 	createSubTableString(cols) {
-		return Analyser.createSubTableString(this, cols);
+		let args = [this].concat(Array.from(arguments));
+		return Analyser.createSubTableString.apply(this, args);
 	}
 
 	getColSummary(cols, aliasList) {
-		return Analyser.getColSummary(this, cols, aliasList);
+		let args = [this].concat(Array.from(arguments));
+		return Analyser.getColSummary.apply(this, args);
 	}
 
 	getColAsDataSeries(col, labels) {
-		return Analyser.getColAsDataSeries(this, col, labels);
+		let args = [this].concat(Array.from(arguments));
+		return Analyser.getColAsDataSeries.apply(this, args);
 	}
 
 	getComparisonSummary(headerCol, headerAliases, varCol, varAliases) {
-		return Analyser.getComparisonSummary(this, headerCol, headerAliases, varCol, varAliases);
+		let args = [this].concat(Array.from(arguments));
+		return Analyser.getComparisonSummary.apply(this, args);
 	}
 
 	getComparisonSummaryString(headerCol, headerAliases, varCol, varAliases) {
-		return Analyser.getComparisonSummaryString(this, headerCol, headerAliases, varCol, varAliases);
+		let args = [this].concat(Array.from(arguments));
+		return Analyser.getComparisonSummaryString.apply(this, args);
 	}
 }
 
@@ -186,6 +202,7 @@ const Analyser = {
 		fileConfig.aliases = fileConfig.aliases || {};
 		fileConfig.arrayCols = fileConfig.arrayCols || {};
 		fileConfig.enumsMap = fileConfig.enumsMap || {};
+		fileConfig.uniqueCols = fileConfig.uniqueCols || [];
 
 		let dataConfig = {};
 		dataConfig.cols = fileConfig.cols;
@@ -247,10 +264,13 @@ const Analyser = {
 
 		for (let col in config.cols) {
 
-			// Don't collect enums for columns specified in enumsMap
+			// Don't collect enums for columns specified in uniqueCols or enumsMap
 			let collect = true;
+			if (config.uniqueCols.includes(config.cols[col])) {
+				collect = false;
+			}
 			for (let enumCol in config.enumsMap) {
-				if (config.enumsMap[enumCol].indexOf(config.cols[col]) !== -1) {
+				if (config.enumsMap[enumCol].includes(config.cols[col])) {
 					collect = false;
 					break;
 				}
@@ -401,8 +421,32 @@ const Analyser = {
 		combinedDataConfig.filters = Analyser._getAliasFilters(combinedDataConfig.aliases);
 		Analyser._createRowFilterFunctions(combinedDataConfig.rows, combinedDataConfig.filters);
 
-		// Combine the enumsMaps, then build combined enums
+		// Combine uniqueCols
+		combinedDataConfig.uniqueCols = [];
+		for (let i = 0; i < dataConfigs.length; i++) {
+			let dataConfig = dataConfigs[i];
 
+			for (let j in dataConfig.uniqueCols) {
+				let originalCol = dataConfig.uniqueCols[j];
+				let originalColName = undefined;
+				for (let k in dataConfig.cols) {
+					if (dataConfig.cols[l] === originalCol) {
+						originalColName = l;
+						break;
+					}
+				}
+
+				if (originalColName) {
+					let originalColIndex = combinedDataConfig.cols[originalColName];
+
+					if (combinedDataConfig.uniqueCols.indexOf(originalColIndex) === -1) {
+						combinedDataConfig.uniqueCols.push(combinedDataConfig.cols[originalColName]);
+					}
+				}
+			}
+		}
+
+		// Combine the enumsMaps, then build combined enums
 		combinedDataConfig.enumsMap = {};
 		for (let i = 0; i < dataConfigs.length; i++) {
 			let dataConfig = dataConfigs[i];

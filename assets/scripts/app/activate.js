@@ -1,3 +1,5 @@
+/* Activate 1.0 */
+
 // Binds event listeners to one or more elements that makes them behave
 // like buttons, detecting both "click" events and also keydown for
 // the "Enter" key and keyup for the "Space" key.
@@ -73,7 +75,12 @@ const { activate, deactivate } = (function () {
 			// Buttons will already treat keyboard events like clicks,
 			// so only bind them to other node types
 			if (isButton === false) {
-				node.addEventListener('keydown', module._preventSpacebarScroll);
+				if (module._getNodeHasBindings(node) === false) {
+					// addEventListener would prevent this event being
+					// bound multiple times, but be explicit that it is
+					// only bound if the node has no other events bound
+					node.addEventListener('keydown', module._preventSpacebarScroll);
+				}
 
 				let spacebarFn = module._makeSpacebarFn(fn);
 				node.addEventListener('keyup', spacebarFn);
@@ -116,7 +123,10 @@ const { activate, deactivate } = (function () {
 			// Buttons will already treat keyboard events like clicks,
 			// so they didn't have keyboard events bound to them
 			if (isButton === false) {
-				node.removeEventListener('keydown', module._preventSpacebarScroll);
+				if (module._getNodeHasBindings(node) === false) {
+					// Only unbind this event if the node has no other bindings
+					node.removeEventListener('keydown', module._preventSpacebarScroll);
+				}
 				node.removeEventListener('keyup', bindings.spacebarFn);
 
 				// Links already treat "enter" keydown like a click,
@@ -188,6 +198,11 @@ const { activate, deactivate } = (function () {
 			}
 
 			return fnB;
+		},
+
+		_getNodeHasBindings: function (node) {
+			let nodeB = boundEvents.find(el => el.node === node);
+			return !!nodeB;
 		},
 
 

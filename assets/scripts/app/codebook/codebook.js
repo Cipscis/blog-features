@@ -139,6 +139,7 @@ const module = {
 				let rows = _data.rows;
 				let cols = _data.cols;
 				let enums = _data.enums;
+				let aliases = _data.aliases;
 
 				${code}
 			}

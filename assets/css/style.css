@@ -1,8 +1,18 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
+.u-visuallyhidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px; }
+
 .nowrap {
-  white-space: nowrap; }
+  white-space: nowrap !important; }
 
 html, body {
   padding: 0;
@@ -21,8 +31,19 @@ img {
 form {
   margin: 0; }
 
+p:first-child {
+  margin-top: 0; }
+
 p:last-child {
   margin-bottom: 0; }
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: none; }
+
+button, input, select, textarea {
+  font-size: 1rem; }
 
 html {
   font-family: "Roboto Slab", "Times New Roman", Times, serif;
@@ -184,9 +205,11 @@ body {
 
 .tooltip:focus .tooltip__trigger {
   outline-color: #4d90fe;
-  outline-offset: -2px;
   outline-style: solid;
   outline-width: 2px; }
+  @supports (outline-color: -webkit-focus-ring-color) {
+    .tooltip:focus .tooltip__trigger {
+      outline-color: -webkit-focus-ring-color; } }
   @supports (outline-style: auto) {
     .tooltip:focus .tooltip__trigger {
       outline-style: auto; } }
@@ -194,7 +217,6 @@ body {
 .tooltip:focus-within .tooltip__trigger {
   background-color: #77ffbb;
   outline-color: #4d90fe;
-  outline-offset: -2px;
   outline-style: solid;
   outline-width: 2px; }
   .tooltip:focus-within .tooltip__trigger:before {
@@ -204,6 +226,9 @@ body {
     right: 0;
     top: -18px;
     bottom: -18px; }
+  @supports (outline-color: -webkit-focus-ring-color) {
+    .tooltip:focus-within .tooltip__trigger {
+      outline-color: -webkit-focus-ring-color; } }
   @supports (outline-style: auto) {
     .tooltip:focus-within .tooltip__trigger {
       outline-style: auto; } }
@@ -263,28 +288,43 @@ body {
       display: none; } }
 
 .expander__trigger {
-  cursor: pointer; }
-  .expander__trigger:before {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center; }
+  .expander__trigger::before {
     content: "-";
     display: inline-block;
     text-align: center;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
     margin-right: 10px;
     border-radius: 50%; }
-  .expander[aria-expanded="false"] .expander__trigger:before {
+  .expander[aria-expanded="false"] .expander__trigger::before {
     content: "+"; }
+  .expander__trigger::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px; }
   .expander__trigger:focus {
     outline: none; }
-    .expander__trigger:focus:before {
-      outline-color: #4d90fe;
-      outline-offset: -2px;
-      outline-style: solid;
-      outline-width: 2px;
+    .expander__trigger:focus::before {
       background: #ddffee; }
+    .expander__trigger:focus::after {
+      outline-color: #4d90fe;
+      outline-style: solid;
+      outline-width: 2px; }
+      @supports (outline-color: -webkit-focus-ring-color) {
+        .expander__trigger:focus::after {
+          outline-color: -webkit-focus-ring-color; } }
       @supports (outline-style: auto) {
-        .expander__trigger:focus:before {
+        .expander__trigger:focus::after {
           outline-style: auto; } }
 
 .expander__body {
@@ -294,7 +334,7 @@ body {
     display: none; }
 
 @media print {
-  .expander__trigger:before {
+  .expander__trigger::before {
     display: none; }
   .expander__body {
     display: block !important; } }
