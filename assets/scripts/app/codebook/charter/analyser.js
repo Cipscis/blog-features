@@ -505,20 +505,32 @@ const Analyser = {
 
 		let data = Parser.parse(csv);
 
-		Analyser._extractCellNumbers(data);
+		Analyser._extractCellValues(data);
 
 		if (callback && typeof callback === 'function') {
 			callback(data);
 		}
 	},
 
-	_extractCellNumbers: function (csv) {
-		// Use _extractNumber on each cell
+	_extractCellValues: function (csv) {
+		// Use _extractValue on each cell
 
 		for (let i = 0; i < csv.length; i++) {
 			for (let j = 0; j < csv[i].length; j++) {
-				csv[i][j] = Analyser._extractNumber(csv[i][j]);
+				csv[i][j] = Analyser._extractValue(csv[i][j]);
 			}
+		}
+	},
+
+	_extractValue: function (string) {
+		// Convert strings to booleans or numbers where possible
+
+		if (string === 'true') {
+			return true;
+		} else if (string === 'false') {
+			return false;
+		} else {
+			return Analyser._extractNumber(string);
 		}
 	},
 
@@ -1089,8 +1101,8 @@ const Analyser = {
 			comparisonSummary[i] = {};
 			for (let j in headerSummary) {
 				comparisonSummary[i][j] = filters.filterRows(rows,
-					varCol, Analyser._extractNumber(i),
-					headerCol, Analyser._extractNumber(j)
+					varCol, Analyser._extractValue(i),
+					headerCol, Analyser._extractValue(j)
 				).length;
 			}
 		}
