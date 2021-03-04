@@ -130,25 +130,31 @@ const module = {
 		let fileLoadedFnFactory = new Function('Charter', 'Analyser', 'Stats', '_log', '_chart', `
 			return function (_data) {
 				'use strict';
+
 				let _$log = null;
 				let log = function () {};
 
 				let _$chart = null;
 				let chart = function () {};
 
-				let rows = _data.rows;
-				let cols = _data.cols;
-				let enums = _data.enums;
-				let aliases = _data.aliases;
+				if (_data) {
+					var rows = _data.rows;
+					var cols = _data.cols;
+					var enums = _data.enums;
+					var aliases = _data.aliases;
+				}
 
 				${code}
 			}
 		`);
 		let fileLoadedFn = fileLoadedFnFactory(Charter, Analyser, Stats, module._logOutput, module._chartOutput);
 
-		let loadSrcFn = new Function ('Charter', 'Analyser', 'Stats', 'analyseData', source);
-
-		loadSrcFn(Charter, Analyser, Stats, fileLoadedFn);
+		if (source) {
+			let loadSrcFn = new Function ('Charter', 'Analyser', 'Stats', 'analyseData', source);
+			loadSrcFn(Charter, Analyser, Stats, fileLoadedFn);
+		} else {
+			fileLoadedFn();
+		}
 	},
 
 	_combineCode: function (allCode, $newCode) {
