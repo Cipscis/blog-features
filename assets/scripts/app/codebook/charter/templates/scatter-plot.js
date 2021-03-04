@@ -1,5 +1,5 @@
-export default `<div class="chart {{#hasXLabel}}chart--has-x-label {{/hasXLabel}}{{#hasYLabel}}chart--has-y-label {{/hasYLabel}}js-chart">
-	<span class="chart__title js-chart-title">{{{title}}}</span>
+export default `<figure class="chart {{#hasXLabel}}chart--has-x-label {{/hasXLabel}}{{#hasYLabel}}chart--has-y-label {{/hasYLabel}}js-chart">
+	<figcaption class="chart__title js-chart-title">{{{title}}}</figcaption>
 	{{#showLegend}}
 		<dl class="chart__legend">
 			{{#dataSeries}}
@@ -52,4 +52,4 @@ export default `<div class="chart {{#hasXLabel}}chart--has-x-label {{/hasXLabel}
 			{{/dataSeries}}
 		</ul>
 	</div>
-</div>`;
+</figure>`;

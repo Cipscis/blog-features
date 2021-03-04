@@ -1,11 +1,11 @@
-export default `<div class="chart {{#showTooltips}}show-tooltips {{/showTooltips}}{{#hasXLabel}}chart--has-x-label {{/hasXLabel}}{{#hasYLabel}}chart--has-y-label {{/hasYLabel}}js-chart"
+export default `<figure class="chart {{#showTooltips}}show-tooltips {{/showTooltips}}{{#hasXLabel}}chart--has-x-label {{/hasXLabel}}{{#hasYLabel}}chart--has-y-label {{/hasYLabel}}js-chart"
 	data-charter-type="bar-horizontal"
 	data-charter-axis-min="{{dependentAxis.data.min}}"
 	data-charter-axis-max="{{dependentAxis.data.max}}"
 	data-charter-axis-percentage="{{dependentAxis.data.percentage}}"
 	data-charter-axis-to-fixed="{{dependentAxis.data.toFixed}}"
 >
-	<span class="chart__title js-chart-title">{{{title}}}</span>
+	<figcaption class="chart__title js-chart-title">{{{title}}}</figcaption>
 	{{#showLegend}}
 		<dl class="chart__legend">
 			{{#dataSeries}}
@@ -82,4 +82,4 @@ export default `<div class="chart {{#showTooltips}}show-tooltips {{/showTooltips
 			{{/stacked}}
 		</ul>
 	</div>
-</div>`;
+</figure>`;
